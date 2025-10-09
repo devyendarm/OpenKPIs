@@ -1,0 +1,126 @@
+Event Name: add_to_cart
+Event Type: Conversion / Commerce
+Description:
+- Captures when a user adds a product to their cart. This is a key micro-conversion
+  event
+- enabling calculation of Add-to-Cart Rate
+- Cart Abandonment Rate
+- and Product Funnel metrics.
+Trigger:
+- Fired when user clicks an “Add to Cart” button or equivalent CTA on PDP
+- PLP
+- or quick-view modal.
+Source: Website / Mobile App
+Event Time: Timestamp of when the add-to-cart action occurred (ISO 8601 format)
+Generic Context Required:
+- product_id
+- product_name
+- category
+- quantity
+- price
+- currency
+- cart_id
+- user_id
+Generic Context Optional:
+- brand
+- variant
+- color
+- size
+- discount
+- promotion_id
+- list_name
+- inventory_status
+- recommendation_source
+Primary KPIs:
+- Add-to-Cart Rate
+- Cart Conversion Rate
+Secondary KPIs:
+- Product Engagement
+- Cart Abandonment Rate
+- Conversion Rate
+Metrics Used:
+- add_to_cart_count
+- unique_add_to_cart_users
+- view_to_cart_ratio
+Dimensions Used:
+- product_id
+- category
+- cart_id
+- device_type
+- traffic_source
+Frequency Limit: One per Add-to-Cart click per item; deduplicate repeated clicks for
+  same SKU within 10s
+PII Risk: Low
+Required Fields:
+- product_id
+- quantity
+- price
+- currency
+XDM Field Groups:
+- commerce.productListAdds
+- productListItems
+- web.webPageDetails
+- identityMap
+GA4 Event Name: add_to_cart
+GA4 Params Map: '{ items: [{ item_id: product_id, item_name: product_name, item_category:
+  category, price: price, quantity: quantity, currency: currency }] }'
+Adobe XDM Event Type: commerce.productListAdds
+Adobe XDM Map: '{ commerce.productListAdds.value: price, commerce.productListItems[].SKU:
+  product_id, commerce.productListItems[].quantity: quantity }'
+Adobe ACDL Event: add-to-cart
+Adobe ACDL Map: '{ cart: { id: cart_id }, product: { sku: product_id, name: product_name,
+  price: price, quantity: quantity, currencyCode: currency } }'
+Example Generic JSON:
+- 'json { "event": "add_to_cart"'
+- '"timestamp": "2025-10-07T19:05:00Z"'
+- '"cart": { "id": "CART-9876" }'
+- '"product": { "id": "SKU-001"'
+- '"name": "Wireless Mouse"'
+- '"category": "Electronics"'
+- '"price": 25.00'
+- '"currency": "USD"'
+- '"quantity": 2 } }'
+Example GA4 JSON:
+- 'json { "event_name": "add_to_cart"'
+- '"params": { "items": [{ "item_id": "SKU-001"'
+- '"item_name": "Wireless Mouse"'
+- '"price": 25.00'
+- '"quantity": 2'
+- '"currency": "USD" }] } }'
+Example XDM JSON:
+- 'json { "eventType": "commerce.productListAdds"'
+- '"commerce": { "order": { "cartID": "CART-9876" }'
+- '"productListItems": [{ "SKU": "SKU-001"'
+- '"name": "Wireless Mouse"'
+- '"quantity": 2'
+- '"priceTotal": 50.00'
+- '"currencyCode": "USD" }] }'
+- '"timestamp": "2025-10-07T19:05:00Z" }'
+Example ACDL JSON:
+- 'json { "eventInfo": { "eventName": "add-to-cart" }'
+- '"cart": { "id": "CART-9876" }'
+- '"product": { "sku": "SKU-001"'
+- '"name": "Wireless Mouse"'
+- '"price": 25.00'
+- '"quantity": 2'
+- '"currencyCode": "USD" } }'
+Owner: Digital Analytics Team / MarTech Implementation
+Version: v1.0
+Status: Active
+Tags:
+- commerce
+- cart
+- retail
+- funnel
+Data Sensitivity: Low
+Dimensions (Related):
+- Product ID
+- Cart ID
+- Category
+- Device Type
+Calculation Notes:
+- Fire once per Add-to-Cart interaction. For bundles
+- include all SKUs as array. Deduplicate identical SKUs within short window.
+Validation Status: Not validated
+Contributed By: Devyendar Maganti
+Last Updated: '2025-10-09 00:45:25.450000'

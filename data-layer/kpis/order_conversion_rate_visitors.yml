@@ -1,0 +1,133 @@
+KPI Name: Order Conversion Rate (Visitors)
+Description: Measures the rate at which users or visitors convert into completed orders.
+  It helps in capturing the effectiveness of website or app in converting visitors
+  to customers
+KPI Alias:
+- Purchase Rate
+- Conversion Rate to Order
+- Checkout-to-Order Rate
+Metric: Ratio of orders to total users
+GA Events Name:
+- purchase
+- OOTB Metrics
+Adobe Analytics Event Name:
+- purchase
+- OOTB Metrics
+Amplitude Event Name:
+- Order Completed
+- Session Start
+Industry:
+- Retail
+- eCommerce
+- Subscription
+- Travel
+Category: Conversion
+KPI Type: Rate / Ratio
+Formula: Order Conversion Rate = (Total Orders ÷ Total Users) × 100
+Related KPIs:
+- Orders
+- Revenue
+- Add-to-Cart Rate
+- Checkout Conversion Rate
+- Cart Abandonment Rate
+Scope: User
+Priority: High
+Core Area: Conversion Funnel Performance
+BI Source System:
+- GA4
+- Adobe Analytics
+- Adobe Customer Journey Analytics
+- Amplitude
+- BigQuery
+- Query Service
+Data Layer Mapping: "{\n        transaction_id: \"T_12345_1\",\n        value: 30.03,\n\
+  \        tax: 4.90,\n        shipping: 5.99,\n        currency: \"USD\",\n     \
+  \   coupon: \"SUMMER_SALE\",\n        items: [\n        // If someone purchases\
+  \ more than one item,\n        // you can add those items to the items array\n \
+  \        {\n          item_id: \"SKU_12345\",\n          item_name: \"Stan and Friends\
+  \ Tee\",\n          affiliation: \"Google Merchandise Store\",\n          coupon:\
+  \ \"SUMMER_FUN\",\n          discount: 2.22,\n          index: 0,\n          item_brand:\
+  \ \"Google\",\n          item_category: \"Apparel\",\n          item_category2:\
+  \ \"Adult\",\n          item_category3: \"Shirts\",\n          item_category4: \"\
+  Crew\",\n          item_category5: \"Short sleeve\",\n          item_list_id: \"\
+  related_products\",\n          item_list_name: \"Related Products\",\n         \
+  \ item_variant: \"green\",\n          location_id: \"ChIJIQBpAG2ahYAR_6128GcTUEo\"\
+  ,\n          price: 10.01,\n          quantity: 3\n        }]\n    }"
+XDM Mapping: "{\n  \"eventType\": \"commerce.purchases\",\n  \"timestamp\": \"2025-10-07T19:00:00Z\"\
+  ,\n  \"commerce\": {\n    \"order\": {\n      \"orderType\": \"purchase\",\n   \
+  \   \"purchaseID\": \"ORD123456\",\n      \"currencyCode\": \"USD\",\n      \"priceSubtotal\"\
+  : 330.72,\n      \"priceTax\": 10.00,\n      \"priceShipping\": 10.00,\n      \"\
+  priceDiscounts\": 0,\n      \"priceTotal\": 350.72,\n      \"payments\": [\n   \
+  \     {\n          \"transactionID\": \"TXN-98765\",\n          \"paymentAmount\"\
+  : 350.72,\n          \"paymentType\": \"credit_card\",\n          \"currencyCode\"\
+  : \"USD\"\n        }\n      ]\n    },\n    \"productListItems\": [\n      {\n  \
+  \      \"SKU\": \"SKU-001\",\n        \"name\": \"Wireless Mouse\",\n        \"\
+  quantity\": 2,\n        \"itemPrice\": 30.00,\n        \"discountAmount\": 10.00,\n\
+  \        \"priceTotal\": 50.00,\n        \"productCategories\": [{ \"categoryID\"\
+  : \"Electronics\" }],\n        \"selectedOptions\": [\n          { \"attribute\"\
+  : \"Color\", \"value\": \"Black\" }\n        ]\n      },\n      {\n        \"SKU\"\
+  : \"SKU-002\",\n        \"name\": \"USB-C Hub\",\n        \"quantity\": 1,\n   \
+  \     \"itemPrice\": 100.00,\n        \"priceTotal\": 100.00,\n        \"productCategories\"\
+  : [{ \"categoryID\": \"Accessories\" }],\n        \"selectedOptions\": [\n     \
+  \     { \"attribute\": \"Ports\", \"value\": \"6\" }\n        ]\n      }\n    ]\n\
+  \  }"
+Dependencies: Requires both purchase and User tracking consistency. Ensure Order_id
+  is unique and Users are properly counted.
+Report Attribute:
+- Order ID
+- Session ID
+- Traffic Source
+- Device
+- Campaign
+- Country
+- Date
+Dashboard Usage:
+- Shown in eCommerce Funnel
+- Conversion
+- and Marketing dashboards to gauge sales funnel performance and optimize campaign
+  efficiency.
+Segment Eligibility:
+- All users with a purchase event. Used to segment conversion by channel
+- device
+- or user cohort.
+SQL Query Example:
+- sql<br>WITH base AS (<br> SELECT DATE(event_timestamp) AS event_date
+- <br> COUNT(DISTINCT CASE WHEN event_name = 'purchase' THEN order_id END) AS orders
+- <br> COUNT(DISTINCT VisitorID) AS users<br> FROM ecommerce_events<br> GROUP BY event_date)<br>SELECT
+  event_date
+- <br> (orders * 100.0 / users) AS order_conversion_rate<br>FROM base<br>ORDER BY
+  event_date;
+Aggregation Window:
+- Daily
+- Weekly
+- Monthly
+Calculation Notes: '1️⃣ Ensure both orders and users are from the same date range.
+
+  2️⃣ Remove test traffic.
+
+  3️⃣ Segment by channel or device where applicable.
+
+  4️⃣ Keep consistency in attribution windows.'
+Contributed By: Devyendar Maganti
+Validation Status: Validated
+Owner: Digital Analytics / Growth Optimization Team
+Tags: '#Conversion #Ecommerce #OrderRate #Funnel #GA4 #AdobeAnalytics #Amplitude'
+Data Sensitivity: Low
+PII Flag: false
+Version: v1.0
+Dimensions:
+- order_id
+- user_id
+- traffic_source
+- device_category
+- campaign
+- geo_country
+- date
+- channel_grouping
+Details:
+- The Order Conversion Rate reflects the proportion of sessions (or users) leading
+  to at least one purchase. It is a top-level KPI for assessing website effectiveness
+- marketing efficiency
+- and UX performance. Ensure alignment of session counting logic between GA4 and Adobe
+  (visit scope) and remove internal/test activity for accuracy.
+Last Updated: '2025-10-09 00:45:25.450000'

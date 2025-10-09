@@ -1,0 +1,82 @@
+{
+  "id": "order-conversion-rate-visitors",
+  "title": "Order Conversion Rate (Visitors)",
+  "description": "Measures the rate at which users or visitors convert into completed orders. It helps in capturing the effectiveness of website or app in converting visitors to customers",
+  "source": "@site/docs/kpis/order-conversion-rate-visitors.mdx",
+  "sourceDirName": ".",
+  "slug": "/order-conversion-rate-visitors",
+  "permalink": "/OpenKPIs/docs/order-conversion-rate-visitors",
+  "draft": false,
+  "unlisted": false,
+  "tags": [
+    {
+      "inline": true,
+      "label": "Purchase Rate",
+      "permalink": "/OpenKPIs/docs/tags/purchase-rate"
+    },
+    {
+      "inline": true,
+      "label": "Conversion Rate to Order",
+      "permalink": "/OpenKPIs/docs/tags/conversion-rate-to-order"
+    },
+    {
+      "inline": true,
+      "label": "Checkout-to-Order Rate",
+      "permalink": "/OpenKPIs/docs/tags/checkout-to-order-rate"
+    },
+    {
+      "inline": true,
+      "label": "Retail",
+      "permalink": "/OpenKPIs/docs/tags/retail"
+    },
+    {
+      "inline": true,
+      "label": "eCommerce",
+      "permalink": "/OpenKPIs/docs/tags/e-commerce"
+    },
+    {
+      "inline": true,
+      "label": "Subscription",
+      "permalink": "/OpenKPIs/docs/tags/subscription"
+    },
+    {
+      "inline": true,
+      "label": "Travel",
+      "permalink": "/OpenKPIs/docs/tags/travel"
+    },
+    {
+      "inline": true,
+      "label": "Conversion",
+      "permalink": "/OpenKPIs/docs/tags/conversion"
+    }
+  ],
+  "version": "current",
+  "frontMatter": {
+    "id": "order-conversion-rate-visitors",
+    "title": "Order Conversion Rate (Visitors)",
+    "description": "Measures the rate at which users or visitors convert into completed orders. It helps in capturing the effectiveness of website or app in converting visitors to customers",
+    "tags": [
+      "Purchase Rate",
+      "Conversion Rate to Order",
+      "Checkout-to-Order Rate",
+      "Retail",
+      "eCommerce",
+      "Subscription",
+      "Travel",
+      "Conversion"
+    ],
+    "slug": "/order-conversion-rate-visitors",
+    "toc_min_heading_level": 2,
+    "toc_max_heading_level": 4,
+    "hide_table_of_contents": false
+  },
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "KPIs",
+    "permalink": "/OpenKPIs/docs/"
+  },
+  "next": {
+    "title": "Order Conversion Rate (Visits)",
+    "permalink": "/OpenKPIs/docs/order-conversion-rate-visits"
+  }
+}

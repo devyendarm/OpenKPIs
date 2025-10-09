@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://devyendarm.github.io/OpenKPIs/sitemap.xml
+
+# Allow all content types
+Allow: /docs/
+Allow: /dimensions/
+Allow: /events/
+Allow: /indexes/
+Allow: /img/
+
+# Future content types (for when you add them)
+Allow: /json-data-layer/
+Allow: /js-events/
+Allow: /sql-examples/
+
+# Disallow admin or private areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Crawl delay (optional - helps with server load)
+Crawl-delay: 1

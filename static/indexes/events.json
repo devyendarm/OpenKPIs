@@ -1,0 +1,35 @@
+[
+  {
+    "id": "addtocart",
+    "title": "add_to_cart",
+    "description": "Captures when a user adds a product to their cart. This is a key micro-conversion event enabling calculation of Add-to-Cart Rate Cart Abandonment Rate and Product Funnel metrics.",
+    "slug": "/addtocart",
+    "tags": [],
+    "category": [],
+    "industry": [],
+    "featured": false,
+    "added": null
+  },
+  {
+    "id": "productview",
+    "title": "product_view",
+    "description": "The “Product View” event captures when a user views a product details page or product modal. This helps track product engagement impressions at PDP level and forms the basis for KPIs such as Product Views Product View Rate and Product to Cart Rate.",
+    "slug": "/productview",
+    "tags": [],
+    "category": [],
+    "industry": [],
+    "featured": false,
+    "added": null
+  },
+  {
+    "id": "purchase",
+    "title": "purchase",
+    "description": "Captures the completion of a successful purchase or order transaction. It’s the key macro-conversion event for revenue tracking funnel analysis and customer lifetime value.",
+    "slug": "/purchase",
+    "tags": [],
+    "category": [],
+    "industry": [],
+    "featured": false,
+    "added": null
+  }
+]

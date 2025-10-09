@@ -1,0 +1,136 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/OpenKPIs/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/OpenKPIs/docs",
+          "mainDocId": "index",
+          "docs": [
+            {
+              "id": "index",
+              "path": "/OpenKPIs/docs/",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "order-conversion-rate-visitors",
+              "path": "/OpenKPIs/docs/order-conversion-rate-visitors",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "order-conversion-rate-visits",
+              "path": "/OpenKPIs/docs/order-conversion-rate-visits",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "orders",
+              "path": "/OpenKPIs/docs/orders",
+              "sidebar": "sidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "sidebar": {
+              "link": {
+                "path": "/OpenKPIs/docs/",
+                "label": "index"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    },
+    "dimensions": {
+      "path": "/OpenKPIs/dimensions",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/OpenKPIs/dimensions",
+          "mainDocId": "index",
+          "docs": [
+            {
+              "id": "index",
+              "path": "/OpenKPIs/dimensions/",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "page-name",
+              "path": "/OpenKPIs/dimensions/page-name",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "page-url",
+              "path": "/OpenKPIs/dimensions/page-url",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "previous-page",
+              "path": "/OpenKPIs/dimensions/previous-page",
+              "sidebar": "sidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "sidebar": {
+              "link": {
+                "path": "/OpenKPIs/dimensions/",
+                "label": "index"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    },
+    "events": {
+      "path": "/OpenKPIs/events",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/OpenKPIs/events",
+          "mainDocId": "index",
+          "docs": [
+            {
+              "id": "addtocart",
+              "path": "/OpenKPIs/events/addtocart",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "index",
+              "path": "/OpenKPIs/events/",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "productview",
+              "path": "/OpenKPIs/events/productview",
+              "sidebar": "sidebar"
+            },
+            {
+              "id": "purchase",
+              "path": "/OpenKPIs/events/purchase",
+              "sidebar": "sidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "sidebar": {
+              "link": {
+                "path": "/OpenKPIs/events/",
+                "label": "index"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

@@ -1,0 +1,79 @@
+[
+  {
+    "id": "order-conversion-rate-visitors",
+    "title": "Order Conversion Rate (Visitors)",
+    "description": "Measures the rate at which users or visitors convert into completed orders. It helps in capturing the effectiveness of website or app in converting visitors to customers",
+    "slug": "/order-conversion-rate-visitors",
+    "tags": [
+      "Purchase Rate",
+      "Conversion Rate to Order",
+      "Checkout-to-Order Rate",
+      "Retail",
+      "eCommerce",
+      "Subscription",
+      "Travel",
+      "Conversion"
+    ],
+    "category": [
+      "Conversion"
+    ],
+    "industry": [
+      "Retail",
+      "eCommerce",
+      "Subscription",
+      "Travel"
+    ],
+    "featured": false,
+    "added": null
+  },
+  {
+    "id": "order-conversion-rate-visits",
+    "title": "Order Conversion Rate (Visits)",
+    "description": "Measures the rate at which sessions or visits convert into completed orders. It helps in capturing the effectiveness of website or app in converting visits to customers",
+    "slug": "/order-conversion-rate-visits",
+    "tags": [
+      "Purchase Rate",
+      "Conversion Rate to Order",
+      "Checkout-to-Order Rate",
+      "Retail",
+      "eCommerce",
+      "Subscription",
+      "Travel",
+      "Conversion"
+    ],
+    "category": [
+      "Conversion"
+    ],
+    "industry": [
+      "Retail",
+      "eCommerce",
+      "Subscription",
+      "Travel"
+    ],
+    "featured": false,
+    "added": null
+  },
+  {
+    "id": "orders",
+    "title": "Orders",
+    "description": "Indicates the number purchases or transactions successfully completed an individual customer or all customers during a selected time period.",
+    "slug": "/orders",
+    "tags": [
+      "Purchases",
+      "Completed Transactions",
+      "Confirmed Orders",
+      "Retail",
+      "eCommerce",
+      "Conversion"
+    ],
+    "category": [
+      "Conversion"
+    ],
+    "industry": [
+      "Retail",
+      "eCommerce"
+    ],
+    "featured": false,
+    "added": null
+  }
+]

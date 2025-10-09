@@ -1,0 +1,67 @@
+Dimension Name: Page Name
+Dimension Alias: page_title / screen_name
+Description:
+- The human-readable title or name of the web page or app screen viewed by the user.
+  Commonly corresponds to the <title> tag of the page
+- or the logical name of the screen in mobile applications. Used to identify and categorize
+  user navigation and engagement patterns across the site or app.
+Data Type: String
+Scope: Hit-level (per page view or screen view)
+Persistence: Non-persistent — captured at each page view or screen view event
+Industry: Cross-Industry (applicable to all digital analytics implementations)
+Category: Content & Engagement
+Allowed Values / Format:
+- Any UTF-8 encoded string (e.g.
+- “Home Page”
+- “Product Detail”
+- “Cart”
+- “Checkout Confirmation”)
+Case Sensitivity: Case-insensitive (normalize to lowercase for consistency)
+GA Mapping: page_title (GA4)
+Adobe Mapping: 'eVarX or propX configured for Page Name (Best Practice: use pageName
+  variable or s.pageName for consistency)'
+XDM Mapping: _experience.analytics.environment.pageName or _experience.analytics.pageDetails.name
+Generic Mapping: context.page.name
+BI Source System:
+- GA4 Export (BigQuery)
+- Adobe Analytics Data Feed
+- Amplitude Export
+- Snowflake / Data Warehouse
+Report Attribute: Page Name
+Calculation Notes:
+- Used to group or filter page view–based metrics such as Page Views
+- Unique Page Views
+- Average Time on Page
+- Bounce Rate
+- and Engagement Rate. Can also be used for navigation pathing and funnel visualization.
+Validation Rules: 1. Must be a non-empty string. 2. Should not contain special characters
+  beyond standard alphanumeric and spaces. 3. Should match the page title or defined
+  app screen name.
+Required On Events:
+- page_view
+- screen_view
+- product_view
+- checkout
+- purchase
+Join Keys:
+- page_url
+- page_id
+- session_id
+- user_id
+Sample Values:
+- “Home”
+- “Product Detail”
+- “Checkout - Shipping”
+- “Order Confirmation”
+Data Sensitivity: Low
+PII Flag: false
+Owner: Digital Analytics Team / Web Data Engineering
+Contributed By: Devyendar Maganti
+Validation Status: Not validated
+Version: v1.0
+Last Updated: '2025-10-09 00:45:25.450000'
+Tags:
+- content
+- engagement
+- navigation
+- pageview

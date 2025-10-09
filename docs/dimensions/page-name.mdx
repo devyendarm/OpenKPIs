@@ -1,0 +1,87 @@
+---
+id: "page-name"
+title: "Page Name"
+description: "The human-readable title or name of the web page or app screen viewed by the user. Commonly corresponds to the &lt;title&gt; tag of the page or the logical name of the screen in mobile applications. Used to identify and categorize user navigation and engagement patterns across the site or app."
+tags: ["page_title / screen_name","Cross-Industry (applicable to all digital analytics implementations)","Content & Engagement"]
+slug: "/page-name"
+toc_min_heading_level: 2
+toc_max_heading_level: 4
+hide_table_of_contents: false
+---
+
+<div class="mui-section">
+<h2>Overview</h2>
+<div class="mui-overview">The human-readable title or name of the web page or app screen viewed by the user. Commonly corresponds to the &lt;title&gt; tag of the page or the logical name of the screen in mobile applications. Used to identify and categorize user navigation and engagement patterns across the site or app.</div>
+</div>
+
+## Dimension Details
+
+<div class="mui-section">
+**Data Type**: String
+
+**Scope**: Hit-level (per page view or screen view)
+
+**Persistence**: Non-persistent — captured at each page view or screen view event
+
+**Industry**: Cross-Industry (applicable to all digital analytics implementations)
+
+**Category**: Content & Engagement
+</div>
+## Platform Mappings
+
+<div class="mui-section">
+**GA Mapping**: page_title (GA4)
+
+**Adobe Mapping**: eVarX or propX configured for Page Name (Best Practice: use pageName variable or s.pageName for consistency)
+
+**XDM Mapping**: _experience.analytics.environment.pageName or _experience.analytics.pageDetails.name
+
+**Generic Mapping**: context.page.name
+</div>
+## Data Configuration
+
+<div class="mui-section">
+**Allowed Values / Format**: Any UTF-8 encoded string (e.g., “Home Page”, “Product Detail”, “Cart”, “Checkout Confirmation”)
+
+**Case Sensitivity**: Case-insensitive (normalize to lowercase for consistency)
+
+**Sample Values**: “Home”, “Product Detail”, “Checkout - Shipping”, “Order Confirmation”
+</div>
+## Technical Implementation
+
+<div class="mui-section">
+**BI Source System**: GA4 Export (BigQuery), Adobe Analytics Data Feed, Amplitude Export, Snowflake / Data Warehouse
+
+**Report Attribute**: Page Name
+
+**Join Keys**: page_url, page_id, session_id, user_id
+
+**Required On Events**: page_view, screen_view, product_view, checkout, purchase
+</div>
+## Validation & Rules
+
+<div class="mui-section">
+**Validation Rules**: 1. Must be a non-empty string. 2. Should not contain special characters beyond standard alphanumeric and spaces. 3. Should match the page title or defined app screen name.
+
+**Calculation Notes**: Used to group or filter page view–based metrics such as Page Views, Unique Page Views, Average Time on Page, Bounce Rate, and Engagement Rate. Can also be used for navigation pathing and funnel visualization.
+</div>
+## Documentation
+
+<div class="mui-section">
+**Contributed By**: Devyendar Maganti
+
+**Owner**: Digital Analytics Team / Web Data Engineering
+</div>
+## Governance
+
+<div class="mui-section">
+**Validation Status**: Not validated
+
+**Version**: v1.0
+
+**Last Updated**: 2025-10-09 00:45:25.450000
+
+**Data Sensitivity**: Low
+
+**PII Flag**: false
+</div>

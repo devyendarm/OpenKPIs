@@ -1,0 +1,144 @@
+Event Name: product_view
+Event Type: Engagement
+Description:
+- The “Product View” event captures when a user views a product details page or product
+  modal. This helps track product engagement
+- impressions at PDP level
+- and forms the basis for KPIs such as Product Views
+- Product View Rate
+- and Product to Cart Rate.
+Trigger: Fired when the Product Detail Page (PDP) loads or a product modal/lightbox
+  is opened for viewing a single item.
+Source: Website / Mobile App / Kiosk / Embedded Product Widget
+Event Time:
+- Timestamp of when the event occurred
+- ideally in ISO 8601 format (YYYY-MM-DDTHH:mm:ssZ)
+Generic Context Required:
+- product_id
+- product_name
+- category
+- price
+- currency
+- page_url
+- page_referrer
+- device_type
+- user_id / anonymous_id
+Generic Context Optional:
+- brand
+- variant
+- color
+- size
+- discount
+- inventory_status
+- campaign_id
+- list_position
+- promotion_name
+- recommended_type
+- related_search_term
+Primary KPIs:
+- Product Views
+- Product View Rate
+Secondary KPIs:
+- Add-to-Cart Rate
+- Conversion Rate
+- Product Engagement
+- Revenue per Product
+Metrics Used:
+- product_view_count
+- unique_product_views
+- view_to_cart_ratio
+Dimensions Used:
+- product_id
+- product_name
+- category
+- brand
+- device_type
+- traffic_source
+- country
+Frequency Limit: 1 per product view action; avoid duplicate firing on SPA route changes
+  without actual product content change
+PII Risk: Low (ensure no PII like email or name in parameters)
+Required Fields:
+- product_id
+- product_name
+- category
+- price
+- currency
+XDM Field Groups:
+- commerce.productViews
+- productListItems
+- web.webPageDetails
+- identityMap
+- device
+- environment
+GA4 Event Name: view_item
+GA4 Params Map: '{ item_id: product_id, item_name: product_name, item_category: category,
+  item_brand: brand, price: price, currency: currency, item_variant: variant }'
+Adobe XDM Event Type: commerce.productViews
+Adobe XDM Map: '{ commerce.productListItems[].SKU: product_id, commerce.productListItems[].name:
+  product_name, commerce.productListItems[].priceTotal: price, commerce.productListItems[].productCategories[].categoryID:
+  category, commerce.productListItems[].quantity: 1 }'
+Adobe ACDL Event: product-view
+Adobe ACDL Map: '{ product: { sku: product_id, name: product_name, category: category,
+  price: price, currencyCode: currency } }'
+Example Generic JSON:
+- 'json { "event": "product_view"'
+- '"timestamp": "2025-10-07T19:00:00Z"'
+- '"product": { "id": "SKU-001"'
+- '"name": "Wireless Mouse"'
+- '"category": "Electronics"'
+- '"brand": "LogiTech"'
+- '"price": 25.00'
+- '"currency": "USD" }'
+- '"page": { "url": "https://example.com/product/wireless-mouse"'
+- '"referrer": "https://example.com/search" }'
+- '"user": { "anonymous_id": "a1b2c3d4e5" } }'
+Example GA4 JSON:
+- 'json { "event_name": "view_item"'
+- '"params": { "items": [{ "item_id": "SKU-001"'
+- '"item_name": "Wireless Mouse"'
+- '"item_category": "Electronics"'
+- '"item_brand": "LogiTech"'
+- '"price": 25.00'
+- '"currency": "USD" }] } }'
+Example XDM JSON:
+- 'json { "eventType": "commerce.productViews"'
+- '"commerce": { "productListItems": [{ "SKU": "SKU-001"'
+- '"name": "Wireless Mouse"'
+- '"productCategories": [{ "categoryID": "Electronics" }]'
+- '"priceTotal": 25.00'
+- '"currencyCode": "USD" }] }'
+- '"web": { "webPageDetails": { "URL": "https://example.com/product/wireless-mouse"
+  } }'
+- '"timestamp": "2025-10-07T19:00:00Z" }'
+Example ACDL JSON:
+- 'json { "eventInfo": { "eventName": "product-view" }'
+- '"product": { "sku": "SKU-001"'
+- '"name": "Wireless Mouse"'
+- '"category": "Electronics"'
+- '"price": 25.00'
+- '"currencyCode": "USD" } }'
+Owner: Digital Analytics Team
+Version: v1.0
+Status: Active
+Tags:
+- commerce
+- engagement
+- PDP
+- retail
+- digital-analytics
+Data Sensitivity: Low
+Dimensions (Related):
+- Product ID
+- Product Name
+- Category
+- Brand
+- Device Type
+- Page URL
+Calculation Notes:
+- Ensure event fires only once per PDP view. For SPAs
+- bind to route change or DOM change event
+- not scroll or viewport visibility.
+Validation Status: Not validated
+Contributed By: Devyendar Maganti
+Last Updated: '2025-10-09 00:45:25.450000'

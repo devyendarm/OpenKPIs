@@ -1,0 +1,69 @@
+Dimension Name: Page URL
+Dimension Alias: page_location / full_page_url
+Description:
+- The full URL of the page viewed by the user
+- including the protocol
+- domain
+- path
+- and optional query string parameters. Used to uniquely identify the exact page resource
+  accessed and to analyze site structure
+- page performance
+- and content hierarchy.
+Data Type: String
+Scope: Hit-level (captured per page view or screen view)
+Persistence: Non-persistent — recorded for each page or screen view event
+Industry: Cross-Industry
+Category: Content & Engagement
+Allowed Values / Format: 'Standard URL format — https://domain.com/path?param=value
+  Max length: 2048 characters'
+Case Sensitivity: Case-sensitive for path and query string; best practice is to store
+  normalized lowercase URLs without tracking parameters unless required
+GA Mapping: page_location (GA4)
+Adobe Mapping: s.pageURL or propX configured for full URL tracking
+XDM Mapping: _experience.analytics.pageDetails.URL
+Generic Mapping: context.page.url
+BI Source System:
+- GA4 BigQuery Export
+- Adobe Analytics Data Feed (page_url)
+- Amplitude Export
+- Data Warehouse tables
+Report Attribute: Page URL
+Calculation Notes:
+- Frequently used in conjunction with Page Name for validation. Important for identifying
+  duplicate or similar pages
+- tracking canonical URLs
+- and auditing campaign parameters. Recommended to strip UTM parameters for cleaner
+  analysis unless campaign tracking requires them.
+Validation Rules:
+- 1. Must be a valid
+- absolute URL (includes protocol). 2. Should resolve to a valid domain within tracked
+  site scope. 3. Avoid recording internal redirects or transient URLs.
+Required On Events:
+- page_view
+- screen_view
+- product_view
+- checkout
+- purchase
+Join Keys:
+- page_id
+- session_id
+- user_id
+- referrer_url
+Sample Values:
+- https://www.openkpis.org/
+- https://www.openkpis.org/kpis/order-conversion-rate
+- https://www.openkpis.org/articles/analytics-framework
+Data Sensitivity: Low
+PII Flag: False (unless query string includes PII — must be scrubbed)
+Owner: Digital Analytics Team / Web Data Engineering
+Contributed By: Devyendar Maganti
+Validation Status: Not validated
+Version: v1.0
+Last Updated: '2025-10-09 00:45:25.450000'
+Tags:
+- content
+- engagement
+- navigation
+- pageview
+- url
+- link

@@ -1,0 +1,26 @@
+# OpenKPIs — Docusaurus + YAML→MDX project rules
+
+## Golden rules
+- Content source of truth is YAML in data-layer/{kpis,dimensions,events}.
+- Do not hand-edit generated MDX in docs/**; change scripts/generate-from-yaml.mjs instead.
+- /kpis, /dimensions, /events are section landing pages with a Catalog grid.
+- Detail pages MUST include H2/H3 headings for the right-rail TOC.
+- In MDX files, any `import` must come immediately after front matter.
+- Respect baseUrl '/OpenKPIs/' for both local dev and GitHub Pages.
+
+## Versions
+- Prefer Node 20 LTS for Docusaurus v3. If Node 22 causes MDX parser issues, switch to Node 20.
+
+## Required files (do not remove)
+- docusaurus.config.ts
+- scripts/generate-from-yaml.mjs
+- src/components/Catalog.tsx
+- src/pages/index.tsx
+- sidebars.*.js (auto-generated)
+- .github/workflows/deploy.yml
+
+## Tasks the Agent may perform
+- Clean generated outputs (docs sections except index.mdx; static/indexes; .docusaurus).
+- Run `npm install`, `npm run generate`, `npm run start`.
+- Patch generator to ensure landing pages: front matter → import line → H1 → <Catalog />.
+- Verify navbar routes and baseUrl, fix if mismatched.

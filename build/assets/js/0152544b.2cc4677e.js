@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkopenkpis=self.webpackChunkopenkpis||[]).push([[2866],{7633:s=>{s.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"dimensions"}')}}]);

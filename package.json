@@ -1,0 +1,31 @@
+{
+  "name": "openkpis",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "generate": "node ./scripts/generate-from-yaml.js",
+    "start": "npm run generate && docusaurus start",
+    "build": "npm run generate && docusaurus build",
+    "serve": "docusaurus serve build"
+  },
+  "dependencies": {
+    "@docusaurus/core": "^3.5.2",
+    "@docusaurus/plugin-content-docs": "^3.5.2",
+    "@docusaurus/preset-classic": "^3.5.2",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.4",
+    "@mui/lab": "^7.0.1-beta.18",
+    "@mui/material": "^7.3.4",
+    "prism-react-renderer": "^2.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "fs-extra": "^11.2.0",
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0",
+    "slugify": "^1.6.6",
+    "typescript": "^5.5.4"
+  }
+}

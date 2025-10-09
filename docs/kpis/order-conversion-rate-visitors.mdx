@@ -1,0 +1,212 @@
+---
+id: "order-conversion-rate-visitors"
+title: "Order Conversion Rate (Visitors)"
+description: "Measures the rate at which users or visitors convert into completed orders. It helps in capturing the effectiveness of website or app in converting visitors to customers"
+tags: ["Purchase Rate","Conversion Rate to Order","Checkout-to-Order Rate","Retail","eCommerce","Subscription","Travel","Conversion"]
+slug: "/order-conversion-rate-visitors"
+toc_min_heading_level: 2
+toc_max_heading_level: 4
+hide_table_of_contents: false
+---
+
+<div class="mui-section">
+<h2>Overview</h2>
+<div class="mui-overview">Measures the rate at which users or visitors convert into completed orders. It helps in capturing the effectiveness of website or app in converting visitors to customers</div>
+</div>
+
+<div class="mui-section">
+<h2>Formula</h2>
+<div class="mui-code-label">SQL</div>
+<div class="mui-code-block">Order Conversion Rate = (Total Orders ÷ Total Users) × 100</div>
+</div>
+
+<div class="mui-section">
+<h2>Platform Implementation</h2>
+- **GA4**: `purchase,OOTB Metrics`
+- **Adobe Analytics**: `purchase,OOTB Metrics`
+- **Amplitude**: `Order Completed,Session Start`
+</div>
+
+## Business Context
+
+<div class="mui-section">
+**Industry**: Retail, eCommerce, Subscription, Travel
+
+**Category**: Conversion
+
+**Priority**: High
+
+**Core Area**: Conversion Funnel Performance
+
+**Scope**: User
+</div>
+## Technical Details
+
+<div class="mui-section">
+**KPI Type**: Rate / Ratio
+
+**Metric**: Ratio of orders to total users
+
+**Aggregation Window**: Daily, Weekly, Monthly
+</div>
+## Data Mappings
+
+<div class="mui-section">
+**Data Layer Mapping**
+
+<div class="mui-code-block" data-language="json">&#123;
+        transaction_id: &quot;T_12345_1&quot;,
+        value: 30.03,
+        tax: 4.90,
+        shipping: 5.99,
+        currency: &quot;USD&quot;,
+        coupon: &quot;SUMMER_SALE&quot;,
+        items: [
+        // If someone purchases more than one item,
+        // you can add those items to the items array
+         &#123;
+          item_id: &quot;SKU_12345&quot;,
+          item_name: &quot;Stan and Friends Tee&quot;,
+          affiliation: &quot;Google Merchandise Store&quot;,
+          coupon: &quot;SUMMER_FUN&quot;,
+          discount: 2.22,
+          index: 0,
+          item_brand: &quot;Google&quot;,
+          item_category: &quot;Apparel&quot;,
+          item_category2: &quot;Adult&quot;,
+          item_category3: &quot;Shirts&quot;,
+          item_category4: &quot;Crew&quot;,
+          item_category5: &quot;Short sleeve&quot;,
+          item_list_id: &quot;related_products&quot;,
+          item_list_name: &quot;Related Products&quot;,
+          item_variant: &quot;green&quot;,
+          location_id: &quot;ChIJIQBpAG2ahYAR_6128GcTUEo&quot;,
+          price: 10.01,
+          quantity: 3
+        &#125;]
+    &#125;</div>
+
+**XDM Mapping**
+
+<div class="mui-code-block" data-language="json">&#123;
+  &quot;eventType&quot;: &quot;commerce.purchases&quot;,
+  &quot;timestamp&quot;: &quot;2025-10-07T19:00:00Z&quot;,
+  &quot;commerce&quot;: &#123;
+    &quot;order&quot;: &#123;
+      &quot;orderType&quot;: &quot;purchase&quot;,
+      &quot;purchaseID&quot;: &quot;ORD123456&quot;,
+      &quot;currencyCode&quot;: &quot;USD&quot;,
+      &quot;priceSubtotal&quot;: 330.72,
+      &quot;priceTax&quot;: 10.00,
+      &quot;priceShipping&quot;: 10.00,
+      &quot;priceDiscounts&quot;: 0,
+      &quot;priceTotal&quot;: 350.72,
+      &quot;payments&quot;: [
+        &#123;
+          &quot;transactionID&quot;: &quot;TXN-98765&quot;,
+          &quot;paymentAmount&quot;: 350.72,
+          &quot;paymentType&quot;: &quot;credit_card&quot;,
+          &quot;currencyCode&quot;: &quot;USD&quot;
+        &#125;
+      ]
+    &#125;,
+    &quot;productListItems&quot;: [
+      &#123;
+        &quot;SKU&quot;: &quot;SKU-001&quot;,
+        &quot;name&quot;: &quot;Wireless Mouse&quot;,
+        &quot;quantity&quot;: 2,
+        &quot;itemPrice&quot;: 30.00,
+        &quot;discountAmount&quot;: 10.00,
+        &quot;priceTotal&quot;: 50.00,
+        &quot;productCategories&quot;: [&#123; &quot;categoryID&quot;: &quot;Electronics&quot; &#125;],
+        &quot;selectedOptions&quot;: [
+          &#123; &quot;attribute&quot;: &quot;Color&quot;, &quot;value&quot;: &quot;Black&quot; &#125;
+        ]
+      &#125;,
+      &#123;
+        &quot;SKU&quot;: &quot;SKU-002&quot;,
+        &quot;name&quot;: &quot;USB-C Hub&quot;,
+        &quot;quantity&quot;: 1,
+        &quot;itemPrice&quot;: 100.00,
+        &quot;priceTotal&quot;: 100.00,
+        &quot;productCategories&quot;: [&#123; &quot;categoryID&quot;: &quot;Accessories&quot; &#125;],
+        &quot;selectedOptions&quot;: [
+          &#123; &quot;attribute&quot;: &quot;Ports&quot;, &quot;value&quot;: &quot;6&quot; &#125;
+        ]
+      &#125;
+    ]
+  &#125;</div>
+</div>
+## Implementation
+
+<div class="mui-section">
+**Dependencies**: Requires both purchase and User tracking consistency. Ensure Order_id is unique and Users are properly counted.
+
+**BI Source System**: GA4, Adobe Analytics, Adobe Customer Journey Analytics, Amplitude, BigQuery, Query Service
+
+**Report Attribute**: Order ID, Session ID, Traffic Source, Device, Campaign, Country, Date
+</div>
+## Usage & Analytics
+
+<div class="mui-section">
+**Dashboard Usage**: Shown in eCommerce Funnel, Conversion, and Marketing dashboards to gauge sales funnel performance and optimize campaign efficiency.
+
+**Segment Eligibility**: All users with a purchase event. Used to segment conversion by channel, device, or user cohort.
+
+**Related KPIs**: Orders, Revenue, Add-to-Cart Rate, Checkout Conversion Rate, Cart Abandonment Rate
+</div>
+## SQL Examples
+
+<div class="mui-section">
+**SQL Query Example**
+
+<div class="mui-code-block" data-language="sql">sql
+WITH base AS (
+ SELECT DATE(event_timestamp) AS event_date, 
+ COUNT(DISTINCT CASE WHEN event_name = &#x27;purchase&#x27; THEN order_id END) AS orders, 
+ COUNT(DISTINCT VisitorID) AS users
+ FROM ecommerce_events
+ GROUP BY event_date)
+SELECT event_date, 
+ (orders * 100.0 / users) AS order_conversion_rate
+FROM base
+ORDER BY event_date;</div>
+</div>
+## Documentation
+
+<div class="mui-section">
+**Calculation Notes**: 1️⃣ Ensure both orders and users are from the same date range.
+2️⃣ Remove test traffic.
+3️⃣ Segment by channel or device where applicable.
+4️⃣ Keep consistency in attribution windows.
+
+**Details**: The Order Conversion Rate reflects the proportion of sessions (or users) leading to at least one purchase. It is a top-level KPI for assessing website effectiveness, marketing efficiency, and UX performance. Ensure alignment of session counting logic between GA4 and Adobe (visit scope) and remove internal/test activity for accuracy.
+
+**Contributed By**: Devyendar Maganti
+
+**Owner**: Digital Analytics / Growth Optimization Team
+</div>
+## Governance
+
+<div class="mui-section">
+**Validation Status**: Validated
+
+**Version**: v1.0
+
+**Last Updated**: 2025-10-09 00:45:25.450000
+
+**Data Sensitivity**: Low
+
+**PII Flag**: false
+</div>
+
+<div class="mui-section">
+<h2>Related</h2>
+<div class="mui-overview">
+- [Orders](./orders)
+- [Revenue](./revenue)
+- [Add-to-Cart Rate](./add-to-cart-rate)
+- [Checkout Conversion Rate](./checkout-conversion-rate)
+- [Cart Abandonment Rate](./cart-abandonment-rate)
+</div>
+</div>

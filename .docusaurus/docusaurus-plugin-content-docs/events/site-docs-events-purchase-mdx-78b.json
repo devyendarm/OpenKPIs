@@ -1,0 +1,28 @@
+{
+  "id": "purchase",
+  "title": "purchase",
+  "description": "Captures the completion of a successful purchase or order transaction. It’s the key macro-conversion event for revenue tracking funnel analysis and customer lifetime value.",
+  "source": "@site/docs/events/purchase.mdx",
+  "sourceDirName": ".",
+  "slug": "/purchase",
+  "permalink": "/OpenKPIs/events/purchase",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "purchase",
+    "title": "purchase",
+    "description": "Captures the completion of a successful purchase or order transaction. It’s the key macro-conversion event for revenue tracking funnel analysis and customer lifetime value.",
+    "tags": [],
+    "slug": "/purchase",
+    "toc_min_heading_level": 2,
+    "toc_max_heading_level": 4,
+    "hide_table_of_contents": false
+  },
+  "sidebar": "sidebar",
+  "previous": {
+    "title": "product_view",
+    "permalink": "/OpenKPIs/events/productview"
+  }
+}
