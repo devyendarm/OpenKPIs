@@ -1,0 +1,651 @@
+{
+  "entrypoints": [
+    "main"
+  ],
+  "origins": {
+    "2237": [
+      2237
+    ],
+    "2955": [
+      1869,
+      8401,
+      2955
+    ],
+    "17896441": [
+      1869,
+      2955,
+      8401
+    ],
+    "63121878": [
+      2745
+    ],
+    "89398762": [
+      2505
+    ],
+    "main": [
+      1869,
+      5354,
+      8792
+    ],
+    "runtime~main": [
+      1869,
+      8792,
+      5354
+    ],
+    "0152544b": [
+      2866
+    ],
+    "0450871f": [
+      7646
+    ],
+    "05d30cc5": [
+      7622
+    ],
+    "0cf30807": [
+      954
+    ],
+    "1430a8dc": [
+      6209
+    ],
+    "1df93b7f": [
+      4583
+    ],
+    "2cc7aa20": [
+      2992
+    ],
+    "3720c009": [
+      1869,
+      4787
+    ],
+    "3d7e1a9f": [
+      4057
+    ],
+    "3e0347f7": [
+      238
+    ],
+    "45475c54": [
+      2114
+    ],
+    "4a2ec5cd": [
+      3560
+    ],
+    "4ba3f97a": [
+      8722
+    ],
+    "5e95c892": [
+      9647
+    ],
+    "612bf423": [
+      4711
+    ],
+    "78ba771b": [
+      8746
+    ],
+    "79b6951c": [
+      2809
+    ],
+    "8a54e505": [
+      3594
+    ],
+    "90f8dca8": [
+      942
+    ],
+    "9144c88c": [
+      1263
+    ],
+    "9b494e7f": [
+      2821
+    ],
+    "9d14be6d": [
+      438
+    ],
+    "a7456010": [
+      1235
+    ],
+    "a7bd4aaa": [
+      7098
+    ],
+    "a94703ab": [
+      1869,
+      9048
+    ],
+    "aba21aa0": [
+      5742
+    ],
+    "ad2aecfa": [
+      3620
+    ],
+    "aef901ed": [
+      4188
+    ],
+    "b915668a": [
+      1935
+    ],
+    "bcaf8276": [
+      4582
+    ],
+    "c6854a93": [
+      7252
+    ],
+    "cecc00d9": [
+      1876
+    ],
+    "d81aea86": [
+      4925
+    ],
+    "db57f31a": [
+      330
+    ],
+    "de27da49": [
+      391
+    ],
+    "de616e2a": [
+      4809
+    ],
+    "df203c0f": [
+      1869,
+      4279
+    ],
+    "e01eb8b6": [
+      2072
+    ],
+    "ec7603fc": [
+      6002
+    ],
+    "f1940177": [
+      5072
+    ],
+    "f993239d": [
+      5630
+    ],
+    "faa7cac0": [
+      2309
+    ],
+    "faef4eb3": [
+      285
+    ],
+    "fdb40a7d": [
+      2079
+    ],
+    "styles": [
+      2955,
+      4279,
+      4787,
+      5354,
+      8401,
+      8792,
+      9048,
+      1869
+    ]
+  },
+  "assets": {
+    "238": {
+      "js": [
+        {
+          "file": "assets/js/3e0347f7.819cbe60.js",
+          "hash": "79dcf83428263197",
+          "publicPath": "/OpenKPIs/assets/js/3e0347f7.819cbe60.js"
+        }
+      ]
+    },
+    "285": {
+      "js": [
+        {
+          "file": "assets/js/faef4eb3.29fc2fff.js",
+          "hash": "4fd4358fb4279cd4",
+          "publicPath": "/OpenKPIs/assets/js/faef4eb3.29fc2fff.js"
+        }
+      ]
+    },
+    "330": {
+      "js": [
+        {
+          "file": "assets/js/db57f31a.ff035da7.js",
+          "hash": "629f5c40caf4b91d",
+          "publicPath": "/OpenKPIs/assets/js/db57f31a.ff035da7.js"
+        }
+      ]
+    },
+    "391": {
+      "js": [
+        {
+          "file": "assets/js/de27da49.e476554b.js",
+          "hash": "bb816a06060b9811",
+          "publicPath": "/OpenKPIs/assets/js/de27da49.e476554b.js"
+        }
+      ]
+    },
+    "438": {
+      "js": [
+        {
+          "file": "assets/js/9d14be6d.59ec7e4a.js",
+          "hash": "1f27abcd5722276a",
+          "publicPath": "/OpenKPIs/assets/js/9d14be6d.59ec7e4a.js"
+        }
+      ]
+    },
+    "942": {
+      "js": [
+        {
+          "file": "assets/js/90f8dca8.7df4fef0.js",
+          "hash": "1ed58b9c42c70c51",
+          "publicPath": "/OpenKPIs/assets/js/90f8dca8.7df4fef0.js"
+        }
+      ]
+    },
+    "954": {
+      "js": [
+        {
+          "file": "assets/js/0cf30807.29308131.js",
+          "hash": "e1dc0167fab19a9d",
+          "publicPath": "/OpenKPIs/assets/js/0cf30807.29308131.js"
+        }
+      ]
+    },
+    "1235": {
+      "js": [
+        {
+          "file": "assets/js/a7456010.c4255ac9.js",
+          "hash": "089793ba4f55e54a",
+          "publicPath": "/OpenKPIs/assets/js/a7456010.c4255ac9.js"
+        }
+      ]
+    },
+    "1263": {
+      "js": [
+        {
+          "file": "assets/js/9144c88c.860e588e.js",
+          "hash": "8192551b9abe0600",
+          "publicPath": "/OpenKPIs/assets/js/9144c88c.860e588e.js"
+        }
+      ]
+    },
+    "1869": {
+      "css": [
+        {
+          "file": "assets/css/styles.e5052fad.css",
+          "hash": "511786638d895043",
+          "publicPath": "/OpenKPIs/assets/css/styles.e5052fad.css"
+        }
+      ]
+    },
+    "1876": {
+      "js": [
+        {
+          "file": "assets/js/cecc00d9.f79a34e0.js",
+          "hash": "eb6b7f08a9af8782",
+          "publicPath": "/OpenKPIs/assets/js/cecc00d9.f79a34e0.js"
+        }
+      ]
+    },
+    "1935": {
+      "js": [
+        {
+          "file": "assets/js/b915668a.3eea3bf9.js",
+          "hash": "32730820437e9295",
+          "publicPath": "/OpenKPIs/assets/js/b915668a.3eea3bf9.js"
+        }
+      ]
+    },
+    "2072": {
+      "js": [
+        {
+          "file": "assets/js/e01eb8b6.57c384a5.js",
+          "hash": "4f38e721d5b78594",
+          "publicPath": "/OpenKPIs/assets/js/e01eb8b6.57c384a5.js"
+        }
+      ]
+    },
+    "2079": {
+      "js": [
+        {
+          "file": "assets/js/fdb40a7d.7f039aff.js",
+          "hash": "75fe4c61b0e8b87b",
+          "publicPath": "/OpenKPIs/assets/js/fdb40a7d.7f039aff.js"
+        }
+      ]
+    },
+    "2114": {
+      "js": [
+        {
+          "file": "assets/js/45475c54.f5db2a15.js",
+          "hash": "a88e6d3a07a7efcb",
+          "publicPath": "/OpenKPIs/assets/js/45475c54.f5db2a15.js"
+        }
+      ]
+    },
+    "2237": {
+      "js": [
+        {
+          "file": "assets/js/2237.61b6d0e4.js",
+          "hash": "45e2fbba7a1b4720",
+          "publicPath": "/OpenKPIs/assets/js/2237.61b6d0e4.js"
+        }
+      ]
+    },
+    "2309": {
+      "js": [
+        {
+          "file": "assets/js/faa7cac0.57e89382.js",
+          "hash": "c6f1549a1fd9c378",
+          "publicPath": "/OpenKPIs/assets/js/faa7cac0.57e89382.js"
+        }
+      ]
+    },
+    "2505": {
+      "js": [
+        {
+          "file": "assets/js/89398762.9c4d2b8d.js",
+          "hash": "e50b821820dea28d",
+          "publicPath": "/OpenKPIs/assets/js/89398762.9c4d2b8d.js"
+        }
+      ]
+    },
+    "2745": {
+      "js": [
+        {
+          "file": "assets/js/63121878.f33c08de.js",
+          "hash": "47590befa3d2ece1",
+          "publicPath": "/OpenKPIs/assets/js/63121878.f33c08de.js"
+        }
+      ]
+    },
+    "2809": {
+      "js": [
+        {
+          "file": "assets/js/79b6951c.5bb4a556.js",
+          "hash": "aae35a6f17d15dc6",
+          "publicPath": "/OpenKPIs/assets/js/79b6951c.5bb4a556.js"
+        }
+      ]
+    },
+    "2821": {
+      "js": [
+        {
+          "file": "assets/js/9b494e7f.93065c3d.js",
+          "hash": "602b53670def9bff",
+          "publicPath": "/OpenKPIs/assets/js/9b494e7f.93065c3d.js"
+        }
+      ]
+    },
+    "2866": {
+      "js": [
+        {
+          "file": "assets/js/0152544b.2cc4677e.js",
+          "hash": "5e5c34d74dd22fea",
+          "publicPath": "/OpenKPIs/assets/js/0152544b.2cc4677e.js"
+        }
+      ]
+    },
+    "2955": {
+      "js": [
+        {
+          "file": "assets/js/2955.3e39e3ae.js",
+          "hash": "20cea2c0e806ba5a",
+          "publicPath": "/OpenKPIs/assets/js/2955.3e39e3ae.js"
+        }
+      ]
+    },
+    "2992": {
+      "js": [
+        {
+          "file": "assets/js/2cc7aa20.dcce9cee.js",
+          "hash": "7f9a6869eed0a5bc",
+          "publicPath": "/OpenKPIs/assets/js/2cc7aa20.dcce9cee.js"
+        }
+      ]
+    },
+    "3560": {
+      "js": [
+        {
+          "file": "assets/js/4a2ec5cd.66808ed1.js",
+          "hash": "06bd788dfb5f71a4",
+          "publicPath": "/OpenKPIs/assets/js/4a2ec5cd.66808ed1.js"
+        }
+      ]
+    },
+    "3594": {
+      "js": [
+        {
+          "file": "assets/js/8a54e505.6aa722be.js",
+          "hash": "aa858c9d99d555e7",
+          "publicPath": "/OpenKPIs/assets/js/8a54e505.6aa722be.js"
+        }
+      ]
+    },
+    "3620": {
+      "js": [
+        {
+          "file": "assets/js/ad2aecfa.6d9d81a5.js",
+          "hash": "983c189dce6a8f12",
+          "publicPath": "/OpenKPIs/assets/js/ad2aecfa.6d9d81a5.js"
+        }
+      ]
+    },
+    "4057": {
+      "js": [
+        {
+          "file": "assets/js/3d7e1a9f.14d3fa4b.js",
+          "hash": "ec6a65792878b476",
+          "publicPath": "/OpenKPIs/assets/js/3d7e1a9f.14d3fa4b.js"
+        }
+      ]
+    },
+    "4188": {
+      "js": [
+        {
+          "file": "assets/js/aef901ed.7391e78a.js",
+          "hash": "94d94cbadb631171",
+          "publicPath": "/OpenKPIs/assets/js/aef901ed.7391e78a.js"
+        }
+      ]
+    },
+    "4279": {
+      "js": [
+        {
+          "file": "assets/js/df203c0f.c1806389.js",
+          "hash": "af85328a048e5d7e",
+          "publicPath": "/OpenKPIs/assets/js/df203c0f.c1806389.js"
+        }
+      ]
+    },
+    "4582": {
+      "js": [
+        {
+          "file": "assets/js/bcaf8276.522bdd98.js",
+          "hash": "ddaf670db1ef01f1",
+          "publicPath": "/OpenKPIs/assets/js/bcaf8276.522bdd98.js"
+        }
+      ]
+    },
+    "4583": {
+      "js": [
+        {
+          "file": "assets/js/1df93b7f.707fa843.js",
+          "hash": "cdfd8607944b7d61",
+          "publicPath": "/OpenKPIs/assets/js/1df93b7f.707fa843.js"
+        }
+      ]
+    },
+    "4711": {
+      "js": [
+        {
+          "file": "assets/js/612bf423.c84019ae.js",
+          "hash": "fa33ad4e4df633d2",
+          "publicPath": "/OpenKPIs/assets/js/612bf423.c84019ae.js"
+        }
+      ]
+    },
+    "4787": {
+      "js": [
+        {
+          "file": "assets/js/3720c009.d2aad450.js",
+          "hash": "90ea3e8f3abd5075",
+          "publicPath": "/OpenKPIs/assets/js/3720c009.d2aad450.js"
+        }
+      ]
+    },
+    "4809": {
+      "js": [
+        {
+          "file": "assets/js/de616e2a.520920e3.js",
+          "hash": "85ec930f40c95191",
+          "publicPath": "/OpenKPIs/assets/js/de616e2a.520920e3.js"
+        }
+      ]
+    },
+    "4925": {
+      "js": [
+        {
+          "file": "assets/js/d81aea86.c2608a54.js",
+          "hash": "a7105419a36d5154",
+          "publicPath": "/OpenKPIs/assets/js/d81aea86.c2608a54.js"
+        }
+      ]
+    },
+    "5072": {
+      "js": [
+        {
+          "file": "assets/js/f1940177.f8181489.js",
+          "hash": "f8d35633254684c3",
+          "publicPath": "/OpenKPIs/assets/js/f1940177.f8181489.js"
+        }
+      ]
+    },
+    "5354": {
+      "js": [
+        {
+          "file": "assets/js/runtime~main.2ee3ef1e.js",
+          "hash": "4f10df0e76341006",
+          "publicPath": "/OpenKPIs/assets/js/runtime~main.2ee3ef1e.js"
+        }
+      ]
+    },
+    "5630": {
+      "js": [
+        {
+          "file": "assets/js/f993239d.f7cc209b.js",
+          "hash": "a72667776d06a2e7",
+          "publicPath": "/OpenKPIs/assets/js/f993239d.f7cc209b.js"
+        }
+      ]
+    },
+    "5742": {
+      "js": [
+        {
+          "file": "assets/js/aba21aa0.4f919c7e.js",
+          "hash": "1ad29d35e5b94475",
+          "publicPath": "/OpenKPIs/assets/js/aba21aa0.4f919c7e.js"
+        }
+      ]
+    },
+    "6002": {
+      "js": [
+        {
+          "file": "assets/js/ec7603fc.93758657.js",
+          "hash": "c1d76c6ccedb7119",
+          "publicPath": "/OpenKPIs/assets/js/ec7603fc.93758657.js"
+        }
+      ]
+    },
+    "6209": {
+      "js": [
+        {
+          "file": "assets/js/1430a8dc.bcf08102.js",
+          "hash": "9a6dda5bf0c42e62",
+          "publicPath": "/OpenKPIs/assets/js/1430a8dc.bcf08102.js"
+        }
+      ]
+    },
+    "7098": {
+      "js": [
+        {
+          "file": "assets/js/a7bd4aaa.1e14bda9.js",
+          "hash": "f08d37934451d5b9",
+          "publicPath": "/OpenKPIs/assets/js/a7bd4aaa.1e14bda9.js"
+        }
+      ]
+    },
+    "7252": {
+      "js": [
+        {
+          "file": "assets/js/c6854a93.aceb441c.js",
+          "hash": "4464da2ed58227ed",
+          "publicPath": "/OpenKPIs/assets/js/c6854a93.aceb441c.js"
+        }
+      ]
+    },
+    "7622": {
+      "js": [
+        {
+          "file": "assets/js/05d30cc5.b7dc2b9e.js",
+          "hash": "a8504c61066ff8be",
+          "publicPath": "/OpenKPIs/assets/js/05d30cc5.b7dc2b9e.js"
+        }
+      ]
+    },
+    "7646": {
+      "js": [
+        {
+          "file": "assets/js/0450871f.7d0f708c.js",
+          "hash": "7509edd0232dd1d4",
+          "publicPath": "/OpenKPIs/assets/js/0450871f.7d0f708c.js"
+        }
+      ]
+    },
+    "8401": {
+      "js": [
+        {
+          "file": "assets/js/17896441.6543e37e.js",
+          "hash": "d1f9cfb72abbfd53",
+          "publicPath": "/OpenKPIs/assets/js/17896441.6543e37e.js"
+        }
+      ]
+    },
+    "8722": {
+      "js": [
+        {
+          "file": "assets/js/4ba3f97a.489da38d.js",
+          "hash": "55783b45f65c2f05",
+          "publicPath": "/OpenKPIs/assets/js/4ba3f97a.489da38d.js"
+        }
+      ]
+    },
+    "8746": {
+      "js": [
+        {
+          "file": "assets/js/78ba771b.0f400e20.js",
+          "hash": "d88ef96bdbcdb584",
+          "publicPath": "/OpenKPIs/assets/js/78ba771b.0f400e20.js"
+        }
+      ]
+    },
+    "8792": {
+      "js": [
+        {
+          "file": "assets/js/main.285b86d3.js",
+          "hash": "9b95deac14502f75",
+          "publicPath": "/OpenKPIs/assets/js/main.285b86d3.js"
+        }
+      ]
+    },
+    "9048": {
+      "js": [
+        {
+          "file": "assets/js/a94703ab.44b5ce7d.js",
+          "hash": "5958f4141671581d",
+          "publicPath": "/OpenKPIs/assets/js/a94703ab.44b5ce7d.js"
+        }
+      ]
+    },
+    "9647": {
+      "js": [
+        {
+          "file": "assets/js/5e95c892.64c21d7c.js",
+          "hash": "1498caea7f420ed2",
+          "publicPath": "/OpenKPIs/assets/js/5e95c892.64c21d7c.js"
+        }
+      ]
+    }
+  }
+}

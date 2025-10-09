@@ -1,226 +1,183 @@
 {
-  "/OpenKPIs/__docusaurus/debug-aa5": {
-    "__comp": "__comp---theme-debug-config-23-a-2ff",
-    "__context": {
-      "plugin": "plugin---open-kp-is-docusaurus-debugb-38-e04"
-    }
-  },
-  "/OpenKPIs/__docusaurus/debug/config-612": {
-    "__comp": "__comp---theme-debug-config-23-a-2ff",
-    "__context": {
-      "plugin": "plugin---open-kp-is-docusaurus-debugb-38-e04"
-    }
-  },
-  "/OpenKPIs/__docusaurus/debug/content-625": {
-    "__comp": "__comp---theme-debug-contentba-8-ce7",
-    "__context": {
-      "plugin": "plugin---open-kp-is-docusaurus-debugb-38-e04"
-    },
-    "__props": "__props---open-kp-is-docusaurus-debug-content-441-bd0"
-  },
-  "/OpenKPIs/__docusaurus/debug/globalData-049": {
-    "__comp": "__comp---theme-debug-global-dataede-0fa",
-    "__context": {
-      "plugin": "plugin---open-kp-is-docusaurus-debugb-38-e04"
-    }
-  },
-  "/OpenKPIs/__docusaurus/debug/metadata-ec6": {
-    "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
-    "__context": {
-      "plugin": "plugin---open-kp-is-docusaurus-debugb-38-e04"
-    }
-  },
-  "/OpenKPIs/__docusaurus/debug/registry-1eb": {
-    "__comp": "__comp---theme-debug-registry-679-501",
-    "__context": {
-      "plugin": "plugin---open-kp-is-docusaurus-debugb-38-e04"
-    }
-  },
-  "/OpenKPIs/__docusaurus/debug/routes-445": {
-    "__comp": "__comp---theme-debug-routes-946-699",
-    "__context": {
-      "plugin": "plugin---open-kp-is-docusaurus-debugb-38-e04"
-    }
-  },
   "/OpenKPIs/search-5a1": {
-    "__comp": "__comp---site-src-pages-search-tsxaef-1a7",
+    "__comp": "aef901ed",
     "__context": {
-      "plugin": "plugin---open-kp-is-searcha-74-5e8"
+      "plugin": "a7456010"
     },
-    "config": "config---open-kp-is-search-5-e-9-7b3"
+    "config": "5e9f5e1a"
   },
   "/OpenKPIs/dimensions-b39": {
-    "__comp": "__comp---theme-docs-root-5-e-9-0b6",
+    "__comp": "5e95c892",
     "__context": {
-      "plugin": "plugin---open-kp-is-dimensions-015-ea8"
+      "plugin": "0152544b"
     }
   },
   "/OpenKPIs/dimensions-6ed": {
-    "__comp": "__comp---theme-doc-version-roota-7-b-5de",
-    "__props": "__props---open-kp-is-dimensions-893-e19"
+    "__comp": "a7bd4aaa",
+    "__props": "89398762"
   },
   "/OpenKPIs/dimensions/tags-7ed": {
-    "__comp": "__comp---theme-doc-tags-list-page-372-89e",
-    "__props": "__props---open-kp-is-dimensions-tags-914-57d"
+    "__comp": "3720c009",
+    "__props": "9144c88c"
   },
   "/OpenKPIs/dimensions/tags/content-engagement-3b5": {
-    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
-    "__props": "__props---open-kp-is-dimensions-tags-content-engagementcec-ae0"
+    "__comp": "df203c0f",
+    "__props": "cecc00d9"
   },
   "/OpenKPIs/dimensions/tags/cross-industry-5bf": {
-    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
-    "__props": "__props---open-kp-is-dimensions-tags-cross-industry-05-d-669"
+    "__comp": "df203c0f",
+    "__props": "05d30cc5"
   },
   "/OpenKPIs/dimensions/tags/cross-industry-applicable-to-all-digital-analytics-implementations-b0e": {
-    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
-    "__props": "__props---open-kp-is-dimensions-tags-cross-industry-applicable-to-all-digital-analytics-implementationsec-7-fb4"
+    "__comp": "df203c0f",
+    "__props": "ec7603fc"
   },
   "/OpenKPIs/dimensions/tags/navigation-engagement-262": {
-    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
-    "__props": "__props---open-kp-is-dimensions-tags-navigation-engagementad-2-34e"
+    "__comp": "df203c0f",
+    "__props": "ad2aecfa"
   },
   "/OpenKPIs/dimensions/tags/page-location-full-page-url-323": {
-    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
-    "__props": "__props---open-kp-is-dimensions-tags-page-location-full-page-urld-81-b6a"
+    "__comp": "df203c0f",
+    "__props": "d81aea86"
   },
   "/OpenKPIs/dimensions/tags/page-title-screen-name-7a0": {
-    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
-    "__props": "__props---open-kp-is-dimensions-tags-page-title-screen-name-2-cc-45e"
+    "__comp": "df203c0f",
+    "__props": "2cc7aa20"
   },
   "/OpenKPIs/dimensions/tags/previous-page-name-referrer-page-2a7": {
-    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
-    "__props": "__props---open-kp-is-dimensions-tags-previous-page-name-referrer-page-9-d-1-c8e"
+    "__comp": "df203c0f",
+    "__props": "9d14be6d"
   },
   "/OpenKPIs/dimensions-129": {
-    "__comp": "__comp---theme-doc-roota-94-67a"
+    "__comp": "a94703ab"
   },
   "/OpenKPIs/dimensions-90d": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---open-kp-is-dimensions-8-a-5-017"
+    "__comp": "17896441",
+    "content": "8a54e505"
   },
   "/OpenKPIs/dimensions/page-name-364": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---open-kp-is-dimensions-page-name-4-a-2-d9f"
+    "__comp": "17896441",
+    "content": "4a2ec5cd"
   },
   "/OpenKPIs/dimensions/page-url-e97": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---open-kp-is-dimensions-page-urlde-2-643"
+    "__comp": "17896441",
+    "content": "de27da49"
   },
   "/OpenKPIs/dimensions/previous-page-06d": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---open-kp-is-dimensions-previous-page-4-ba-744"
+    "__comp": "17896441",
+    "content": "4ba3f97a"
   },
   "/OpenKPIs/docs-47e": {
-    "__comp": "__comp---theme-docs-root-5-e-9-0b6",
+    "__comp": "5e95c892",
     "__context": {
-      "plugin": "plugin---open-kp-is-docsaba-cd3"
+      "plugin": "aba21aa0"
     }
   },
   "/OpenKPIs/docs-934": {
-    "__comp": "__comp---theme-doc-version-roota-7-b-5de",
-    "__props": "__props---open-kp-is-docsfaa-9cc"
+    "__comp": "a7bd4aaa",
+    "__props": "faa7cac0"
   },
   "/OpenKPIs/docs/tags-35b": {
-    "__comp": "__comp---theme-doc-tags-list-page-372-89e",
-    "__props": "__props---open-kp-is-docs-tags-9-b-4-c42"
+    "__comp": "3720c009",
+    "__props": "9b494e7f"
   },
   "/OpenKPIs/docs/tags/checkout-to-order-rate-775": {
-    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
-    "__props": "__props---open-kp-is-docs-tags-checkout-to-order-ratedb-5-d52"
+    "__comp": "df203c0f",
+    "__props": "db57f31a"
   },
   "/OpenKPIs/docs/tags/completed-transactions-3ea": {
-    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
-    "__props": "__props---open-kp-is-docs-tags-completed-transactionsf-19-02b"
+    "__comp": "df203c0f",
+    "__props": "f1940177"
   },
   "/OpenKPIs/docs/tags/confirmed-orders-f4a": {
-    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
-    "__props": "__props---open-kp-is-docs-tags-confirmed-orders-0-cf-422"
+    "__comp": "df203c0f",
+    "__props": "0cf30807"
   },
   "/OpenKPIs/docs/tags/conversion-e66": {
-    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
-    "__props": "__props---open-kp-is-docs-tags-conversion-045-69d"
+    "__comp": "df203c0f",
+    "__props": "0450871f"
   },
   "/OpenKPIs/docs/tags/conversion-rate-to-order-998": {
-    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
-    "__props": "__props---open-kp-is-docs-tags-conversion-rate-to-order-3-e-0-c8f"
+    "__comp": "df203c0f",
+    "__props": "3e0347f7"
   },
   "/OpenKPIs/docs/tags/e-commerce-e09": {
-    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
-    "__props": "__props---open-kp-is-docs-tags-e-commercede-6-573"
+    "__comp": "df203c0f",
+    "__props": "de616e2a"
   },
   "/OpenKPIs/docs/tags/purchase-rate-96f": {
-    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
-    "__props": "__props---open-kp-is-docs-tags-purchase-rate-90-f-ed8"
+    "__comp": "df203c0f",
+    "__props": "90f8dca8"
   },
   "/OpenKPIs/docs/tags/purchases-139": {
-    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
-    "__props": "__props---open-kp-is-docs-tags-purchases-3-d-7-62b"
+    "__comp": "df203c0f",
+    "__props": "3d7e1a9f"
   },
   "/OpenKPIs/docs/tags/retail-b05": {
-    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
-    "__props": "__props---open-kp-is-docs-tags-retailb-91-cb2"
+    "__comp": "df203c0f",
+    "__props": "b915668a"
   },
   "/OpenKPIs/docs/tags/subscription-0e5": {
-    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
-    "__props": "__props---open-kp-is-docs-tags-subscription-631-828"
+    "__comp": "df203c0f",
+    "__props": "63121878"
   },
   "/OpenKPIs/docs/tags/travel-e4d": {
-    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
-    "__props": "__props---open-kp-is-docs-tags-travel-143-1f7"
+    "__comp": "df203c0f",
+    "__props": "1430a8dc"
   },
   "/OpenKPIs/docs-f57": {
-    "__comp": "__comp---theme-doc-roota-94-67a"
+    "__comp": "a94703ab"
   },
   "/OpenKPIs/docs-f39": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---open-kp-is-docs-612-f3f"
+    "__comp": "17896441",
+    "content": "612bf423"
   },
   "/OpenKPIs/docs/order-conversion-rate-visitors-053": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---open-kp-is-docs-order-conversion-rate-visitorsc-68-d73"
+    "__comp": "17896441",
+    "content": "c6854a93"
   },
   "/OpenKPIs/docs/order-conversion-rate-visits-2cf": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---open-kp-is-docs-order-conversion-rate-visitsbca-9d5"
+    "__comp": "17896441",
+    "content": "bcaf8276"
   },
   "/OpenKPIs/docs/orders-472": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---open-kp-is-docs-ordersfae-568"
+    "__comp": "17896441",
+    "content": "faef4eb3"
   },
   "/OpenKPIs/events-b29": {
-    "__comp": "__comp---theme-docs-root-5-e-9-0b6",
+    "__comp": "5e95c892",
     "__context": {
-      "plugin": "plugin---open-kp-is-events-79-b-cb5"
+      "plugin": "79b6951c"
     }
   },
   "/OpenKPIs/events-6f5": {
-    "__comp": "__comp---theme-doc-version-roota-7-b-5de",
-    "__props": "__props---open-kp-is-eventsf-99-9b6"
+    "__comp": "a7bd4aaa",
+    "__props": "f993239d"
   },
   "/OpenKPIs/events-103": {
-    "__comp": "__comp---theme-doc-roota-94-67a"
+    "__comp": "a94703ab"
   },
   "/OpenKPIs/events-b45": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---open-kp-is-eventse-01-99d"
+    "__comp": "17896441",
+    "content": "e01eb8b6"
   },
   "/OpenKPIs/events/addtocart-634": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---open-kp-is-events-addtocartfdb-864"
+    "__comp": "17896441",
+    "content": "fdb40a7d"
   },
   "/OpenKPIs/events/productview-72e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---open-kp-is-events-productview-454-4e4"
+    "__comp": "17896441",
+    "content": "45475c54"
   },
   "/OpenKPIs/events/purchase-95a": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---open-kp-is-events-purchase-78-b-de5"
+    "__comp": "17896441",
+    "content": "78ba771b"
   },
   "/OpenKPIs/-b87": {
-    "__comp": "__comp---site-src-pages-index-tsx-1-df-d3e",
+    "__comp": "1df93b7f",
     "__context": {
-      "plugin": "plugin---open-kp-is-searcha-74-5e8"
+      "plugin": "a7456010"
     },
-    "config": "config---open-kp-is-search-5-e-9-7b3"
+    "config": "5e9f5e1a"
   }
 }

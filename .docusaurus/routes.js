@@ -3,41 +3,6 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
-    path: '/OpenKPIs/__docusaurus/debug',
-    component: ComponentCreator('/OpenKPIs/__docusaurus/debug', 'aa5'),
-    exact: true
-  },
-  {
-    path: '/OpenKPIs/__docusaurus/debug/config',
-    component: ComponentCreator('/OpenKPIs/__docusaurus/debug/config', '612'),
-    exact: true
-  },
-  {
-    path: '/OpenKPIs/__docusaurus/debug/content',
-    component: ComponentCreator('/OpenKPIs/__docusaurus/debug/content', '625'),
-    exact: true
-  },
-  {
-    path: '/OpenKPIs/__docusaurus/debug/globalData',
-    component: ComponentCreator('/OpenKPIs/__docusaurus/debug/globalData', '049'),
-    exact: true
-  },
-  {
-    path: '/OpenKPIs/__docusaurus/debug/metadata',
-    component: ComponentCreator('/OpenKPIs/__docusaurus/debug/metadata', 'ec6'),
-    exact: true
-  },
-  {
-    path: '/OpenKPIs/__docusaurus/debug/registry',
-    component: ComponentCreator('/OpenKPIs/__docusaurus/debug/registry', '1eb'),
-    exact: true
-  },
-  {
-    path: '/OpenKPIs/__docusaurus/debug/routes',
-    component: ComponentCreator('/OpenKPIs/__docusaurus/debug/routes', '445'),
-    exact: true
-  },
-  {
     path: '/OpenKPIs/search',
     component: ComponentCreator('/OpenKPIs/search', '5a1'),
     exact: true
