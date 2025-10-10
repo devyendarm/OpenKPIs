@@ -4,7 +4,7 @@ import type {Config} from '@docusaurus/types';
 const config: Config = {
   title: 'Open KPIs',
   url: 'https://devyendarm.github.io',
-  baseUrl: '/OpenKPIs/',
+  baseUrl: '/',
   trailingSlash: false,
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
