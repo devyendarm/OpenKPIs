@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import useBaseUrl from '@docusaurus/core/lib/client/exports/useBaseUrl';
 import {useLocation} from '@docusaurus/router';
+import { Button, Box } from '@mui/material';
+import { Add as AddIcon } from '@mui/icons-material';
 
 type Item = {
   id: string;
@@ -54,6 +56,18 @@ export default function Catalog({ section }: { section: 'kpis'|'dimensions'|'eve
 
   return (
     <div className="catalog-page" style={{marginBottom: '2rem'}}>
+      <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
+        <h1 style={{ margin: 0 }}>{section.charAt(0).toUpperCase() + section.slice(1)}</h1>
+        <Button
+          variant="contained"
+          startIcon={<AddIcon />}
+          href={`/${section}/new`}
+          sx={{ ml: 2 }}
+        >
+          Create New {section.slice(0, -1)}
+        </Button>
+      </Box>
+      
       <div className="catalog-filters" style={{display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '2rem', alignItems: 'end'}}>
         <div>
           <label style={{display: 'block', fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.25rem'}}>Search</label>
