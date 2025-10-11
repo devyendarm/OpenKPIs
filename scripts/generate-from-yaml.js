@@ -9,6 +9,7 @@ const SOURCES = [
   { key: 'kpis',       src: 'data-layer/kpis',       out: 'docs/kpis' },
   { key: 'dimensions', src: 'data-layer/dimensions', out: 'docs/dimensions' },
   { key: 'events',     src: 'data-layer/events',     out: 'docs/events' },
+  { key: 'metrics',    src: 'data-layer/metrics',    out: 'docs/metrics' },
 ];
 
 // Front matter helper
@@ -530,7 +531,7 @@ for (const sect of SOURCES) {
   //     NOTE: MDX requires imports immediately after front matter.
   // --------------------------------------------------------------------------------
   const indexFile = path.join(outDir, 'index.mdx');
-  const catalogTitle = sect.key[0].toUpperCase() + sect.key.slice(1);
+  const catalogTitle = sect.key === 'kpis' ? 'KPIs' : sect.key[0].toUpperCase() + sect.key.slice(1);
 
   const indexFrontMatter = fm({
     id: 'index',
@@ -651,7 +652,12 @@ for (const sect of SOURCES) {
       chunks.push(`<div class="mui-section">\n<h2>Related</h2>\n<div class="mui-overview">\n${relatedLinks}\n</div>\n</div>`);
     }
 
-    const mdx = fm(frontMatter) + chunks.filter(Boolean).join('\n\n');
+    const mdx = fm(frontMatter) + 
+      `import SubmitNewButton from '@site/src/components/SubmitNewButton';\n` +
+      `import KpiEditorWrapper from '@site/src/components/KpiEditorWrapper';\n\n` +
+      `<SubmitNewButton section="${sect.key}" />\n\n` +
+      chunks.filter(Boolean).join('\n\n') + 
+      `\n\n<KpiEditorWrapper kpiId="${id}" section="${sect.key}" />`;
     await fs.writeFile(path.join(outDir, `${id}.mdx`), mdx);
     sidebarItems.push(id);
 

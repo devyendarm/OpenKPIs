@@ -9,6 +9,11 @@ toc_max_heading_level: 4
 hide_table_of_contents: false
 ---
 
+import SubmitNewButton from '@site/src/components/SubmitNewButton';
+import KpiEditorWrapper from '@site/src/components/KpiEditorWrapper';
+
+<SubmitNewButton section="events" />
+
 <div class="mui-section">
 <h2>Overview</h2>
 <div class="mui-overview">Captures when a user adds a product to their cart. This is a key micro-conversion event enabling calculation of Add-to-Cart Rate Cart Abandonment Rate and Product Funnel metrics.</div>
@@ -122,3 +127,5 @@ hide_table_of_contents: false
 
 **Last Updated**: 2025-10-09 00:45:25.450000
 </div>
+
+<KpiEditorWrapper kpiId="addtocart" section="events" />

@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import useBaseUrl from '@docusaurus/core/lib/client/exports/useBaseUrl';
-import {useLocation} from '@docusaurus/router';
-import { Button, Box } from '@mui/material';
+import { Button } from '@mui/material';
 import { Add as AddIcon } from '@mui/icons-material';
 
 type Item = {
@@ -14,13 +13,12 @@ type Item = {
   industry?: string[];
 };
 
-export default function Catalog({ section }: { section: 'kpis'|'dimensions'|'events' }) {
+export default function Catalog({ section }: { section: 'kpis'|'dimensions'|'events'|'metrics' }) {
   const [items, setItems] = useState<Item[]>([]);
   const [q, setQ] = useState('');
   const [tag, setTag] = useState<string>('');
   const [cat, setCat] = useState<string>('');
   const [ind, setInd] = useState<string>('');
-  const location = useLocation();
 
   const url = useBaseUrl(`/indexes/${section}.json`);
   // Fix URL routing: KPIs use /docs/, others use their section name
@@ -28,15 +26,28 @@ export default function Catalog({ section }: { section: 'kpis'|'dimensions'|'eve
 
   // Handle URL search parameters
   useEffect(() => {
-    const urlParams = new URLSearchParams(location.search);
-    const searchParam = urlParams.get('search');
-    if (searchParam) {
-      setQ(searchParam);
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const searchParam = urlParams.get('search') || urlParams.get('q');
+      if (searchParam) setQ(searchParam);
     }
-  }, [location.search]);
+  }, []);
 
   useEffect(() => {
-    fetch(url).then(r=>r.json()).then(setItems).catch(()=>setItems([]));
+    console.log('Fetching data from:', url); // Debug log
+    fetch(url)
+      .then(r => {
+        console.log('Response status:', r.status); // Debug log
+        return r.json();
+      })
+      .then(data => {
+        console.log('Loaded items:', data.length, data); // Debug log
+        setItems(data);
+      })
+      .catch(err => {
+        console.error('Error loading data:', err); // Debug log
+        setItems([]);
+      });
   }, [url]);
 
   const tags = useMemo(() => Array.from(new Set(items.flatMap(i=>i.tags||[]))).sort(), [items]);
@@ -45,35 +56,47 @@ export default function Catalog({ section }: { section: 'kpis'|'dimensions'|'eve
 
   const filtered = useMemo(() => {
     const qlc = q.trim().toLowerCase();
+    console.log('Search query:', qlc, 'Items count:', items.length); // Debug log
     return items.filter(i => {
-      const matchQ = !qlc || [i.title, i.description, ...(i.tags||[])].filter(Boolean).join(' ').toLowerCase().includes(qlc);
+      const searchableText = [
+        i.title,
+        i.description,
+        ...(i.tags || []),
+        ...(i.category || []),
+        ...(i.industry || [])
+      ].filter(Boolean).join(' ').toLowerCase();
+      
+      const matchQ = !qlc || searchableText.includes(qlc);
       const matchTag = !tag || (i.tags||[]).includes(tag);
       const matchCat = !cat || (i.category||[]).includes(cat);
       const matchInd = !ind || (i.industry||[]).includes(ind);
+      
+      if (qlc && matchQ) {
+        console.log('Match found:', i.title, 'Searchable text:', searchableText); // Debug log
+      }
+      
       return matchQ && matchTag && matchCat && matchInd;
     });
   }, [items, q, tag, cat, ind]);
 
   return (
     <div className="catalog-page" style={{marginBottom: '2rem'}}>
-      <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
-        <h1 style={{ margin: 0 }}>{section.charAt(0).toUpperCase() + section.slice(1)}</h1>
+      <div className="submit-new-cta">
         <Button
           variant="contained"
           startIcon={<AddIcon />}
-          href={`/${section}/new`}
-          sx={{ ml: 2 }}
+          href={useBaseUrl(`/${section}/new`)}
         >
-          Create New {section.slice(0, -1)}
+          {section === 'kpis' ? 'Add New KPI' : section === 'dimensions' ? 'Add New Dimension' : section === 'events' ? 'Add New Event' : 'Add New Metric'}
         </Button>
-      </Box>
+      </div>
       
       <div className="catalog-filters" style={{display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '2rem', alignItems: 'end'}}>
         <div>
           <label style={{display: 'block', fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.25rem'}}>Search</label>
           <input
             style={{border: '1px solid var(--ifm-color-emphasis-300)', borderRadius: '0.375rem', padding: '0.5rem 0.75rem', width: '16rem'}}
-            placeholder={`Search ${section}...`}
+            placeholder={section === 'kpis' ? 'Search KPIs...' : `Search ${section}...`}
             value={q}
             onChange={e=>setQ(e.target.value)}
           />

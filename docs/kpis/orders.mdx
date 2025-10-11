@@ -9,6 +9,11 @@ toc_max_heading_level: 4
 hide_table_of_contents: false
 ---
 
+import SubmitNewButton from '@site/src/components/SubmitNewButton';
+import KpiEditorWrapper from '@site/src/components/KpiEditorWrapper';
+
+<SubmitNewButton section="kpis" />
+
 <div class="mui-section">
 <h2>Overview</h2>
 <div class="mui-overview">Indicates the number purchases or transactions successfully completed an individual customer or all customers during a selected time period.</div>
@@ -206,3 +211,5 @@ ORDER BY order_date;</div>
 - [Conversion Rate](./conversion-rate)
 </div>
 </div>
+
+<KpiEditorWrapper kpiId="orders" section="kpis" />

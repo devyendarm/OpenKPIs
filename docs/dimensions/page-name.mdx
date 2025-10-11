@@ -9,6 +9,11 @@ toc_max_heading_level: 4
 hide_table_of_contents: false
 ---
 
+import SubmitNewButton from '@site/src/components/SubmitNewButton';
+import KpiEditorWrapper from '@site/src/components/KpiEditorWrapper';
+
+<SubmitNewButton section="dimensions" />
+
 <div class="mui-section">
 <h2>Overview</h2>
 <div class="mui-overview">The human-readable title or name of the web page or app screen viewed by the user. Commonly corresponds to the &lt;title&gt; tag of the page or the logical name of the screen in mobile applications. Used to identify and categorize user navigation and engagement patterns across the site or app.</div>
@@ -85,3 +90,5 @@ hide_table_of_contents: false
 
 **PII Flag**: false
 </div>
+
+<KpiEditorWrapper kpiId="page-name" section="dimensions" />

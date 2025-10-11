@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Layout from '@docusaurus/theme-classic/lib/theme/Layout';
+import Layout from '@theme/Layout';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import { 
   Box, 
   Card, 
@@ -77,6 +78,7 @@ const EVENT_TYPES = [
 ];
 
 export default function NewEventPage() {
+  const baseUrl = useBaseUrl('/');
   const [user, setUser] = useState<User>({ authenticated: false });
   const [loading, setLoading] = useState(true);
   const [creating, setCreating] = useState(false);
@@ -123,25 +125,62 @@ export default function NewEventPage() {
 
   useEffect(() => {
     checkAuth();
+    
+    // Listen for auth changes from the global signin component
+    const handleAuthChange = (event: CustomEvent) => {
+      console.log('Auth changed in form:', event.detail);
+      setUser(event.detail);
+      setLoading(false);
+    };
+    
+    window.addEventListener('openkpis-auth-change', handleAuthChange as EventListener);
+    
+    // Also check if there's already a global user object
+    if ((window as any).__OPENKPIS_USER__) {
+      console.log('Using cached user from global:', (window as any).__OPENKPIS_USER__);
+      setUser((window as any).__OPENKPIS_USER__);
+      setLoading(false);
+    }
+    
+    return () => {
+      window.removeEventListener('openkpis-auth-change', handleAuthChange as EventListener);
+    };
   }, []);
 
   const checkAuth = async () => {
     try {
+      console.log('Form: Checking authentication...');
       const response = await fetch(`${WORKER_BASE_URL}/me`, {
-        credentials: 'include'
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+          'Accept': 'application/json',
+        },
       });
-      const userData = await response.json();
-      setUser(userData);
+      console.log('Form: Auth response status:', response.status);
+      
+      if (response.ok) {
+        const userData = await response.json();
+        console.log('Form: User data received:', userData);
+        setUser(userData);
+      } else {
+        console.log('Form: Not authenticated');
+        setUser({ authenticated: false });
+      }
     } catch (error) {
-      console.error('Auth check failed:', error);
+      console.error('Form: Auth check failed:', error);
+      setUser({ authenticated: false });
     } finally {
       setLoading(false);
     }
   };
 
-  const handleSignIn = () => {
-    window.location.href = `${WORKER_BASE_URL}/oauth/login`;
-  };
+  const loginUrl = React.useMemo(() => {
+    const base = `${WORKER_BASE_URL}/oauth/login`;
+    if (typeof window === 'undefined') return base;
+    const returnUrl = encodeURIComponent(window.location.href);
+    return `${base}?return_url=${returnUrl}`;
+  }, []);
 
   const handleInputChange = (field: string) => (event: any) => {
     setFormData(prev => ({
@@ -371,9 +410,10 @@ import KpiEditorWrapper from '@site/src/components/KpiEditorWrapper';
 
       setSuccess('Event created successfully! Redirecting to edit mode...');
       
-      // Redirect to the new event page in edit mode
+      // Redirect to the new event page in edit mode (baseUrl-aware)
       setTimeout(() => {
-        window.location.href = `/events/${id}?edit=1`;
+        const dest = `${(baseUrl || '/').replace(/\/$/, '')}/events/${id}?edit=1`;
+        window.location.href = dest;
       }, 2000);
 
     } catch (error) {
@@ -393,33 +433,7 @@ import KpiEditorWrapper from '@site/src/components/KpiEditorWrapper';
     );
   }
 
-  if (!user.authenticated) {
-    return (
-      <Layout title="Create New Event" description="Create a new event definition">
-        <Box maxWidth="800px" mx="auto" p={3}>
-          <Card>
-            <CardContent sx={{ textAlign: 'center', py: 4 }}>
-              <Typography variant="h4" gutterBottom>
-                Sign In Required
-              </Typography>
-              <Typography variant="body1" paragraph>
-                You need to sign in with GitHub to create a new event.
-              </Typography>
-              <Button
-                variant="contained"
-                size="large"
-                onClick={handleSignIn}
-                startIcon={<GitHubIcon />}
-                sx={{ mt: 2 }}
-              >
-                Sign in with GitHub
-              </Button>
-            </CardContent>
-          </Card>
-        </Box>
-      </Layout>
-    );
-  }
+  // Always render the form; if not authenticated, show banner and disable submit
 
   return (
     <Layout title="Create New Event" description="Create a new event definition">
@@ -427,6 +441,11 @@ import KpiEditorWrapper from '@site/src/components/KpiEditorWrapper';
         <Typography variant="h3" gutterBottom>
           Create New Event
         </Typography>
+        {!user.authenticated && (
+          <Alert severity="info" sx={{ mb: 2 }}>
+            Sign in with GitHub to enable submission. Your work will be saved to a PR.
+          </Alert>
+        )}
         
         <Typography variant="body1" paragraph color="text.secondary">
           Fill out the form below to create a new event definition. Your submission will be reviewed by maintainers.
@@ -450,11 +469,17 @@ import KpiEditorWrapper from '@site/src/components/KpiEditorWrapper';
               <Typography variant="h5">
                 Event Information
               </Typography>
-              <Chip 
-                label={`Signed in as: ${user.login}`} 
-                color="primary" 
-                variant="outlined" 
-              />
+              {user.authenticated ? (
+                <Chip 
+                  label={`Signed in as: ${user.login}`} 
+                  color="primary" 
+                  variant="outlined" 
+                />
+              ) : (
+                <a href={loginUrl} style={{ textDecoration: 'none' }}>
+                  <Button variant="contained" startIcon={<GitHubIcon />}>Sign in with GitHub</Button>
+                </a>
+              )}
             </Box>
 
             <Box display="flex" flexDirection="column" gap={3}>
@@ -695,7 +720,7 @@ import KpiEditorWrapper from '@site/src/components/KpiEditorWrapper';
                   variant="contained"
                   size="large"
                   onClick={handleSubmit}
-                  disabled={creating || !formData.name || !formData.description}
+                  disabled={creating || !user.authenticated || !formData.name || !formData.description}
                   startIcon={creating ? <CircularProgress size={20} /> : <SaveIcon />}
                 >
                   {creating ? 'Creating Event...' : 'Create Event'}

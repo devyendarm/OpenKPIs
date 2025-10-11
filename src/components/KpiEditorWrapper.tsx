@@ -4,7 +4,7 @@ import KpiEditor from '@site/src/components/KpiEditor';
 
 interface KpiEditorWrapperProps {
   kpiId: string;
-  section: 'kpis' | 'dimensions' | 'events';
+  section: 'kpis' | 'dimensions' | 'events' | 'metrics';
 }
 
 export default function KpiEditorWrapper({ kpiId, section }: KpiEditorWrapperProps) {

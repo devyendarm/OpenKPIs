@@ -9,6 +9,11 @@ toc_max_heading_level: 4
 hide_table_of_contents: false
 ---
 
+import SubmitNewButton from '@site/src/components/SubmitNewButton';
+import KpiEditorWrapper from '@site/src/components/KpiEditorWrapper';
+
+<SubmitNewButton section="dimensions" />
+
 <div class="mui-section">
 <h2>Overview</h2>
 <div class="mui-overview">The name or title of the page the user visited immediately before the current page view. This dimension helps identify user navigation paths drop-offs and internal flow across pages or app screens. It represents the source page within the same domain that led to the current page view.</div>
@@ -85,3 +90,5 @@ hide_table_of_contents: false
 
 **PII Flag**: false
 </div>
+
+<KpiEditorWrapper kpiId="previous-page" section="dimensions" />

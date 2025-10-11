@@ -32,6 +32,10 @@ const config: Config = {
       src: '/OpenKPIs/js/copy-code.js?v=9',
       async: true,
     },
+    {
+      src: '/OpenKPIs/js/github-signin-mount.js?v=3',
+      async: false,
+    },
   ],
 
   plugins: [
@@ -53,6 +57,15 @@ const config: Config = {
         sidebarPath: require.resolve('./sidebars.events.js'),
       },
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'metrics',
+        path: 'docs/metrics',
+        routeBasePath: 'metrics',
+        sidebarPath: require.resolve('./sidebars.metrics.js'),
+      },
+    ],
   ],
 
   themeConfig: {
@@ -70,6 +83,7 @@ const config: Config = {
         { to: '/docs', label: 'KPIs', position: 'left' },
         { to: '/dimensions', label: 'Dimensions', position: 'left' },
         { to: '/events', label: 'Events', position: 'left' },
+        { to: '/metrics', label: 'Metrics', position: 'left' },
         {
           type: 'dropdown',
           label: 'Industries',
@@ -95,7 +109,12 @@ const config: Config = {
         {
           type: 'html',
           position: 'right',
-          value: '<input type="text" placeholder="Search" style="padding: 0.4rem 0.6rem; border: 1px solid var(--ifm-color-emphasis-300); border-radius: 4px; font-size: 0.85rem; width: 120px; background-color: var(--ifm-background-color); color: var(--ifm-font-color-base); outline: none;" onkeypress="if(event.key===\'Enter\'){window.location.href=\'./search?q=\'+encodeURIComponent(this.value)}" />',
+          value: '<input type="text" placeholder="Search" style="padding: 0.4rem 0.6rem; border: 1px solid var(--ifm-color-emphasis-300); border-radius: 4px; font-size: 0.85rem; width: 120px; background-color: var(--ifm-background-color); color: var(--ifm-font-color-base); outline: none;" onkeypress="if(event.key===\'Enter\'){var b=(window.__docusaurus&&window.__docusaurus.baseUrl)||\'/\'; window.location.href=b+\'search?q=\'+encodeURIComponent(this.value)}" />',
+        },
+        {
+          type: 'html',
+          position: 'right',
+          value: '<div id="github-signin-root" style="display: inline-block; margin: 0 0.5rem;"></div>',
         },
         { href: 'https://github.com/devyendarm/OpenKPIs', label: 'GitHub', position: 'right' },
       ],

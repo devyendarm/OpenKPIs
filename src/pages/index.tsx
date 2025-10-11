@@ -7,6 +7,11 @@ export default function Home() {
   const kpisUrl = useBaseUrl('/docs');
   const dimensionsUrl = useBaseUrl('/dimensions');
   const eventsUrl = useBaseUrl('/events');
+  const metricsUrl = useBaseUrl('/metrics');
+  const kpisIndexUrl = useBaseUrl('/indexes/kpis.json');
+  const dimensionsIndexUrl = useBaseUrl('/indexes/dimensions.json');
+  const eventsIndexUrl = useBaseUrl('/indexes/events.json');
+  const metricsIndexUrl = useBaseUrl('/indexes/metrics.json');
   
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -66,16 +71,18 @@ export default function Home() {
       // Load and search through actual data from JSON files
       const searchData = async () => {
         try {
-          const [kpisResponse, dimensionsResponse, eventsResponse] = await Promise.all([
-            fetch('/OpenKPIs/indexes/kpis.json'),
-            fetch('/OpenKPIs/indexes/dimensions.json'),
-            fetch('/OpenKPIs/indexes/events.json')
+          const [kpisResponse, dimensionsResponse, eventsResponse, metricsResponse] = await Promise.all([
+            fetch(kpisIndexUrl),
+            fetch(dimensionsIndexUrl),
+            fetch(eventsIndexUrl),
+            fetch(metricsIndexUrl)
           ]);
           
-          const [kpis, dimensions, events] = await Promise.all([
+          const [kpis, dimensions, events, metrics] = await Promise.all([
             kpisResponse.json(),
             dimensionsResponse.json(),
-            eventsResponse.json()
+            eventsResponse.json(),
+            metricsResponse.json()
           ]);
           
           const allResults = [
@@ -102,6 +109,15 @@ export default function Home() {
               title: item.title,
               description: item.description,
               url: `/events${item.slug}`,
+              tags: item.tags || [],
+              category: item.category || [],
+              industry: item.industry || []
+            })),
+            ...metrics.map(item => ({
+              type: 'Metric',
+              title: item.title,
+              description: item.description,
+              url: `/metrics${item.slug}`,
               tags: item.tags || [],
               category: item.category || [],
               industry: item.industry || []
@@ -140,7 +156,7 @@ export default function Home() {
         <section className="hero-banner" style={{
           padding: '4rem 1rem 3rem',
           textAlign: 'center',
-          backgroundImage: 'url(/OpenKPIs/img/backgroud_img.png)',
+          backgroundImage: 'url(/img/backgroud_img.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -435,241 +451,220 @@ export default function Home() {
               margin: '0 auto'
             }}>
               {/* KPIs Card */}
-              <div style={{
-                backgroundColor: 'var(--ifm-background-color)',
-                borderRadius: '12px',
-                padding: 'clamp(1rem, 3vw, 1.5rem)',
-                border: '1px solid var(--ifm-color-emphasis-200)',
-                transition: 'all 0.2s ease',
-                cursor: 'pointer',
-                position: 'relative',
-                display: 'flex',
-                flexDirection: 'column'
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 8px 30px rgba(0,0,0,0.08)';
-                e.currentTarget.style.borderColor = '#F97316';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-                e.currentTarget.style.borderColor = 'var(--ifm-color-emphasis-200)';
-              }}>
+              <a 
+                href={kpisUrl}
+                style={{
+                  textDecoration: 'none',
+                  color: 'inherit'
+                }}
+              >
                 <div style={{
+                  backgroundColor: 'var(--ifm-background-color)',
+                  borderRadius: '12px',
+                  padding: 'clamp(1rem, 3vw, 1.5rem)',
+                  border: '1px solid var(--ifm-color-emphasis-200)',
+                  transition: 'all 0.2s ease',
+                  cursor: 'pointer',
+                  position: 'relative',
                   display: 'flex',
-                  alignItems: 'center',
-                  marginBottom: 'clamp(0.75rem, 2vw, 1rem)'
+                  flexDirection: 'column',
+                  height: '100%'
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(249, 115, 22, 0.15)';
+                  e.currentTarget.style.borderColor = '#F97316';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.borderColor = 'var(--ifm-color-emphasis-200)';
                 }}>
                   <div style={{
-                    width: 'clamp(32px, 5vw, 40px)',
-                    height: 'clamp(32px, 5vw, 40px)',
-                    backgroundColor: '#F97316', // Orange
-                    borderRadius: '8px',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    marginRight: 'clamp(0.5rem, 2vw, 0.75rem)',
-                    fontSize: 'clamp(1rem, 3vw, 1.25rem)',
-                    color: 'white'
+                    marginBottom: 'clamp(0.75rem, 2vw, 1rem)'
                   }}>
-                    <svg width="clamp(16px, 3vw, 20px)" height="clamp(16px, 3vw, 20px)" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-                    </svg>
+                    <div style={{
+                      width: 'clamp(32px, 5vw, 40px)',
+                      height: 'clamp(32px, 5vw, 40px)',
+                      backgroundColor: '#F97316', // Orange
+                      borderRadius: '8px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginRight: 'clamp(0.5rem, 2vw, 0.75rem)',
+                      fontSize: 'clamp(1rem, 3vw, 1.25rem)',
+                      color: 'white'
+                    }}>
+                      <svg width="clamp(16px, 3vw, 20px)" height="clamp(16px, 3vw, 20px)" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                      </svg>
+                    </div>
+                    <h3 style={{ 
+                      margin: 0, 
+                      fontSize: 'clamp(1rem, 3vw, 1.25rem)',
+                      fontWeight: '600',
+                      color: 'var(--ifm-color-emphasis-900)'
+                    }}>
+                      KPIs
+                    </h3>
                   </div>
-                  <h3 style={{ 
-                    margin: 0, 
-                    fontSize: 'clamp(1rem, 3vw, 1.25rem)',
-                    fontWeight: '600',
-                    color: 'var(--ifm-color-emphasis-900)'
+                  <p style={{ 
+                    color: 'var(--ifm-color-emphasis-600)', 
+                    marginBottom: 0,
+                    lineHeight: '1.5',
+                    fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
+                    flex: 1
                   }}>
-                    KPIs
-                  </h3>
+                    Standardized KPI definitions with formulas, implementation guides, and platform equivalents.
+                  </p>
                 </div>
-                <p style={{ 
-                  color: 'var(--ifm-color-emphasis-600)', 
-                  marginBottom: 'clamp(1rem, 2.5vw, 1.5rem)',
-                  lineHeight: '1.5',
-                  fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
-                  flex: 1
-                }}>
-                  Standardized KPI definitions with formulas, implementation guides, and platform equivalents.
-                </p>
-                <a 
-                  className="button button--primary" 
-                  href={kpisUrl}
-                  style={{
-                    fontSize: 'clamp(0.75rem, 2vw, 0.85rem)',
-                    padding: 'clamp(0.4rem, 1.5vw, 0.5rem) clamp(0.75rem, 2vw, 1rem)',
-                    borderRadius: '6px',
-                    fontWeight: '500',
-                    marginTop: 'auto',
-                    alignSelf: 'flex-start',
-                    backgroundColor: '#F97316',
-                    borderColor: '#F97316'
-                  }}
-                >
-                  Explore KPIs →
-                </a>
-              </div>
+              </a>
 
               {/* Dimensions Card */}
-              <div style={{
-                backgroundColor: 'var(--ifm-background-color)',
-                borderRadius: '12px',
-                padding: 'clamp(1rem, 3vw, 1.5rem)',
-                border: '1px solid var(--ifm-color-emphasis-200)',
-                transition: 'all 0.2s ease',
-                cursor: 'pointer',
-                position: 'relative',
-                display: 'flex',
-                flexDirection: 'column'
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 8px 30px rgba(0,0,0,0.08)';
-                e.currentTarget.style.borderColor = '#10B981';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-                e.currentTarget.style.borderColor = 'var(--ifm-color-emphasis-200)';
-              }}>
+              <a 
+                href={dimensionsUrl}
+                style={{
+                  textDecoration: 'none',
+                  color: 'inherit'
+                }}
+              >
                 <div style={{
+                  backgroundColor: 'var(--ifm-background-color)',
+                  borderRadius: '12px',
+                  padding: 'clamp(1rem, 3vw, 1.5rem)',
+                  border: '1px solid var(--ifm-color-emphasis-200)',
+                  transition: 'all 0.2s ease',
+                  cursor: 'pointer',
+                  position: 'relative',
                   display: 'flex',
-                  alignItems: 'center',
-                  marginBottom: 'clamp(0.75rem, 2vw, 1rem)'
+                  flexDirection: 'column',
+                  height: '100%'
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(16, 185, 129, 0.15)';
+                  e.currentTarget.style.borderColor = '#10B981';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.borderColor = 'var(--ifm-color-emphasis-200)';
                 }}>
                   <div style={{
-                    width: 'clamp(32px, 5vw, 40px)',
-                    height: 'clamp(32px, 5vw, 40px)',
-                    backgroundColor: '#10B981', // Green
-                    borderRadius: '8px',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    marginRight: 'clamp(0.5rem, 2vw, 0.75rem)',
-                    fontSize: 'clamp(1rem, 3vw, 1.25rem)',
-                    color: 'white'
+                    marginBottom: 'clamp(0.75rem, 2vw, 1rem)'
                   }}>
-                    <svg width="clamp(16px, 3vw, 20px)" height="clamp(16px, 3vw, 20px)" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                    </svg>
+                    <div style={{
+                      width: 'clamp(32px, 5vw, 40px)',
+                      height: 'clamp(32px, 5vw, 40px)',
+                      backgroundColor: '#10B981', // Green
+                      borderRadius: '8px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginRight: 'clamp(0.5rem, 2vw, 0.75rem)',
+                      fontSize: 'clamp(1rem, 3vw, 1.25rem)',
+                      color: 'white'
+                    }}>
+                      <svg width="clamp(16px, 3vw, 20px)" height="clamp(16px, 3vw, 20px)" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                      </svg>
+                    </div>
+                    <h3 style={{ 
+                      margin: 0, 
+                      fontSize: 'clamp(1rem, 3vw, 1.25rem)',
+                      fontWeight: '600',
+                      color: 'var(--ifm-color-emphasis-900)'
+                    }}>
+                      Dimensions
+                    </h3>
                   </div>
-                  <h3 style={{ 
-                    margin: 0, 
-                    fontSize: 'clamp(1rem, 3vw, 1.25rem)',
-                    fontWeight: '600',
-                    color: 'var(--ifm-color-emphasis-900)'
+                  <p style={{ 
+                    color: 'var(--ifm-color-emphasis-600)', 
+                    marginBottom: 0,
+                    lineHeight: '1.5',
+                    fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
+                    flex: 1
                   }}>
-                    Dimensions
-                  </h3>
+                    Data attributes and segmentation variables used across KPIs for consistent analysis.
+                  </p>
                 </div>
-                <p style={{ 
-                  color: 'var(--ifm-color-emphasis-600)', 
-                  marginBottom: 'clamp(1rem, 2.5vw, 1.5rem)',
-                  lineHeight: '1.5',
-                  fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
-                  flex: 1
-                }}>
-                  Data attributes and segmentation variables used across KPIs for consistent analysis.
-                </p>
-                <a 
-                  className="button button--primary" 
-                  href={dimensionsUrl}
-                  style={{
-                    fontSize: 'clamp(0.75rem, 2vw, 0.85rem)',
-                    padding: 'clamp(0.4rem, 1.5vw, 0.5rem) clamp(0.75rem, 2vw, 1rem)',
-                    borderRadius: '6px',
-                    fontWeight: '500',
-                    marginTop: 'auto',
-                    alignSelf: 'flex-start',
-                    backgroundColor: '#10B981',
-                    borderColor: '#10B981'
-                  }}
-                >
-                  Browse Dimensions →
-                </a>
-              </div>
+              </a>
 
               {/* Events Card */}
-              <div style={{
-                backgroundColor: 'var(--ifm-background-color)',
-                borderRadius: '12px',
-                padding: 'clamp(1rem, 3vw, 1.5rem)',
-                border: '1px solid var(--ifm-color-emphasis-200)',
-                transition: 'all 0.2s ease',
-                cursor: 'pointer',
-                position: 'relative',
-                display: 'flex',
-                flexDirection: 'column'
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 8px 30px rgba(0,0,0,0.08)';
-                e.currentTarget.style.borderColor = '#8B5CF6';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-                e.currentTarget.style.borderColor = 'var(--ifm-color-emphasis-200)';
-              }}>
+              <a 
+                href={eventsUrl}
+                style={{
+                  textDecoration: 'none',
+                  color: 'inherit'
+                }}
+              >
                 <div style={{
+                  backgroundColor: 'var(--ifm-background-color)',
+                  borderRadius: '12px',
+                  padding: 'clamp(1rem, 3vw, 1.5rem)',
+                  border: '1px solid var(--ifm-color-emphasis-200)',
+                  transition: 'all 0.2s ease',
+                  cursor: 'pointer',
+                  position: 'relative',
                   display: 'flex',
-                  alignItems: 'center',
-                  marginBottom: 'clamp(0.75rem, 2vw, 1rem)'
+                  flexDirection: 'column',
+                  height: '100%'
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(139, 92, 246, 0.15)';
+                  e.currentTarget.style.borderColor = '#8B5CF6';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.borderColor = 'var(--ifm-color-emphasis-200)';
                 }}>
                   <div style={{
-                    width: 'clamp(32px, 5vw, 40px)',
-                    height: 'clamp(32px, 5vw, 40px)',
-                    backgroundColor: '#8B5CF6', // Purple
-                    borderRadius: '8px',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    marginRight: 'clamp(0.5rem, 2vw, 0.75rem)',
-                    fontSize: 'clamp(1rem, 3vw, 1.25rem)',
-                    color: 'white'
+                    marginBottom: 'clamp(0.75rem, 2vw, 1rem)'
                   }}>
-                    <svg width="clamp(16px, 3vw, 20px)" height="clamp(16px, 3vw, 20px)" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
+                    <div style={{
+                      width: 'clamp(32px, 5vw, 40px)',
+                      height: 'clamp(32px, 5vw, 40px)',
+                      backgroundColor: '#8B5CF6', // Purple
+                      borderRadius: '8px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginRight: 'clamp(0.5rem, 2vw, 0.75rem)',
+                      fontSize: 'clamp(1rem, 3vw, 1.25rem)',
+                      color: 'white'
+                    }}>
+                      <svg width="clamp(16px, 3vw, 20px)" height="clamp(16px, 3vw, 20px)" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                      </svg>
+                    </div>
+                    <h3 style={{ 
+                      margin: 0, 
+                      fontSize: 'clamp(1rem, 3vw, 1.25rem)',
+                      fontWeight: '600',
+                      color: 'var(--ifm-color-emphasis-900)'
+                    }}>
+                      Events
+                    </h3>
                   </div>
-                  <h3 style={{ 
-                    margin: 0, 
-                    fontSize: 'clamp(1rem, 3vw, 1.25rem)',
-                    fontWeight: '600',
-                    color: 'var(--ifm-color-emphasis-900)'
+                  <p style={{ 
+                    color: 'var(--ifm-color-emphasis-600)', 
+                    marginBottom: 0,
+                    lineHeight: '1.5',
+                    fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
+                    flex: 1
                   }}>
-                    Events
-                  </h3>
+                    Tracking events and parameters needed to calculate KPIs across different platforms.
+                  </p>
                 </div>
-                <p style={{ 
-                  color: 'var(--ifm-color-emphasis-600)', 
-                  marginBottom: 'clamp(1rem, 2.5vw, 1.5rem)',
-                  lineHeight: '1.5',
-                  fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
-                  flex: 1
-                }}>
-                  Tracking events and parameters needed to calculate KPIs across different platforms.
-                </p>
-                <a 
-                  className="button button--primary" 
-                  href={eventsUrl}
-                  style={{
-                    fontSize: 'clamp(0.75rem, 2vw, 0.85rem)',
-                    padding: 'clamp(0.4rem, 1.5vw, 0.5rem) clamp(0.75rem, 2vw, 1rem)',
-                    borderRadius: '6px',
-                    fontWeight: '500',
-                    marginTop: 'auto',
-                    alignSelf: 'flex-start',
-                    backgroundColor: '#8B5CF6',
-                    borderColor: '#8B5CF6'
-                  }}
-                >
-                  View Events →
-                </a>
-              </div>
+              </a>
             </div>
           </div>
         </section>

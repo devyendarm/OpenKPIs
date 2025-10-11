@@ -29,7 +29,7 @@ interface CommitResult {
 
 interface KpiEditorProps {
   kpiId: string;
-  section: 'kpis' | 'dimensions' | 'events';
+  section: 'kpis' | 'dimensions' | 'events' | 'metrics';
 }
 
 export default function KpiEditor({ kpiId, section }: KpiEditorProps) {

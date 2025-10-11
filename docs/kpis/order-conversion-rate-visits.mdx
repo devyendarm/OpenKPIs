@@ -9,6 +9,11 @@ toc_max_heading_level: 4
 hide_table_of_contents: false
 ---
 
+import SubmitNewButton from '@site/src/components/SubmitNewButton';
+import KpiEditorWrapper from '@site/src/components/KpiEditorWrapper';
+
+<SubmitNewButton section="kpis" />
+
 <div class="mui-section">
 <h2>Overview</h2>
 <div class="mui-overview">Measures the rate at which sessions or visits convert into completed orders. It helps in capturing the effectiveness of website or app in converting visits to customers</div>
@@ -210,3 +215,5 @@ ORDER BY event_date;</div>
 - [Cart Abandonment Rate](./cart-abandonment-rate)
 </div>
 </div>
+
+<KpiEditorWrapper kpiId="order-conversion-rate-visits" section="kpis" />

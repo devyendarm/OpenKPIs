@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Layout from '@docusaurus/theme-classic/lib/theme/Layout';
 import useBaseUrl from '@docusaurus/core/lib/client/exports/useBaseUrl';
+import Layout from '@docusaurus/theme-classic/lib/theme/Layout';
 
 interface SearchResult {
   type: string;
@@ -13,6 +13,11 @@ interface SearchResult {
 }
 
 export default function SearchResults() {
+  const kpisIndexUrl = useBaseUrl('/indexes/kpis.json');
+  const dimensionsIndexUrl = useBaseUrl('/indexes/dimensions.json');
+  const eventsIndexUrl = useBaseUrl('/indexes/events.json');
+  const metricsIndexUrl = useBaseUrl('/indexes/metrics.json');
+  
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [isSearching, setIsSearching] = useState(false);
@@ -53,16 +58,18 @@ export default function SearchResults() {
       
       const searchData = async () => {
         try {
-          const [kpisResponse, dimensionsResponse, eventsResponse] = await Promise.all([
-            fetch('/OpenKPIs/indexes/kpis.json'),
-            fetch('/OpenKPIs/indexes/dimensions.json'),
-            fetch('/OpenKPIs/indexes/events.json')
+          const [kpisResponse, dimensionsResponse, eventsResponse, metricsResponse] = await Promise.all([
+            fetch(kpisIndexUrl),
+            fetch(dimensionsIndexUrl),
+            fetch(eventsIndexUrl),
+            fetch(metricsIndexUrl)
           ]);
           
-          const [kpis, dimensions, events] = await Promise.all([
+          const [kpis, dimensions, events, metrics] = await Promise.all([
             kpisResponse.json(),
             dimensionsResponse.json(),
-            eventsResponse.json()
+            eventsResponse.json(),
+            metricsResponse.json()
           ]);
           
           const allResults = [
@@ -89,6 +96,15 @@ export default function SearchResults() {
               title: item.title,
               description: item.description,
               url: `/events${item.slug}`,
+              tags: item.tags || [],
+              category: item.category || [],
+              industry: item.industry || []
+            })),
+            ...metrics.map((item: any) => ({
+              type: 'Metric',
+              title: item.title,
+              description: item.description,
+              url: `/metrics${item.slug}`,
               tags: item.tags || [],
               category: item.category || [],
               industry: item.industry || []
