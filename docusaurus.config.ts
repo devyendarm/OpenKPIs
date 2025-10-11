@@ -29,11 +29,11 @@ const config: Config = {
 
   scripts: [
     {
-      src: '/OpenKPIs/js/copy-code.js?v=9',
+      src: '/js/copy-code.js?v=9',
       async: true,
     },
     {
-      src: '/OpenKPIs/js/github-signin-mount.js?v=3',
+      src: '/js/github-signin-mount.js?v=4',
       async: false,
     },
   ],
