@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import useBaseUrl from '@docusaurus/core/lib/client/exports/useBaseUrl';
 import { Button } from '@mui/material';
 import { Add as AddIcon } from '@mui/icons-material';
+import { supabase, STATUS } from '../lib/supabase';
 
 type Item = {
   id: string;
@@ -20,7 +21,6 @@ export default function Catalog({ section }: { section: 'kpis'|'dimensions'|'eve
   const [cat, setCat] = useState<string>('');
   const [ind, setInd] = useState<string>('');
 
-  const url = useBaseUrl(`/indexes/${section}.json`);
   // Fix URL routing: KPIs use /docs/, others use their section name
   const baseUrl = section === 'kpis' ? useBaseUrl('/docs') : useBaseUrl(`/${section}`);
 
@@ -33,22 +33,45 @@ export default function Catalog({ section }: { section: 'kpis'|'dimensions'|'eve
     }
   }, []);
 
+  // Fetch data from Supabase
   useEffect(() => {
-    console.log('Fetching data from:', url); // Debug log
-    fetch(url)
-      .then(r => {
-        console.log('Response status:', r.status); // Debug log
-        return r.json();
-      })
-      .then(data => {
-        console.log('Loaded items:', data.length, data); // Debug log
-        setItems(data);
-      })
-      .catch(err => {
-        console.error('Error loading data:', err); // Debug log
+    async function fetchData() {
+      try {
+        console.log('Fetching from Supabase table:', section);
+        
+        const { data, error } = await supabase
+          .from(section)
+          .select('*')
+          .eq('status', STATUS.PUBLISHED)
+          .order('name');
+
+        if (error) {
+          console.error('Supabase error:', error);
+          setItems([]);
+          return;
+        }
+
+        // Transform Supabase data to match Item type
+        const transformedItems: Item[] = (data || []).map(item => ({
+          id: item.id,
+          title: item.name,
+          description: item.description || undefined,
+          slug: item.slug,
+          tags: item.tags || [],
+          category: item.category ? [item.category] : [],
+          industry: [], // Not in current schema, can add later if needed
+        }));
+
+        console.log('Loaded items from Supabase:', transformedItems.length);
+        setItems(transformedItems);
+      } catch (err) {
+        console.error('Error loading data from Supabase:', err);
         setItems([]);
-      });
-  }, [url]);
+      }
+    }
+
+    fetchData();
+  }, [section]);
 
   const tags = useMemo(() => Array.from(new Set(items.flatMap(i=>i.tags||[]))).sort(), [items]);
   const cats = useMemo(() => Array.from(new Set(items.flatMap(i=>i.category||[]))).sort(), [items]);

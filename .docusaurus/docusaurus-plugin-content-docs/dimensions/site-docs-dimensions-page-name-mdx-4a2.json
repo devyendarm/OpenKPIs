@@ -5,24 +5,24 @@
   "source": "@site/docs/dimensions/page-name.mdx",
   "sourceDirName": ".",
   "slug": "/page-name",
-  "permalink": "/OpenKPIs/dimensions/page-name",
+  "permalink": "/dimensions/page-name",
   "draft": false,
   "unlisted": false,
   "tags": [
     {
       "inline": true,
       "label": "page_title / screen_name",
-      "permalink": "/OpenKPIs/dimensions/tags/page-title-screen-name"
+      "permalink": "/dimensions/tags/page-title-screen-name"
     },
     {
       "inline": true,
       "label": "Cross-Industry (applicable to all digital analytics implementations)",
-      "permalink": "/OpenKPIs/dimensions/tags/cross-industry-applicable-to-all-digital-analytics-implementations"
+      "permalink": "/dimensions/tags/cross-industry-applicable-to-all-digital-analytics-implementations"
     },
     {
       "inline": true,
       "label": "Content & Engagement",
-      "permalink": "/OpenKPIs/dimensions/tags/content-engagement"
+      "permalink": "/dimensions/tags/content-engagement"
     }
   ],
   "version": "current",
@@ -43,10 +43,10 @@
   "sidebar": "sidebar",
   "previous": {
     "title": "Dimensions",
-    "permalink": "/OpenKPIs/dimensions/"
+    "permalink": "/dimensions/"
   },
   "next": {
     "title": "Page URL",
-    "permalink": "/OpenKPIs/dimensions/page-url"
+    "permalink": "/dimensions/page-url"
   }
 }

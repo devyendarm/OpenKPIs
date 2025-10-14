@@ -5,49 +5,49 @@
   "source": "@site/docs/kpis/order-conversion-rate-visits.mdx",
   "sourceDirName": ".",
   "slug": "/order-conversion-rate-visits",
-  "permalink": "/OpenKPIs/docs/order-conversion-rate-visits",
+  "permalink": "/docs/order-conversion-rate-visits",
   "draft": false,
   "unlisted": false,
   "tags": [
     {
       "inline": true,
       "label": "Purchase Rate",
-      "permalink": "/OpenKPIs/docs/tags/purchase-rate"
+      "permalink": "/docs/tags/purchase-rate"
     },
     {
       "inline": true,
       "label": "Conversion Rate to Order",
-      "permalink": "/OpenKPIs/docs/tags/conversion-rate-to-order"
+      "permalink": "/docs/tags/conversion-rate-to-order"
     },
     {
       "inline": true,
       "label": "Checkout-to-Order Rate",
-      "permalink": "/OpenKPIs/docs/tags/checkout-to-order-rate"
+      "permalink": "/docs/tags/checkout-to-order-rate"
     },
     {
       "inline": true,
       "label": "Retail",
-      "permalink": "/OpenKPIs/docs/tags/retail"
+      "permalink": "/docs/tags/retail"
     },
     {
       "inline": true,
       "label": "eCommerce",
-      "permalink": "/OpenKPIs/docs/tags/e-commerce"
+      "permalink": "/docs/tags/e-commerce"
     },
     {
       "inline": true,
       "label": "Subscription",
-      "permalink": "/OpenKPIs/docs/tags/subscription"
+      "permalink": "/docs/tags/subscription"
     },
     {
       "inline": true,
       "label": "Travel",
-      "permalink": "/OpenKPIs/docs/tags/travel"
+      "permalink": "/docs/tags/travel"
     },
     {
       "inline": true,
       "label": "Conversion",
-      "permalink": "/OpenKPIs/docs/tags/conversion"
+      "permalink": "/docs/tags/conversion"
     }
   ],
   "version": "current",
@@ -73,10 +73,10 @@
   "sidebar": "sidebar",
   "previous": {
     "title": "Order Conversion Rate (Visitors)",
-    "permalink": "/OpenKPIs/docs/order-conversion-rate-visitors"
+    "permalink": "/docs/order-conversion-rate-visitors"
   },
   "next": {
     "title": "Orders",
-    "permalink": "/OpenKPIs/docs/orders"
+    "permalink": "/docs/orders"
   }
 }

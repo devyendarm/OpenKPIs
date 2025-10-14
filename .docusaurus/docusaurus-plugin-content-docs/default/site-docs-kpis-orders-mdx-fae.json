@@ -5,39 +5,39 @@
   "source": "@site/docs/kpis/orders.mdx",
   "sourceDirName": ".",
   "slug": "/orders",
-  "permalink": "/OpenKPIs/docs/orders",
+  "permalink": "/docs/orders",
   "draft": false,
   "unlisted": false,
   "tags": [
     {
       "inline": true,
       "label": "Purchases",
-      "permalink": "/OpenKPIs/docs/tags/purchases"
+      "permalink": "/docs/tags/purchases"
     },
     {
       "inline": true,
       "label": "Completed Transactions",
-      "permalink": "/OpenKPIs/docs/tags/completed-transactions"
+      "permalink": "/docs/tags/completed-transactions"
     },
     {
       "inline": true,
       "label": "Confirmed Orders",
-      "permalink": "/OpenKPIs/docs/tags/confirmed-orders"
+      "permalink": "/docs/tags/confirmed-orders"
     },
     {
       "inline": true,
       "label": "Retail",
-      "permalink": "/OpenKPIs/docs/tags/retail"
+      "permalink": "/docs/tags/retail"
     },
     {
       "inline": true,
       "label": "eCommerce",
-      "permalink": "/OpenKPIs/docs/tags/e-commerce"
+      "permalink": "/docs/tags/e-commerce"
     },
     {
       "inline": true,
       "label": "Conversion",
-      "permalink": "/OpenKPIs/docs/tags/conversion"
+      "permalink": "/docs/tags/conversion"
     }
   ],
   "version": "current",
@@ -61,6 +61,6 @@
   "sidebar": "sidebar",
   "previous": {
     "title": "Order Conversion Rate (Visits)",
-    "permalink": "/OpenKPIs/docs/order-conversion-rate-visits"
+    "permalink": "/docs/order-conversion-rate-visits"
   }
 }

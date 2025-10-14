@@ -5,7 +5,7 @@
   "source": "@site/docs/events/productview.mdx",
   "sourceDirName": ".",
   "slug": "/productview",
-  "permalink": "/OpenKPIs/events/productview",
+  "permalink": "/events/productview",
   "draft": false,
   "unlisted": false,
   "tags": [],
@@ -23,10 +23,10 @@
   "sidebar": "sidebar",
   "previous": {
     "title": "add_to_cart",
-    "permalink": "/OpenKPIs/events/addtocart"
+    "permalink": "/events/addtocart"
   },
   "next": {
     "title": "purchase",
-    "permalink": "/OpenKPIs/events/purchase"
+    "permalink": "/events/purchase"
   }
 }

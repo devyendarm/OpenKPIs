@@ -1,17 +1,29 @@
-import React from 'react';
-import Navbar from '@theme-original/Navbar';
-import GitHubSignIn from '@site/src/components/GitHubSignIn';
+/**
+ * Custom Navbar Component
+ * 
+ * Extends the default Docusaurus Navbar to add GitHub Sign In
+ */
 
-export default function NavbarWrapper(props) {
+import React from 'react';
+import OriginalNavbar from '@theme-original/Navbar';
+import GitHubSignIn from '@site/src/components/GitHubSignIn';
+import type { Props } from '@theme/Navbar';
+
+export default function Navbar(props: Props): JSX.Element {
   return (
     <>
-      <Navbar {...props} />
-      <style>{`
-        .navbar__items--right {
-          gap: 0.5rem;
-        }
-      `}</style>
+      <OriginalNavbar {...props} />
+      <div
+        id="github-signin-root"
+        style={{
+          position: 'fixed',
+          top: '12px',
+          right: '80px',
+          zIndex: 100,
+        }}
+      >
+        <GitHubSignIn />
+      </div>
     </>
   );
 }
-

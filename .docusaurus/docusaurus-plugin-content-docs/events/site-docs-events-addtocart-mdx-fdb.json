@@ -5,7 +5,7 @@
   "source": "@site/docs/events/addtocart.mdx",
   "sourceDirName": ".",
   "slug": "/addtocart",
-  "permalink": "/OpenKPIs/events/addtocart",
+  "permalink": "/events/addtocart",
   "draft": false,
   "unlisted": false,
   "tags": [],
@@ -23,10 +23,10 @@
   "sidebar": "sidebar",
   "previous": {
     "title": "Events",
-    "permalink": "/OpenKPIs/events/"
+    "permalink": "/events/"
   },
   "next": {
     "title": "product_view",
-    "permalink": "/OpenKPIs/events/productview"
+    "permalink": "/events/productview"
   }
 }

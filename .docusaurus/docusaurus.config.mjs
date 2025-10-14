@@ -6,7 +6,7 @@
 export default {
   "title": "Open KPIs",
   "url": "https://devyendarm.github.io",
-  "baseUrl": "/OpenKPIs/",
+  "baseUrl": "/",
   "trailingSlash": false,
   "onBrokenLinks": "warn",
   "favicon": "img/favicon.ico",
@@ -30,8 +30,12 @@ export default {
   ],
   "scripts": [
     {
-      "src": "/OpenKPIs/js/copy-code.js?v=9",
+      "src": "/js/copy-code.js?v=9",
       "async": true
+    },
+    {
+      "src": "/js/github-signin-mount.js?v=4",
+      "async": false
     }
   ],
   "plugins": [
@@ -51,6 +55,15 @@ export default {
         "path": "docs/events",
         "routeBasePath": "events",
         "sidebarPath": "C:\\Users\\mdevy\\OneDrive\\Projects\\OpenKPIs\\git_repo\\openkpis-starter\\sidebars.events.js"
+      }
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        "id": "metrics",
+        "path": "docs/metrics",
+        "routeBasePath": "metrics",
+        "sidebarPath": "C:\\Users\\mdevy\\OneDrive\\Projects\\OpenKPIs\\git_repo\\openkpis-starter\\sidebars.metrics.js"
       }
     ]
   ],
@@ -89,6 +102,11 @@ export default {
         {
           "to": "/events",
           "label": "Events",
+          "position": "left"
+        },
+        {
+          "to": "/metrics",
+          "label": "Metrics",
           "position": "left"
         },
         {
@@ -140,7 +158,12 @@ export default {
         {
           "type": "html",
           "position": "right",
-          "value": "<input type=\"text\" placeholder=\"Search\" style=\"padding: 0.4rem 0.6rem; border: 1px solid var(--ifm-color-emphasis-300); border-radius: 4px; font-size: 0.85rem; width: 120px; background-color: var(--ifm-background-color); color: var(--ifm-font-color-base); outline: none;\" onkeypress=\"if(event.key==='Enter'){window.location.href='./search?q='+encodeURIComponent(this.value)}\" />"
+          "value": "<input type=\"text\" placeholder=\"Search\" style=\"padding: 0.4rem 0.6rem; border: 1px solid var(--ifm-color-emphasis-300); border-radius: 4px; font-size: 0.85rem; width: 120px; background-color: var(--ifm-background-color); color: var(--ifm-font-color-base); outline: none;\" onkeypress=\"if(event.key==='Enter'){var b=(window.__docusaurus&&window.__docusaurus.baseUrl)||'/'; window.location.href=b+'search?q='+encodeURIComponent(this.value)}\" />"
+        },
+        {
+          "type": "html",
+          "position": "right",
+          "value": "<div id=\"github-signin-root\" style=\"display: inline-block; margin: 0 0.5rem;\"></div>"
         },
         {
           "href": "https://github.com/devyendarm/OpenKPIs",

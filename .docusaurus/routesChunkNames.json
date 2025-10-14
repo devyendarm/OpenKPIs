@@ -1,179 +1,224 @@
 {
-  "/OpenKPIs/search-5a1": {
+  "/dimensions/new-700": {
+    "__comp": "233375e9",
+    "__context": {
+      "plugin": "a7456010"
+    },
+    "config": "5e9f5e1a"
+  },
+  "/events/new-798": {
+    "__comp": "c5936f55",
+    "__context": {
+      "plugin": "a7456010"
+    },
+    "config": "5e9f5e1a"
+  },
+  "/kpis/new-78d": {
+    "__comp": "085c9425",
+    "__context": {
+      "plugin": "a7456010"
+    },
+    "config": "5e9f5e1a"
+  },
+  "/metrics/new-778": {
+    "__comp": "f5e764de",
+    "__context": {
+      "plugin": "a7456010"
+    },
+    "config": "5e9f5e1a"
+  },
+  "/search-be6": {
     "__comp": "aef901ed",
     "__context": {
       "plugin": "a7456010"
     },
     "config": "5e9f5e1a"
   },
-  "/OpenKPIs/dimensions-b39": {
+  "/dimensions-9a6": {
     "__comp": "5e95c892",
     "__context": {
       "plugin": "0152544b"
     }
   },
-  "/OpenKPIs/dimensions-6ed": {
+  "/dimensions-b20": {
     "__comp": "a7bd4aaa",
-    "__props": "89398762"
+    "__props": "05f37680"
   },
-  "/OpenKPIs/dimensions/tags-7ed": {
+  "/dimensions/tags-9a9": {
     "__comp": "3720c009",
-    "__props": "9144c88c"
+    "__props": "582942cb"
   },
-  "/OpenKPIs/dimensions/tags/content-engagement-3b5": {
+  "/dimensions/tags/content-engagement-b31": {
     "__comp": "df203c0f",
-    "__props": "cecc00d9"
+    "__props": "276632bd"
   },
-  "/OpenKPIs/dimensions/tags/cross-industry-5bf": {
+  "/dimensions/tags/cross-industry-da2": {
     "__comp": "df203c0f",
-    "__props": "05d30cc5"
+    "__props": "7dbdc362"
   },
-  "/OpenKPIs/dimensions/tags/cross-industry-applicable-to-all-digital-analytics-implementations-b0e": {
+  "/dimensions/tags/cross-industry-applicable-to-all-digital-analytics-implementations-22a": {
     "__comp": "df203c0f",
-    "__props": "ec7603fc"
+    "__props": "313b23b7"
   },
-  "/OpenKPIs/dimensions/tags/navigation-engagement-262": {
+  "/dimensions/tags/navigation-engagement-ac3": {
     "__comp": "df203c0f",
-    "__props": "ad2aecfa"
+    "__props": "7615d372"
   },
-  "/OpenKPIs/dimensions/tags/page-location-full-page-url-323": {
+  "/dimensions/tags/page-location-full-page-url-a2f": {
     "__comp": "df203c0f",
-    "__props": "d81aea86"
+    "__props": "b5b50283"
   },
-  "/OpenKPIs/dimensions/tags/page-title-screen-name-7a0": {
+  "/dimensions/tags/page-title-screen-name-cf6": {
     "__comp": "df203c0f",
-    "__props": "2cc7aa20"
+    "__props": "f857cf71"
   },
-  "/OpenKPIs/dimensions/tags/previous-page-name-referrer-page-2a7": {
+  "/dimensions/tags/previous-page-name-referrer-page-a9b": {
     "__comp": "df203c0f",
-    "__props": "9d14be6d"
+    "__props": "cdf69b89"
   },
-  "/OpenKPIs/dimensions-129": {
+  "/dimensions-ab7": {
     "__comp": "a94703ab"
   },
-  "/OpenKPIs/dimensions-90d": {
+  "/dimensions-167": {
     "__comp": "17896441",
     "content": "8a54e505"
   },
-  "/OpenKPIs/dimensions/page-name-364": {
+  "/dimensions/page-name-f68": {
     "__comp": "17896441",
     "content": "4a2ec5cd"
   },
-  "/OpenKPIs/dimensions/page-url-e97": {
+  "/dimensions/page-url-03b": {
     "__comp": "17896441",
     "content": "de27da49"
   },
-  "/OpenKPIs/dimensions/previous-page-06d": {
+  "/dimensions/previous-page-0a9": {
     "__comp": "17896441",
     "content": "4ba3f97a"
   },
-  "/OpenKPIs/docs-47e": {
+  "/docs-99a": {
     "__comp": "5e95c892",
     "__context": {
       "plugin": "aba21aa0"
     }
   },
-  "/OpenKPIs/docs-934": {
+  "/docs-571": {
     "__comp": "a7bd4aaa",
-    "__props": "faa7cac0"
+    "__props": "0058b4c6"
   },
-  "/OpenKPIs/docs/tags-35b": {
+  "/docs/tags-fce": {
     "__comp": "3720c009",
-    "__props": "9b494e7f"
+    "__props": "898514b1"
   },
-  "/OpenKPIs/docs/tags/checkout-to-order-rate-775": {
+  "/docs/tags/checkout-to-order-rate-cb7": {
     "__comp": "df203c0f",
-    "__props": "db57f31a"
+    "__props": "763f1189"
   },
-  "/OpenKPIs/docs/tags/completed-transactions-3ea": {
+  "/docs/tags/completed-transactions-feb": {
     "__comp": "df203c0f",
-    "__props": "f1940177"
+    "__props": "21c91d75"
   },
-  "/OpenKPIs/docs/tags/confirmed-orders-f4a": {
+  "/docs/tags/confirmed-orders-41b": {
     "__comp": "df203c0f",
-    "__props": "0cf30807"
+    "__props": "4a9c656b"
   },
-  "/OpenKPIs/docs/tags/conversion-e66": {
+  "/docs/tags/conversion-c36": {
     "__comp": "df203c0f",
-    "__props": "0450871f"
+    "__props": "8ae7243c"
   },
-  "/OpenKPIs/docs/tags/conversion-rate-to-order-998": {
+  "/docs/tags/conversion-rate-to-order-a14": {
     "__comp": "df203c0f",
-    "__props": "3e0347f7"
+    "__props": "7ae10598"
   },
-  "/OpenKPIs/docs/tags/e-commerce-e09": {
+  "/docs/tags/e-commerce-066": {
     "__comp": "df203c0f",
-    "__props": "de616e2a"
+    "__props": "566e4fb3"
   },
-  "/OpenKPIs/docs/tags/purchase-rate-96f": {
+  "/docs/tags/purchase-rate-9c2": {
     "__comp": "df203c0f",
-    "__props": "90f8dca8"
+    "__props": "e4a51e60"
   },
-  "/OpenKPIs/docs/tags/purchases-139": {
+  "/docs/tags/purchases-fb4": {
     "__comp": "df203c0f",
-    "__props": "3d7e1a9f"
+    "__props": "c47eb0e6"
   },
-  "/OpenKPIs/docs/tags/retail-b05": {
+  "/docs/tags/retail-57d": {
     "__comp": "df203c0f",
-    "__props": "b915668a"
+    "__props": "2e9f3641"
   },
-  "/OpenKPIs/docs/tags/subscription-0e5": {
+  "/docs/tags/subscription-c04": {
     "__comp": "df203c0f",
-    "__props": "63121878"
+    "__props": "24f52bd6"
   },
-  "/OpenKPIs/docs/tags/travel-e4d": {
+  "/docs/tags/travel-2b7": {
     "__comp": "df203c0f",
-    "__props": "1430a8dc"
+    "__props": "4992fb8a"
   },
-  "/OpenKPIs/docs-f57": {
+  "/docs-f68": {
     "__comp": "a94703ab"
   },
-  "/OpenKPIs/docs-f39": {
+  "/docs-7da": {
     "__comp": "17896441",
     "content": "612bf423"
   },
-  "/OpenKPIs/docs/order-conversion-rate-visitors-053": {
+  "/docs/order-conversion-rate-visitors-997": {
     "__comp": "17896441",
     "content": "c6854a93"
   },
-  "/OpenKPIs/docs/order-conversion-rate-visits-2cf": {
+  "/docs/order-conversion-rate-visits-4bf": {
     "__comp": "17896441",
     "content": "bcaf8276"
   },
-  "/OpenKPIs/docs/orders-472": {
+  "/docs/orders-517": {
     "__comp": "17896441",
     "content": "faef4eb3"
   },
-  "/OpenKPIs/events-b29": {
+  "/events-2e8": {
     "__comp": "5e95c892",
     "__context": {
       "plugin": "79b6951c"
     }
   },
-  "/OpenKPIs/events-6f5": {
+  "/events-6b2": {
     "__comp": "a7bd4aaa",
-    "__props": "f993239d"
+    "__props": "0266a397"
   },
-  "/OpenKPIs/events-103": {
+  "/events-1cf": {
     "__comp": "a94703ab"
   },
-  "/OpenKPIs/events-b45": {
+  "/events-176": {
     "__comp": "17896441",
     "content": "e01eb8b6"
   },
-  "/OpenKPIs/events/addtocart-634": {
+  "/events/addtocart-378": {
     "__comp": "17896441",
     "content": "fdb40a7d"
   },
-  "/OpenKPIs/events/productview-72e": {
+  "/events/productview-609": {
     "__comp": "17896441",
     "content": "45475c54"
   },
-  "/OpenKPIs/events/purchase-95a": {
+  "/events/purchase-215": {
     "__comp": "17896441",
     "content": "78ba771b"
   },
-  "/OpenKPIs/-b87": {
+  "/metrics-629": {
+    "__comp": "5e95c892",
+    "__context": {
+      "plugin": "4f6c828f"
+    }
+  },
+  "/metrics-25d": {
+    "__comp": "a7bd4aaa",
+    "__props": "9113d538"
+  },
+  "/metrics-eaf": {
+    "__comp": "a94703ab"
+  },
+  "/metrics-0cf": {
+    "__comp": "17896441",
+    "content": "a373d53b"
+  },
+  "/-e5f": {
     "__comp": "1df93b7f",
     "__context": {
       "plugin": "a7456010"

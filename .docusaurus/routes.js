@@ -3,83 +3,103 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
-    path: '/OpenKPIs/search',
-    component: ComponentCreator('/OpenKPIs/search', '5a1'),
+    path: '/dimensions/new',
+    component: ComponentCreator('/dimensions/new', '700'),
     exact: true
   },
   {
-    path: '/OpenKPIs/dimensions',
-    component: ComponentCreator('/OpenKPIs/dimensions', 'b39'),
+    path: '/events/new',
+    component: ComponentCreator('/events/new', '798'),
+    exact: true
+  },
+  {
+    path: '/kpis/new',
+    component: ComponentCreator('/kpis/new', '78d'),
+    exact: true
+  },
+  {
+    path: '/metrics/new',
+    component: ComponentCreator('/metrics/new', '778'),
+    exact: true
+  },
+  {
+    path: '/search',
+    component: ComponentCreator('/search', 'be6'),
+    exact: true
+  },
+  {
+    path: '/dimensions',
+    component: ComponentCreator('/dimensions', '9a6'),
     routes: [
       {
-        path: '/OpenKPIs/dimensions',
-        component: ComponentCreator('/OpenKPIs/dimensions', '6ed'),
+        path: '/dimensions',
+        component: ComponentCreator('/dimensions', 'b20'),
         routes: [
           {
-            path: '/OpenKPIs/dimensions/tags',
-            component: ComponentCreator('/OpenKPIs/dimensions/tags', '7ed'),
+            path: '/dimensions/tags',
+            component: ComponentCreator('/dimensions/tags', '9a9'),
             exact: true
           },
           {
-            path: '/OpenKPIs/dimensions/tags/content-engagement',
-            component: ComponentCreator('/OpenKPIs/dimensions/tags/content-engagement', '3b5'),
+            path: '/dimensions/tags/content-engagement',
+            component: ComponentCreator('/dimensions/tags/content-engagement', 'b31'),
             exact: true
           },
           {
-            path: '/OpenKPIs/dimensions/tags/cross-industry',
-            component: ComponentCreator('/OpenKPIs/dimensions/tags/cross-industry', '5bf'),
+            path: '/dimensions/tags/cross-industry',
+            component: ComponentCreator('/dimensions/tags/cross-industry', 'da2'),
             exact: true
           },
           {
-            path: '/OpenKPIs/dimensions/tags/cross-industry-applicable-to-all-digital-analytics-implementations',
-            component: ComponentCreator('/OpenKPIs/dimensions/tags/cross-industry-applicable-to-all-digital-analytics-implementations', 'b0e'),
+            path: '/dimensions/tags/cross-industry-applicable-to-all-digital-analytics-implementations',
+            component: ComponentCreator('/dimensions/tags/cross-industry-applicable-to-all-digital-analytics-implementations', '22a'),
             exact: true
           },
           {
-            path: '/OpenKPIs/dimensions/tags/navigation-engagement',
-            component: ComponentCreator('/OpenKPIs/dimensions/tags/navigation-engagement', '262'),
+            path: '/dimensions/tags/navigation-engagement',
+            component: ComponentCreator('/dimensions/tags/navigation-engagement', 'ac3'),
             exact: true
           },
           {
-            path: '/OpenKPIs/dimensions/tags/page-location-full-page-url',
-            component: ComponentCreator('/OpenKPIs/dimensions/tags/page-location-full-page-url', '323'),
+            path: '/dimensions/tags/page-location-full-page-url',
+            component: ComponentCreator('/dimensions/tags/page-location-full-page-url', 'a2f'),
             exact: true
           },
           {
-            path: '/OpenKPIs/dimensions/tags/page-title-screen-name',
-            component: ComponentCreator('/OpenKPIs/dimensions/tags/page-title-screen-name', '7a0'),
+            path: '/dimensions/tags/page-title-screen-name',
+            component: ComponentCreator('/dimensions/tags/page-title-screen-name', 'cf6'),
             exact: true
           },
           {
-            path: '/OpenKPIs/dimensions/tags/previous-page-name-referrer-page',
-            component: ComponentCreator('/OpenKPIs/dimensions/tags/previous-page-name-referrer-page', '2a7'),
+            path: '/dimensions/tags/previous-page-name-referrer-page',
+            component: ComponentCreator('/dimensions/tags/previous-page-name-referrer-page', 'a9b'),
             exact: true
           },
           {
-            path: '/OpenKPIs/dimensions',
-            component: ComponentCreator('/OpenKPIs/dimensions', '129'),
+            path: '/dimensions',
+            component: ComponentCreator('/dimensions', 'ab7'),
             routes: [
               {
-                path: '/OpenKPIs/dimensions',
-                component: ComponentCreator('/OpenKPIs/dimensions', '90d'),
+                path: '/dimensions',
+                component: ComponentCreator('/dimensions', '167'),
                 exact: true,
                 sidebar: "sidebar"
               },
               {
-                path: '/OpenKPIs/dimensions/page-name',
-                component: ComponentCreator('/OpenKPIs/dimensions/page-name', '364'),
+                path: '/dimensions/page-name',
+                component: ComponentCreator('/dimensions/page-name', 'f68'),
                 exact: true,
                 sidebar: "sidebar"
               },
               {
-                path: '/OpenKPIs/dimensions/page-url',
-                component: ComponentCreator('/OpenKPIs/dimensions/page-url', 'e97'),
+                path: '/dimensions/page-url',
+                component: ComponentCreator('/dimensions/page-url', '03b'),
                 exact: true,
                 sidebar: "sidebar"
               },
               {
-                path: '/OpenKPIs/dimensions/previous-page',
-                component: ComponentCreator('/OpenKPIs/dimensions/previous-page', '06d'),
+                path: '/dimensions/previous-page',
+                component: ComponentCreator('/dimensions/previous-page', '0a9'),
                 exact: true,
                 sidebar: "sidebar"
               }
@@ -90,98 +110,98 @@ export default [
     ]
   },
   {
-    path: '/OpenKPIs/docs',
-    component: ComponentCreator('/OpenKPIs/docs', '47e'),
+    path: '/docs',
+    component: ComponentCreator('/docs', '99a'),
     routes: [
       {
-        path: '/OpenKPIs/docs',
-        component: ComponentCreator('/OpenKPIs/docs', '934'),
+        path: '/docs',
+        component: ComponentCreator('/docs', '571'),
         routes: [
           {
-            path: '/OpenKPIs/docs/tags',
-            component: ComponentCreator('/OpenKPIs/docs/tags', '35b'),
+            path: '/docs/tags',
+            component: ComponentCreator('/docs/tags', 'fce'),
             exact: true
           },
           {
-            path: '/OpenKPIs/docs/tags/checkout-to-order-rate',
-            component: ComponentCreator('/OpenKPIs/docs/tags/checkout-to-order-rate', '775'),
+            path: '/docs/tags/checkout-to-order-rate',
+            component: ComponentCreator('/docs/tags/checkout-to-order-rate', 'cb7'),
             exact: true
           },
           {
-            path: '/OpenKPIs/docs/tags/completed-transactions',
-            component: ComponentCreator('/OpenKPIs/docs/tags/completed-transactions', '3ea'),
+            path: '/docs/tags/completed-transactions',
+            component: ComponentCreator('/docs/tags/completed-transactions', 'feb'),
             exact: true
           },
           {
-            path: '/OpenKPIs/docs/tags/confirmed-orders',
-            component: ComponentCreator('/OpenKPIs/docs/tags/confirmed-orders', 'f4a'),
+            path: '/docs/tags/confirmed-orders',
+            component: ComponentCreator('/docs/tags/confirmed-orders', '41b'),
             exact: true
           },
           {
-            path: '/OpenKPIs/docs/tags/conversion',
-            component: ComponentCreator('/OpenKPIs/docs/tags/conversion', 'e66'),
+            path: '/docs/tags/conversion',
+            component: ComponentCreator('/docs/tags/conversion', 'c36'),
             exact: true
           },
           {
-            path: '/OpenKPIs/docs/tags/conversion-rate-to-order',
-            component: ComponentCreator('/OpenKPIs/docs/tags/conversion-rate-to-order', '998'),
+            path: '/docs/tags/conversion-rate-to-order',
+            component: ComponentCreator('/docs/tags/conversion-rate-to-order', 'a14'),
             exact: true
           },
           {
-            path: '/OpenKPIs/docs/tags/e-commerce',
-            component: ComponentCreator('/OpenKPIs/docs/tags/e-commerce', 'e09'),
+            path: '/docs/tags/e-commerce',
+            component: ComponentCreator('/docs/tags/e-commerce', '066'),
             exact: true
           },
           {
-            path: '/OpenKPIs/docs/tags/purchase-rate',
-            component: ComponentCreator('/OpenKPIs/docs/tags/purchase-rate', '96f'),
+            path: '/docs/tags/purchase-rate',
+            component: ComponentCreator('/docs/tags/purchase-rate', '9c2'),
             exact: true
           },
           {
-            path: '/OpenKPIs/docs/tags/purchases',
-            component: ComponentCreator('/OpenKPIs/docs/tags/purchases', '139'),
+            path: '/docs/tags/purchases',
+            component: ComponentCreator('/docs/tags/purchases', 'fb4'),
             exact: true
           },
           {
-            path: '/OpenKPIs/docs/tags/retail',
-            component: ComponentCreator('/OpenKPIs/docs/tags/retail', 'b05'),
+            path: '/docs/tags/retail',
+            component: ComponentCreator('/docs/tags/retail', '57d'),
             exact: true
           },
           {
-            path: '/OpenKPIs/docs/tags/subscription',
-            component: ComponentCreator('/OpenKPIs/docs/tags/subscription', '0e5'),
+            path: '/docs/tags/subscription',
+            component: ComponentCreator('/docs/tags/subscription', 'c04'),
             exact: true
           },
           {
-            path: '/OpenKPIs/docs/tags/travel',
-            component: ComponentCreator('/OpenKPIs/docs/tags/travel', 'e4d'),
+            path: '/docs/tags/travel',
+            component: ComponentCreator('/docs/tags/travel', '2b7'),
             exact: true
           },
           {
-            path: '/OpenKPIs/docs',
-            component: ComponentCreator('/OpenKPIs/docs', 'f57'),
+            path: '/docs',
+            component: ComponentCreator('/docs', 'f68'),
             routes: [
               {
-                path: '/OpenKPIs/docs',
-                component: ComponentCreator('/OpenKPIs/docs', 'f39'),
+                path: '/docs',
+                component: ComponentCreator('/docs', '7da'),
                 exact: true,
                 sidebar: "sidebar"
               },
               {
-                path: '/OpenKPIs/docs/order-conversion-rate-visitors',
-                component: ComponentCreator('/OpenKPIs/docs/order-conversion-rate-visitors', '053'),
+                path: '/docs/order-conversion-rate-visitors',
+                component: ComponentCreator('/docs/order-conversion-rate-visitors', '997'),
                 exact: true,
                 sidebar: "sidebar"
               },
               {
-                path: '/OpenKPIs/docs/order-conversion-rate-visits',
-                component: ComponentCreator('/OpenKPIs/docs/order-conversion-rate-visits', '2cf'),
+                path: '/docs/order-conversion-rate-visits',
+                component: ComponentCreator('/docs/order-conversion-rate-visits', '4bf'),
                 exact: true,
                 sidebar: "sidebar"
               },
               {
-                path: '/OpenKPIs/docs/orders',
-                component: ComponentCreator('/OpenKPIs/docs/orders', '472'),
+                path: '/docs/orders',
+                component: ComponentCreator('/docs/orders', '517'),
                 exact: true,
                 sidebar: "sidebar"
               }
@@ -192,38 +212,38 @@ export default [
     ]
   },
   {
-    path: '/OpenKPIs/events',
-    component: ComponentCreator('/OpenKPIs/events', 'b29'),
+    path: '/events',
+    component: ComponentCreator('/events', '2e8'),
     routes: [
       {
-        path: '/OpenKPIs/events',
-        component: ComponentCreator('/OpenKPIs/events', '6f5'),
+        path: '/events',
+        component: ComponentCreator('/events', '6b2'),
         routes: [
           {
-            path: '/OpenKPIs/events',
-            component: ComponentCreator('/OpenKPIs/events', '103'),
+            path: '/events',
+            component: ComponentCreator('/events', '1cf'),
             routes: [
               {
-                path: '/OpenKPIs/events',
-                component: ComponentCreator('/OpenKPIs/events', 'b45'),
+                path: '/events',
+                component: ComponentCreator('/events', '176'),
                 exact: true,
                 sidebar: "sidebar"
               },
               {
-                path: '/OpenKPIs/events/addtocart',
-                component: ComponentCreator('/OpenKPIs/events/addtocart', '634'),
+                path: '/events/addtocart',
+                component: ComponentCreator('/events/addtocart', '378'),
                 exact: true,
                 sidebar: "sidebar"
               },
               {
-                path: '/OpenKPIs/events/productview',
-                component: ComponentCreator('/OpenKPIs/events/productview', '72e'),
+                path: '/events/productview',
+                component: ComponentCreator('/events/productview', '609'),
                 exact: true,
                 sidebar: "sidebar"
               },
               {
-                path: '/OpenKPIs/events/purchase',
-                component: ComponentCreator('/OpenKPIs/events/purchase', '95a'),
+                path: '/events/purchase',
+                component: ComponentCreator('/events/purchase', '215'),
                 exact: true,
                 sidebar: "sidebar"
               }
@@ -234,8 +254,32 @@ export default [
     ]
   },
   {
-    path: '/OpenKPIs/',
-    component: ComponentCreator('/OpenKPIs/', 'b87'),
+    path: '/metrics',
+    component: ComponentCreator('/metrics', '629'),
+    routes: [
+      {
+        path: '/metrics',
+        component: ComponentCreator('/metrics', '25d'),
+        routes: [
+          {
+            path: '/metrics',
+            component: ComponentCreator('/metrics', 'eaf'),
+            routes: [
+              {
+                path: '/metrics',
+                component: ComponentCreator('/metrics', '0cf'),
+                exact: true,
+                sidebar: "sidebar"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    path: '/',
+    component: ComponentCreator('/', 'e5f'),
     exact: true
   },
   {
