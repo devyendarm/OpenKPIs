@@ -1,0 +1,65 @@
+# Dependencies
+node_modules/
+venv/
+
+# Build outputs
+build/
+.docusaurus/
+.cache/
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Secrets
+SESSION_SIGNING_KEY.txt
+*_SIGNING_KEY.txt
+
+# Internal documentation (keep private)
+SUPABASE_MIGRATION_PLAN.md
+DEBUG_CHECKLIST.md
+DEPLOYMENT.md
+DEPLOYMENT_GUIDE.md
+DEPLOY_WORKER_NOW.md
+DIAGNOSE_LIVE_ISSUE.md
+FINAL_STATUS.md
+LIVE_TESTING_STEPS.md
+TEST-WORKER-SIGNING.md
+TESTING.md
+worker-*.js
+worker-*.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+debug.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Archives
+docs_archieve/
+archive/
+
+# Local tools
+convert_excel.bat
+csv/
+test_*.py
+validate-*.js
+validate-*.sh
+mapping_template_*.json
+
+# Cloudflare
+cloudflare/
+
