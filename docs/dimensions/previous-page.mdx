@@ -1,0 +1,94 @@
+---
+id: "previous-page"
+title: "Previous Page"
+description: "The name or title of the page the user visited immediately before the current page view. This dimension helps identify user navigation paths drop-offs and internal flow across pages or app screens. It represents the source page within the same domain that led to the current page view."
+tags: ["previous_page_name / referrer_page","Cross-Industry","Navigation & Engagement"]
+slug: "/previous-page"
+toc_min_heading_level: 2
+toc_max_heading_level: 4
+hide_table_of_contents: false
+---
+
+import SubmitNewButton from '@site/src/components/SubmitNewButton';
+import KpiEditorWrapper from '@site/src/components/KpiEditorWrapper';
+
+<SubmitNewButton section="dimensions" />
+
+<div class="mui-section">
+<h2>Overview</h2>
+<div class="mui-overview">The name or title of the page the user visited immediately before the current page view. This dimension helps identify user navigation paths drop-offs and internal flow across pages or app screens. It represents the source page within the same domain that led to the current page view.</div>
+</div>
+
+## Dimension Details
+
+<div class="mui-section">
+**Data Type**: String
+
+**Scope**: Hit-level (page-to-page navigation)
+
+**Persistence**: Transient — derived from the immediately preceding page view event within the same session
+
+**Industry**: Cross-Industry
+
+**Category**: Navigation & Engagement
+</div>
+## Platform Mappings
+
+<div class="mui-section">
+**GA Mapping**: page_referrer (GA4) — often derived in reports as Previous Page Path or Previous Page Title
+
+**Adobe Mapping**: s.referrer or custom propX mapped to Previous Page Name (derived using pathing reports)
+
+**XDM Mapping**: _experience.analytics.previousPageDetails.name
+
+**Generic Mapping**: context.page.previous.name
+</div>
+## Data Configuration
+
+<div class="mui-section">
+**Allowed Values / Format**: Page Name or Title of the referrer page. Example: “Home Page”, “Product Detail Page”, “Cart Page”
+
+**Case Sensitivity**: Case-insensitive
+
+**Sample Values**: “Home”, “Category Listing”, “Product Detail”, “Cart”
+</div>
+## Technical Implementation
+
+<div class="mui-section">
+**BI Source System**: GA4 BigQuery Export, Adobe Analytics Data Feed, Amplitude Export
+
+**Report Attribute**: Previous Page
+
+**Join Keys**: session_id, user_id, page_id, page_url
+
+**Required On Events**: page_view, screen_view, checkout, product_view
+</div>
+## Validation & Rules
+
+<div class="mui-section">
+**Validation Rules**: 1. Should match a valid Page Name captured within the same session. 2. Exclude external referrers (these belong to Referrer URL). 3. Should not be null for internal navigations (except first page in session).
+
+**Calculation Notes**: Typically derived via lag function or session-based event ordering (e.g., using LAG(page_name) in SQL). Used in pathing, funnel, and drop-off reports to determine the most common entry and exit paths between pages.
+</div>
+## Documentation
+
+<div class="mui-section">
+**Contributed By**: Devyendar Maganti
+
+**Owner**: Digital Analytics Team / Data Engineering
+</div>
+## Governance
+
+<div class="mui-section">
+**Validation Status**: Not validated
+
+**Version**: v1.0
+
+**Last Updated**: 2025-10-09 00:45:25.450000
+
+**Data Sensitivity**: Low
+
+**PII Flag**: false
+</div>
+
+<KpiEditorWrapper kpiId="previous-page" section="dimensions" />

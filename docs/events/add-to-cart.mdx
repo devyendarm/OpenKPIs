@@ -1,0 +1,131 @@
+---
+id: "addtocart"
+title: "add_to_cart"
+description: "Captures when a user adds a product to their cart. This is a key micro-conversion event enabling calculation of Add-to-Cart Rate Cart Abandonment Rate and Product Funnel metrics."
+tags: []
+slug: "add-to-cart"
+toc_min_heading_level: 2
+toc_max_heading_level: 4
+hide_table_of_contents: false
+---
+
+import SubmitNewButton from '@site/src/components/SubmitNewButton';
+import KpiEditorWrapper from '@site/src/components/KpiEditorWrapper';
+
+<SubmitNewButton section="events" />
+
+<div class="mui-section">
+<h2>Overview</h2>
+<div class="mui-overview">Captures when a user adds a product to their cart. This is a key micro-conversion event enabling calculation of Add-to-Cart Rate Cart Abandonment Rate and Product Funnel metrics.</div>
+</div>
+
+<div class="mui-section">
+<h2>Platform Implementation</h2>
+- **GA4**: `add_to_cart`
+- **Adobe Analytics**: `commerce.productListAdds`
+</div>
+
+## Event Details
+
+<div class="mui-section">
+**Event Type**: Conversion / Commerce
+
+**Trigger**: Fired when user clicks an “Add to Cart” button or equivalent CTA on PDP, PLP, or quick-view modal.
+
+**Source**: Website / Mobile App
+
+**Event Time**: Timestamp of when the add-to-cart action occurred (ISO 8601 format)
+</div>
+## Platform Mappings
+
+<div class="mui-section">
+**GA4 Event Name**: add_to_cart
+
+**GA4 Params Map**
+
+<div class="mui-code-block" data-language="json">&#123; items: [&#123; item_id: product_id, item_name: product_name, item_category: category, price: price, quantity: quantity, currency: currency &#125;] &#125;</div>
+
+**Adobe XDM Event Type**: commerce.productListAdds
+
+**Adobe XDM Map**
+
+<div class="mui-code-block" data-language="json">&#123; commerce.productListAdds.value: price, commerce.productListItems[].SKU: product_id, commerce.productListItems[].quantity: quantity &#125;</div>
+
+**Adobe ACDL Event**: add-to-cart
+
+**Adobe ACDL Map**
+
+<div class="mui-code-block" data-language="json">&#123; cart: &#123; id: cart_id &#125;, product: &#123; sku: product_id, name: product_name, price: price, quantity: quantity, currencyCode: currency &#125; &#125;</div>
+</div>
+## Data Requirements
+
+<div class="mui-section">
+**Required Fields**: product_id, quantity, price, currency
+
+**Generic Context Required**: product_id, product_name, category, quantity, price, currency, cart_id, user_id
+
+**Generic Context Optional**: brand, variant, color, size, discount, promotion_id, list_name, inventory_status, recommendation_source
+
+**XDM Field Groups**: commerce.productListAdds, productListItems, web.webPageDetails, identityMap
+</div>
+## Analytics Integration
+
+<div class="mui-section">
+**Primary KPIs**: Add-to-Cart Rate, Cart Conversion Rate
+
+**Secondary KPIs**: Product Engagement, Cart Abandonment Rate, Conversion Rate
+
+**Metrics Used**: add_to_cart_count, unique_add_to_cart_users, view_to_cart_ratio
+
+**Dimensions Used**: product_id, category, cart_id, device_type, traffic_source
+</div>
+## JSON Examples
+
+<div class="mui-section">
+**Example Generic JSON**
+
+<div class="mui-code-block" data-language="javascript">json &#123; &quot;event&quot;: &quot;add_to_cart&quot;, &quot;timestamp&quot;: &quot;2025-10-07T19:05:00Z&quot;, &quot;cart&quot;: &#123; &quot;id&quot;: &quot;CART-9876&quot; &#125;, &quot;product&quot;: &#123; &quot;id&quot;: &quot;SKU-001&quot;, &quot;name&quot;: &quot;Wireless Mouse&quot;, &quot;category&quot;: &quot;Electronics&quot;, &quot;price&quot;: 25.00, &quot;currency&quot;: &quot;USD&quot;, &quot;quantity&quot;: 2 &#125; &#125;</div>
+
+**Example GA4 JSON**
+
+<div class="mui-code-block" data-language="javascript">json &#123; &quot;event_name&quot;: &quot;add_to_cart&quot;, &quot;params&quot;: &#123; &quot;items&quot;: [&#123; &quot;item_id&quot;: &quot;SKU-001&quot;, &quot;item_name&quot;: &quot;Wireless Mouse&quot;, &quot;price&quot;: 25.00, &quot;quantity&quot;: 2, &quot;currency&quot;: &quot;USD&quot; &#125;] &#125; &#125;</div>
+
+**Example XDM JSON**
+
+<div class="mui-code-block" data-language="javascript">json &#123; &quot;eventType&quot;: &quot;commerce.productListAdds&quot;, &quot;commerce&quot;: &#123; &quot;order&quot;: &#123; &quot;cartID&quot;: &quot;CART-9876&quot; &#125;, &quot;productListItems&quot;: [&#123; &quot;SKU&quot;: &quot;SKU-001&quot;, &quot;name&quot;: &quot;Wireless Mouse&quot;, &quot;quantity&quot;: 2, &quot;priceTotal&quot;: 50.00, &quot;currencyCode&quot;: &quot;USD&quot; &#125;] &#125;, &quot;timestamp&quot;: &quot;2025-10-07T19:05:00Z&quot; &#125;</div>
+
+**Example ACDL JSON**
+
+<div class="mui-code-block" data-language="javascript">json &#123; &quot;eventInfo&quot;: &#123; &quot;eventName&quot;: &quot;add-to-cart&quot; &#125;, &quot;cart&quot;: &#123; &quot;id&quot;: &quot;CART-9876&quot; &#125;, &quot;product&quot;: &#123; &quot;sku&quot;: &quot;SKU-001&quot;, &quot;name&quot;: &quot;Wireless Mouse&quot;, &quot;price&quot;: 25.00, &quot;quantity&quot;: 2, &quot;currencyCode&quot;: &quot;USD&quot; &#125; &#125;</div>
+</div>
+## Configuration
+
+<div class="mui-section">
+**Frequency Limit**: One per Add-to-Cart click per item; deduplicate repeated clicks for same SKU within 10s
+
+**PII Risk**: Low
+
+**Data Sensitivity**: Low
+</div>
+## Documentation
+
+<div class="mui-section">
+**Calculation Notes**: Fire once per Add-to-Cart interaction. For bundles, include all SKUs as array. Deduplicate identical SKUs within short window.
+
+**Contributed By**: Devyendar Maganti
+
+**Owner**: Digital Analytics Team / MarTech Implementation
+</div>
+## Governance
+
+<div class="mui-section">
+**Validation Status**: Not validated
+
+**Status**: Active
+
+**Version**: v1.0
+
+**Last Updated**: 2025-10-09 00:45:25.450000
+</div>
+
+<KpiEditorWrapper kpiId="addtocart" section="events" />

@@ -1,0 +1,94 @@
+---
+id: "page-url"
+title: "Page URL"
+description: "The full URL of the page viewed by the user including the protocol domain path and optional query string parameters. Used to uniquely identify the exact page resource accessed and to analyze site structure page performance and content hierarchy."
+tags: ["page_location / full_page_url","Cross-Industry","Content & Engagement"]
+slug: "/page-url"
+toc_min_heading_level: 2
+toc_max_heading_level: 4
+hide_table_of_contents: false
+---
+
+import SubmitNewButton from '@site/src/components/SubmitNewButton';
+import KpiEditorWrapper from '@site/src/components/KpiEditorWrapper';
+
+<SubmitNewButton section="dimensions" />
+
+<div class="mui-section">
+<h2>Overview</h2>
+<div class="mui-overview">The full URL of the page viewed by the user including the protocol domain path and optional query string parameters. Used to uniquely identify the exact page resource accessed and to analyze site structure page performance and content hierarchy.</div>
+</div>
+
+## Dimension Details
+
+<div class="mui-section">
+**Data Type**: String
+
+**Scope**: Hit-level (captured per page view or screen view)
+
+**Persistence**: Non-persistent — recorded for each page or screen view event
+
+**Industry**: Cross-Industry
+
+**Category**: Content & Engagement
+</div>
+## Platform Mappings
+
+<div class="mui-section">
+**GA Mapping**: page_location (GA4)
+
+**Adobe Mapping**: s.pageURL or propX configured for full URL tracking
+
+**XDM Mapping**: _experience.analytics.pageDetails.URL
+
+**Generic Mapping**: context.page.url
+</div>
+## Data Configuration
+
+<div class="mui-section">
+**Allowed Values / Format**: Standard URL format — https://domain.com/path?param=value Max length: 2048 characters
+
+**Case Sensitivity**: Case-sensitive for path and query string; best practice is to store normalized lowercase URLs without tracking parameters unless required
+
+**Sample Values**: https://www.openkpis.org/, https://www.openkpis.org/kpis/order-conversion-rate, https://www.openkpis.org/articles/analytics-framework
+</div>
+## Technical Implementation
+
+<div class="mui-section">
+**BI Source System**: GA4 BigQuery Export, Adobe Analytics Data Feed (page_url), Amplitude Export, Data Warehouse tables
+
+**Report Attribute**: Page URL
+
+**Join Keys**: page_id, session_id, user_id, referrer_url
+
+**Required On Events**: page_view, screen_view, product_view, checkout, purchase
+</div>
+## Validation & Rules
+
+<div class="mui-section">
+**Validation Rules**: 1. Must be a valid, absolute URL (includes protocol). 2. Should resolve to a valid domain within tracked site scope. 3. Avoid recording internal redirects or transient URLs.
+
+**Calculation Notes**: Frequently used in conjunction with Page Name for validation. Important for identifying duplicate or similar pages, tracking canonical URLs, and auditing campaign parameters. Recommended to strip UTM parameters for cleaner analysis unless campaign tracking requires them.
+</div>
+## Documentation
+
+<div class="mui-section">
+**Contributed By**: Devyendar Maganti
+
+**Owner**: Digital Analytics Team / Web Data Engineering
+</div>
+## Governance
+
+<div class="mui-section">
+**Validation Status**: Not validated
+
+**Version**: v1.0
+
+**Last Updated**: 2025-10-09 00:45:25.450000
+
+**Data Sensitivity**: Low
+
+**PII Flag**: False (unless query string includes PII — must be scrubbed)
+</div>
+
+<KpiEditorWrapper kpiId="page-url" section="dimensions" />

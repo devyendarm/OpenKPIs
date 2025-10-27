@@ -1,0 +1,131 @@
+---
+id: "productview"
+title: "product_view"
+description: "The “Product View” event captures when a user views a product details page or product modal. This helps track product engagement impressions at PDP level and forms the basis for KPIs such as Product Views Product View Rate and Product to Cart Rate."
+tags: []
+slug: "product-view"
+toc_min_heading_level: 2
+toc_max_heading_level: 4
+hide_table_of_contents: false
+---
+
+import SubmitNewButton from '@site/src/components/SubmitNewButton';
+import KpiEditorWrapper from '@site/src/components/KpiEditorWrapper';
+
+<SubmitNewButton section="events" />
+
+<div class="mui-section">
+<h2>Overview</h2>
+<div class="mui-overview">The “Product View” event captures when a user views a product details page or product modal. This helps track product engagement impressions at PDP level and forms the basis for KPIs such as Product Views Product View Rate and Product to Cart Rate.</div>
+</div>
+
+<div class="mui-section">
+<h2>Platform Implementation</h2>
+- **GA4**: `view_item`
+- **Adobe Analytics**: `commerce.productViews`
+</div>
+
+## Event Details
+
+<div class="mui-section">
+**Event Type**: Engagement
+
+**Trigger**: Fired when the Product Detail Page (PDP) loads or a product modal/lightbox is opened for viewing a single item.
+
+**Source**: Website / Mobile App / Kiosk / Embedded Product Widget
+
+**Event Time**: Timestamp of when the event occurred, ideally in ISO 8601 format (YYYY-MM-DDTHH:mm:ssZ)
+</div>
+## Platform Mappings
+
+<div class="mui-section">
+**GA4 Event Name**: view_item
+
+**GA4 Params Map**
+
+<div class="mui-code-block" data-language="json">&#123; item_id: product_id, item_name: product_name, item_category: category, item_brand: brand, price: price, currency: currency, item_variant: variant &#125;</div>
+
+**Adobe XDM Event Type**: commerce.productViews
+
+**Adobe XDM Map**
+
+<div class="mui-code-block" data-language="json">&#123; commerce.productListItems[].SKU: product_id, commerce.productListItems[].name: product_name, commerce.productListItems[].priceTotal: price, commerce.productListItems[].productCategories[].categoryID: category, commerce.productListItems[].quantity: 1 &#125;</div>
+
+**Adobe ACDL Event**: product-view
+
+**Adobe ACDL Map**
+
+<div class="mui-code-block" data-language="json">&#123; product: &#123; sku: product_id, name: product_name, category: category, price: price, currencyCode: currency &#125; &#125;</div>
+</div>
+## Data Requirements
+
+<div class="mui-section">
+**Required Fields**: product_id, product_name, category, price, currency
+
+**Generic Context Required**: product_id, product_name, category, price, currency, page_url, page_referrer, device_type, user_id / anonymous_id
+
+**Generic Context Optional**: brand, variant, color, size, discount, inventory_status, campaign_id, list_position, promotion_name, recommended_type, related_search_term
+
+**XDM Field Groups**: commerce.productViews, productListItems, web.webPageDetails, identityMap, device, environment
+</div>
+## Analytics Integration
+
+<div class="mui-section">
+**Primary KPIs**: Product Views, Product View Rate
+
+**Secondary KPIs**: Add-to-Cart Rate, Conversion Rate, Product Engagement, Revenue per Product
+
+**Metrics Used**: product_view_count, unique_product_views, view_to_cart_ratio
+
+**Dimensions Used**: product_id, product_name, category, brand, device_type, traffic_source, country
+</div>
+## JSON Examples
+
+<div class="mui-section">
+**Example Generic JSON**
+
+<div class="mui-code-block" data-language="javascript">json &#123; &quot;event&quot;: &quot;product_view&quot;, &quot;timestamp&quot;: &quot;2025-10-07T19:00:00Z&quot;, &quot;product&quot;: &#123; &quot;id&quot;: &quot;SKU-001&quot;, &quot;name&quot;: &quot;Wireless Mouse&quot;, &quot;category&quot;: &quot;Electronics&quot;, &quot;brand&quot;: &quot;LogiTech&quot;, &quot;price&quot;: 25.00, &quot;currency&quot;: &quot;USD&quot; &#125;, &quot;page&quot;: &#123; &quot;url&quot;: &quot;https://example.com/product/wireless-mouse&quot;, &quot;referrer&quot;: &quot;https://example.com/search&quot; &#125;, &quot;user&quot;: &#123; &quot;anonymous_id&quot;: &quot;a1b2c3d4e5&quot; &#125; &#125;</div>
+
+**Example GA4 JSON**
+
+<div class="mui-code-block" data-language="javascript">json &#123; &quot;event_name&quot;: &quot;view_item&quot;, &quot;params&quot;: &#123; &quot;items&quot;: [&#123; &quot;item_id&quot;: &quot;SKU-001&quot;, &quot;item_name&quot;: &quot;Wireless Mouse&quot;, &quot;item_category&quot;: &quot;Electronics&quot;, &quot;item_brand&quot;: &quot;LogiTech&quot;, &quot;price&quot;: 25.00, &quot;currency&quot;: &quot;USD&quot; &#125;] &#125; &#125;</div>
+
+**Example XDM JSON**
+
+<div class="mui-code-block" data-language="javascript">json &#123; &quot;eventType&quot;: &quot;commerce.productViews&quot;, &quot;commerce&quot;: &#123; &quot;productListItems&quot;: [&#123; &quot;SKU&quot;: &quot;SKU-001&quot;, &quot;name&quot;: &quot;Wireless Mouse&quot;, &quot;productCategories&quot;: [&#123; &quot;categoryID&quot;: &quot;Electronics&quot; &#125;], &quot;priceTotal&quot;: 25.00, &quot;currencyCode&quot;: &quot;USD&quot; &#125;] &#125;, &quot;web&quot;: &#123; &quot;webPageDetails&quot;: &#123; &quot;URL&quot;: &quot;https://example.com/product/wireless-mouse&quot; &#125; &#125;, &quot;timestamp&quot;: &quot;2025-10-07T19:00:00Z&quot; &#125;</div>
+
+**Example ACDL JSON**
+
+<div class="mui-code-block" data-language="javascript">json &#123; &quot;eventInfo&quot;: &#123; &quot;eventName&quot;: &quot;product-view&quot; &#125;, &quot;product&quot;: &#123; &quot;sku&quot;: &quot;SKU-001&quot;, &quot;name&quot;: &quot;Wireless Mouse&quot;, &quot;category&quot;: &quot;Electronics&quot;, &quot;price&quot;: 25.00, &quot;currencyCode&quot;: &quot;USD&quot; &#125; &#125;</div>
+</div>
+## Configuration
+
+<div class="mui-section">
+**Frequency Limit**: 1 per product view action; avoid duplicate firing on SPA route changes without actual product content change
+
+**PII Risk**: Low (ensure no PII like email or name in parameters)
+
+**Data Sensitivity**: Low
+</div>
+## Documentation
+
+<div class="mui-section">
+**Calculation Notes**: Ensure event fires only once per PDP view. For SPAs, bind to route change or DOM change event, not scroll or viewport visibility.
+
+**Contributed By**: Devyendar Maganti
+
+**Owner**: Digital Analytics Team
+</div>
+## Governance
+
+<div class="mui-section">
+**Validation Status**: Not validated
+
+**Status**: Active
+
+**Version**: v1.0
+
+**Last Updated**: 2025-10-09 00:45:25.450000
+</div>
+
+<KpiEditorWrapper kpiId="productview" section="events" />

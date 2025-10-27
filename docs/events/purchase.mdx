@@ -1,0 +1,131 @@
+---
+id: "purchase"
+title: "purchase"
+description: "Captures the completion of a successful purchase or order transaction. It’s the key macro-conversion event for revenue tracking funnel analysis and customer lifetime value."
+tags: []
+slug: "purchase"
+toc_min_heading_level: 2
+toc_max_heading_level: 4
+hide_table_of_contents: false
+---
+
+import SubmitNewButton from '@site/src/components/SubmitNewButton';
+import KpiEditorWrapper from '@site/src/components/KpiEditorWrapper';
+
+<SubmitNewButton section="events" />
+
+<div class="mui-section">
+<h2>Overview</h2>
+<div class="mui-overview">Captures the completion of a successful purchase or order transaction. It’s the key macro-conversion event for revenue tracking funnel analysis and customer lifetime value.</div>
+</div>
+
+<div class="mui-section">
+<h2>Platform Implementation</h2>
+- **GA4**: `purchase`
+- **Adobe Analytics**: `commerce.purchases`
+</div>
+
+## Event Details
+
+<div class="mui-section">
+**Event Type**: Conversion / Commerce
+
+**Trigger**: Fired after successful checkout confirmation (order success page or transaction API confirmation).
+
+**Source**: Website / Mobile App / POS
+
+**Event Time**: Timestamp of completed order (ISO 8601)
+</div>
+## Platform Mappings
+
+<div class="mui-section">
+**GA4 Event Name**: purchase
+
+**GA4 Params Map**
+
+<div class="mui-code-block" data-language="json">&#123; transaction_id: order_id, value: total_value, currency: currency, tax: tax_amount, shipping: shipping_cost, coupon: coupon_code, items: product_list &#125;</div>
+
+**Adobe XDM Event Type**: commerce.purchases
+
+**Adobe XDM Map**
+
+<div class="mui-code-block" data-language="json">&#123; commerce.order.purchaseID: order_id, commerce.order.priceTotal: total_value, commerce.order.currencyCode: currency, commerce.productListItems[].SKU: product_id &#125;</div>
+
+**Adobe ACDL Event**: purchase
+
+**Adobe ACDL Map**
+
+<div class="mui-code-block" data-language="json">&#123; order: &#123; id: order_id, total: total_value, currencyCode: currency, paymentMethod: payment_method &#125;, product: [&#123; sku: product_id, quantity: quantity, price: price &#125;] &#125;</div>
+</div>
+## Data Requirements
+
+<div class="mui-section">
+**Required Fields**: order_id, total_value, currency, product_list
+
+**Generic Context Required**: order_id, user_id, total_value, currency, payment_method, product_list, items_count
+
+**Generic Context Optional**: discount_amount, tax_amount, shipping_cost, coupon_code, delivery_type, transaction_status, loyalty_points_earned
+
+**XDM Field Groups**: commerce.purchases, order, productListItems, identityMap, web.webPageDetails
+</div>
+## Analytics Integration
+
+<div class="mui-section">
+**Primary KPIs**: Orders, Revenue, Conversion Rate
+
+**Secondary KPIs**: Average Order Value, Units per Transaction, Repeat Purchase Rate
+
+**Metrics Used**: orders_count, revenue, aov, unique_buyers
+
+**Dimensions Used**: order_id, user_id, device_type, traffic_source, region
+</div>
+## JSON Examples
+
+<div class="mui-section">
+**Example Generic JSON**
+
+<div class="mui-code-block" data-language="javascript">json &#123; &quot;event&quot;: &quot;purchase&quot;, &quot;timestamp&quot;: &quot;2025-10-07T19:10:00Z&quot;, &quot;order&quot;: &#123; &quot;id&quot;: &quot;ORD123456&quot;, &quot;total&quot;: 350.72, &quot;currency&quot;: &quot;USD&quot;, &quot;payment_method&quot;: &quot;Credit Card&quot;, &quot;items_count&quot;: 3 &#125;, &quot;products&quot;: [&#123; &quot;id&quot;: &quot;SKU-001&quot;, &quot;name&quot;: &quot;Wireless Mouse&quot;, &quot;price&quot;: 25.00, &quot;quantity&quot;: 2 &#125;, &#123; &quot;id&quot;: &quot;SKU-002&quot;, &quot;name&quot;: &quot;USB-C Hub&quot;, &quot;price&quot;: 100.00, &quot;quantity&quot;: 1 &#125;] &#125;</div>
+
+**Example GA4 JSON**
+
+<div class="mui-code-block" data-language="javascript">json &#123; &quot;event_name&quot;: &quot;purchase&quot;, &quot;params&quot;: &#123; &quot;transaction_id&quot;: &quot;ORD123456&quot;, &quot;value&quot;: 350.72, &quot;currency&quot;: &quot;USD&quot;, &quot;payment_type&quot;: &quot;Credit Card&quot;, &quot;items&quot;: [&#123; &quot;item_id&quot;: &quot;SKU-001&quot;, &quot;quantity&quot;: 2 &#125;, &#123; &quot;item_id&quot;: &quot;SKU-002&quot;, &quot;quantity&quot;: 1 &#125;] &#125; &#125;</div>
+
+**Example XDM JSON**
+
+<div class="mui-code-block" data-language="javascript">json &#123; &quot;eventType&quot;: &quot;commerce.purchases&quot;, &quot;commerce&quot;: &#123; &quot;order&quot;: &#123; &quot;purchaseID&quot;: &quot;ORD123456&quot;, &quot;priceTotal&quot;: 350.72, &quot;currencyCode&quot;: &quot;USD&quot; &#125;, &quot;productListItems&quot;: [&#123; &quot;SKU&quot;: &quot;SKU-001&quot;, &quot;quantity&quot;: 2, &quot;priceTotal&quot;: 50.00 &#125;, &#123; &quot;SKU&quot;: &quot;SKU-002&quot;, &quot;quantity&quot;: 1, &quot;priceTotal&quot;: 100.00 &#125;] &#125;, &quot;timestamp&quot;: &quot;2025-10-07T19:10:00Z&quot; &#125;</div>
+
+**Example ACDL JSON**
+
+<div class="mui-code-block" data-language="javascript">json &#123; &quot;eventInfo&quot;: &#123; &quot;eventName&quot;: &quot;purchase&quot; &#125;, &quot;order&quot;: &#123; &quot;id&quot;: &quot;ORD123456&quot;, &quot;total&quot;: 350.72, &quot;currencyCode&quot;: &quot;USD&quot;, &quot;paymentMethod&quot;: &quot;Credit Card&quot; &#125;, &quot;product&quot;: [&#123; &quot;sku&quot;: &quot;SKU-001&quot;, &quot;price&quot;: 25.00, &quot;quantity&quot;: 2 &#125;, &#123; &quot;sku&quot;: &quot;SKU-002&quot;, &quot;price&quot;: 100.00, &quot;quantity&quot;: 1 &#125;] &#125;</div>
+</div>
+## Configuration
+
+<div class="mui-section">
+**Frequency Limit**: One per confirmed order
+
+**PII Risk**: Medium (if personal info included; anonymize or hash PII)
+
+**Data Sensitivity**: Medium
+</div>
+## Documentation
+
+<div class="mui-section">
+**Calculation Notes**: Ensure fired only after confirmed purchase; exclude pre-checkout or declined payments. Always match sum of product subtotals to total value.
+
+**Contributed By**: Devyendar Maganti
+
+**Owner**: Digital Analytics Team / Data Engineering
+</div>
+## Governance
+
+<div class="mui-section">
+**Validation Status**: Not validated
+
+**Status**: Active
+
+**Version**: v1.0
+
+**Last Updated**: 2025-10-09 00:45:25.450000
+</div>
+
+<KpiEditorWrapper kpiId="purchase" section="events" />

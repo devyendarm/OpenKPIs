@@ -1,0 +1,215 @@
+---
+id: "orders"
+title: "Orders"
+description: "Indicates the number purchases or transactions successfully completed an individual customer or all customers during a selected time period."
+tags: ["Purchases","Completed Transactions","Confirmed Orders","Retail","eCommerce","Conversion"]
+slug: "orders"
+toc_min_heading_level: 2
+toc_max_heading_level: 4
+hide_table_of_contents: false
+---
+
+import SubmitNewButton from '@site/src/components/SubmitNewButton';
+import KpiEditorWrapper from '@site/src/components/KpiEditorWrapper';
+
+<SubmitNewButton section="kpis" />
+
+<div class="mui-section">
+<h2>Overview</h2>
+<div class="mui-overview">Indicates the number purchases or transactions successfully completed an individual customer or all customers during a selected time period.</div>
+</div>
+
+<div class="mui-section">
+<h2>Formula</h2>
+<div class="mui-code-label">SQL</div>
+<div class="mui-code-block">Orders = COUNT(DISTINCT order_id)</div>
+</div>
+
+<div class="mui-section">
+<h2>Platform Implementation</h2>
+- **GA4**: `purchase`
+- **Adobe Analytics**: `purchase`
+- **Amplitude**: `Order Completed`
+</div>
+
+## Business Context
+
+<div class="mui-section">
+**Industry**: Retail, eCommerce
+
+**Category**: Conversion
+
+**Priority**: High
+
+**Core Area**: Conversion / Sales Funnel
+
+**Scope**: Session or User (depending on reporting context)
+</div>
+## Technical Details
+
+<div class="mui-section">
+**KPI Type**: Counter (Unique)
+
+**Metric**: Count of purchase events (order completions)
+
+**Aggregation Window**: Daily, Weekly, Monthly
+</div>
+## Data Mappings
+
+<div class="mui-section">
+**Data Layer Mapping**
+
+<div class="mui-code-block" data-language="json">&#123;
+        transaction_id: &quot;T_12345_1&quot;,
+        value: 30.03,
+        tax: 4.90,
+        shipping: 5.99,
+        currency: &quot;USD&quot;,
+        coupon: &quot;SUMMER_SALE&quot;,
+        items: [
+        // If someone purchases more than one item,
+        // you can add those items to the items array
+         &#123;
+          item_id: &quot;SKU_12345&quot;,
+          item_name: &quot;Stan and Friends Tee&quot;,
+          affiliation: &quot;Google Merchandise Store&quot;,
+          coupon: &quot;SUMMER_FUN&quot;,
+          discount: 2.22,
+          index: 0,
+          item_brand: &quot;Google&quot;,
+          item_category: &quot;Apparel&quot;,
+          item_category2: &quot;Adult&quot;,
+          item_category3: &quot;Shirts&quot;,
+          item_category4: &quot;Crew&quot;,
+          item_category5: &quot;Short sleeve&quot;,
+          item_list_id: &quot;related_products&quot;,
+          item_list_name: &quot;Related Products&quot;,
+          item_variant: &quot;green&quot;,
+          location_id: &quot;ChIJIQBpAG2ahYAR_6128GcTUEo&quot;,
+          price: 10.01,
+          quantity: 3
+        &#125;]
+    &#125;</div>
+
+**XDM Mapping**
+
+<div class="mui-code-block" data-language="json">&#123;
+  &quot;eventType&quot;: &quot;commerce.purchases&quot;,
+  &quot;timestamp&quot;: &quot;2025-10-07T19:00:00Z&quot;,
+  &quot;commerce&quot;: &#123;
+    &quot;order&quot;: &#123;
+      &quot;orderType&quot;: &quot;purchase&quot;,
+      &quot;purchaseID&quot;: &quot;ORD123456&quot;,
+      &quot;currencyCode&quot;: &quot;USD&quot;,
+      &quot;priceSubtotal&quot;: 330.72,
+      &quot;priceTax&quot;: 10.00,
+      &quot;priceShipping&quot;: 10.00,
+      &quot;priceDiscounts&quot;: 0,
+      &quot;priceTotal&quot;: 350.72,
+      &quot;payments&quot;: [
+        &#123;
+          &quot;transactionID&quot;: &quot;TXN-98765&quot;,
+          &quot;paymentAmount&quot;: 350.72,
+          &quot;paymentType&quot;: &quot;credit_card&quot;,
+          &quot;currencyCode&quot;: &quot;USD&quot;
+        &#125;
+      ]
+    &#125;,
+    &quot;productListItems&quot;: [
+      &#123;
+        &quot;SKU&quot;: &quot;SKU-001&quot;,
+        &quot;name&quot;: &quot;Wireless Mouse&quot;,
+        &quot;quantity&quot;: 2,
+        &quot;itemPrice&quot;: 30.00,
+        &quot;discountAmount&quot;: 10.00,
+        &quot;priceTotal&quot;: 50.00,
+        &quot;productCategories&quot;: [&#123; &quot;categoryID&quot;: &quot;Electronics&quot; &#125;],
+        &quot;selectedOptions&quot;: [
+          &#123; &quot;attribute&quot;: &quot;Color&quot;, &quot;value&quot;: &quot;Black&quot; &#125;
+        ]
+      &#125;,
+      &#123;
+        &quot;SKU&quot;: &quot;SKU-002&quot;,
+        &quot;name&quot;: &quot;USB-C Hub&quot;,
+        &quot;quantity&quot;: 1,
+        &quot;itemPrice&quot;: 100.00,
+        &quot;priceTotal&quot;: 100.00,
+        &quot;productCategories&quot;: [&#123; &quot;categoryID&quot;: &quot;Accessories&quot; &#125;],
+        &quot;selectedOptions&quot;: [
+          &#123; &quot;attribute&quot;: &quot;Ports&quot;, &quot;value&quot;: &quot;6&quot; &#125;
+        ]
+      &#125;
+    ]
+  &#125;</div>
+</div>
+## Implementation
+
+<div class="mui-section">
+**Dependencies**: Requires accurate capture of Order ID and confirmation of successful transaction event firing on Order confirmation page (post Order API Confirmation)
+
+**BI Source System**: GA4, Adobe Analytics, Adobe Customer Journey Analytics, Amplitude, BigQuery, Query Service
+
+**Report Attribute**: Order ID, Transaction Date, Revenue, Items Purchased, Payment Type, Device, Channel, Campaign, Region, Units of Items bought
+</div>
+## Usage & Analytics
+
+<div class="mui-section">
+**Dashboard Usage**: Used in Conversion, Revenue, Overall Performance and Product specific dashboards as a core conversion metric (daily/weekly/monthly order volume trends).
+
+**Segment Eligibility**: All Users who triggered purchase event. Can be segmented by channel, campaign, device, country, or user cohort.
+
+**Related KPIs**: Revenue, Average Order Value (AOV), Units, Checkouts, Cart Abandonment Rate, Conversion Rate
+</div>
+## SQL Examples
+
+<div class="mui-section">
+**SQL Query Example**
+
+<div class="mui-code-block" data-language="sql">sql
+SELECT COUNT(DISTINCT order_id) AS total_orders, 
+ DATE(event_timestamp) AS order_date
+FROM ecommerce_events
+WHERE event_name = &#x27;purchase&#x27;
+GROUP BY order_date
+ORDER BY order_date;</div>
+</div>
+## Documentation
+
+<div class="mui-section">
+**Calculation Notes**: 1️⃣ Filter duplicate transactions by unique order_id.
+2️⃣ Exclude test or internal transactions via predefined filters.
+3️⃣ Consider refunds or cancellations as adjustments in downstream revenue KPIs, not in Orders count.
+
+**Details**: Tracks the count of completed purchase transactions confirmed by users on an eCommerce platform. Represents the final conversion point after checkout.
+
+**Contributed By**: Devyendar Maganti
+
+**Owner**: Digital Analytics Team / Data Engineering
+</div>
+## Governance
+
+<div class="mui-section">
+**Validation Status**: Validated
+
+**Version**: v1.0
+
+**Last Updated**: 2025-10-09 00:45:25.450000
+
+**Data Sensitivity**: Low (aggregated transactional count; no PII)
+
+**PII Flag**: false
+</div>
+
+<div class="mui-section">
+<h2>Related</h2>
+<div class="mui-overview">
+- [Revenue](./revenue)
+- [Average Order Value (AOV)](./average-order-value-aov)
+- [Units](./units)
+- [Checkouts](./checkouts)
+- [Cart Abandonment Rate](./cart-abandonment-rate)
+- [Conversion Rate](./conversion-rate)
+</div>
+</div>
+
+<KpiEditorWrapper kpiId="orders" section="kpis" />

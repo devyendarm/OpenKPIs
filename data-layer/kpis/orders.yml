@@ -1,0 +1,126 @@
+KPI Name: Orders
+Description: Indicates the number purchases or transactions successfully completed
+  an individual customer or all customers during a selected time period.
+KPI Alias:
+- Purchases
+- Completed Transactions
+- Confirmed Orders
+Metric: Count of purchase events (order completions)
+GA Events Name: purchase
+Adobe Analytics Event Name: purchase
+Amplitude Event Name: Order Completed
+Industry:
+- Retail
+- eCommerce
+Category: Conversion
+KPI Type: Counter (Unique)
+Formula: Orders = COUNT(DISTINCT order_id)
+Related KPIs:
+- Revenue
+- Average Order Value (AOV)
+- Units
+- Checkouts
+- Cart Abandonment Rate
+- Conversion Rate
+Scope: Session or User (depending on reporting context)
+Priority: High
+Core Area: Conversion / Sales Funnel
+BI Source System:
+- GA4
+- Adobe Analytics
+- Adobe Customer Journey Analytics
+- Amplitude
+- BigQuery
+- Query Service
+Data Layer Mapping: "{\n        transaction_id: \"T_12345_1\",\n        value: 30.03,\n\
+  \        tax: 4.90,\n        shipping: 5.99,\n        currency: \"USD\",\n     \
+  \   coupon: \"SUMMER_SALE\",\n        items: [\n        // If someone purchases\
+  \ more than one item,\n        // you can add those items to the items array\n \
+  \        {\n          item_id: \"SKU_12345\",\n          item_name: \"Stan and Friends\
+  \ Tee\",\n          affiliation: \"Google Merchandise Store\",\n          coupon:\
+  \ \"SUMMER_FUN\",\n          discount: 2.22,\n          index: 0,\n          item_brand:\
+  \ \"Google\",\n          item_category: \"Apparel\",\n          item_category2:\
+  \ \"Adult\",\n          item_category3: \"Shirts\",\n          item_category4: \"\
+  Crew\",\n          item_category5: \"Short sleeve\",\n          item_list_id: \"\
+  related_products\",\n          item_list_name: \"Related Products\",\n         \
+  \ item_variant: \"green\",\n          location_id: \"ChIJIQBpAG2ahYAR_6128GcTUEo\"\
+  ,\n          price: 10.01,\n          quantity: 3\n        }]\n    }"
+XDM Mapping: "{\n  \"eventType\": \"commerce.purchases\",\n  \"timestamp\": \"2025-10-07T19:00:00Z\"\
+  ,\n  \"commerce\": {\n    \"order\": {\n      \"orderType\": \"purchase\",\n   \
+  \   \"purchaseID\": \"ORD123456\",\n      \"currencyCode\": \"USD\",\n      \"priceSubtotal\"\
+  : 330.72,\n      \"priceTax\": 10.00,\n      \"priceShipping\": 10.00,\n      \"\
+  priceDiscounts\": 0,\n      \"priceTotal\": 350.72,\n      \"payments\": [\n   \
+  \     {\n          \"transactionID\": \"TXN-98765\",\n          \"paymentAmount\"\
+  : 350.72,\n          \"paymentType\": \"credit_card\",\n          \"currencyCode\"\
+  : \"USD\"\n        }\n      ]\n    },\n    \"productListItems\": [\n      {\n  \
+  \      \"SKU\": \"SKU-001\",\n        \"name\": \"Wireless Mouse\",\n        \"\
+  quantity\": 2,\n        \"itemPrice\": 30.00,\n        \"discountAmount\": 10.00,\n\
+  \        \"priceTotal\": 50.00,\n        \"productCategories\": [{ \"categoryID\"\
+  : \"Electronics\" }],\n        \"selectedOptions\": [\n          { \"attribute\"\
+  : \"Color\", \"value\": \"Black\" }\n        ]\n      },\n      {\n        \"SKU\"\
+  : \"SKU-002\",\n        \"name\": \"USB-C Hub\",\n        \"quantity\": 1,\n   \
+  \     \"itemPrice\": 100.00,\n        \"priceTotal\": 100.00,\n        \"productCategories\"\
+  : [{ \"categoryID\": \"Accessories\" }],\n        \"selectedOptions\": [\n     \
+  \     { \"attribute\": \"Ports\", \"value\": \"6\" }\n        ]\n      }\n    ]\n\
+  \  }"
+Dependencies: Requires accurate capture of Order ID and confirmation of successful
+  transaction event firing on Order confirmation page (post Order API Confirmation)
+Report Attribute:
+- Order ID
+- Transaction Date
+- Revenue
+- Items Purchased
+- Payment Type
+- Device
+- Channel
+- Campaign
+- Region
+- Units of Items bought
+Dashboard Usage:
+- Used in Conversion
+- Revenue
+- Overall Performance and Product specific dashboards as a core conversion metric
+  (daily/weekly/monthly order volume trends).
+Segment Eligibility:
+- All Users who triggered purchase event. Can be segmented by channel
+- campaign
+- device
+- country
+- or user cohort.
+SQL Query Example:
+- sql<br>SELECT COUNT(DISTINCT order_id) AS total_orders
+- <br> DATE(event_timestamp) AS order_date<br>FROM ecommerce_events<br>WHERE event_name
+  = 'purchase'<br>GROUP BY order_date<br>ORDER BY order_date;
+Aggregation Window:
+- Daily
+- Weekly
+- Monthly
+Calculation Notes:
+- '1️⃣ Filter duplicate transactions by unique order_id.
+
+  2️⃣ Exclude test or internal transactions via predefined filters.
+
+  3️⃣ Consider refunds or cancellations as adjustments in downstream revenue KPIs'
+- not in Orders count.
+Contributed By: Devyendar Maganti
+Validation Status: Validated
+Owner: Digital Analytics Team / Data Engineering
+Tags: '#Conversion #Ecommerce #Orders #GA4 #AdobeAnalytics #Amplitude'
+Data Sensitivity: Low (aggregated transactional count; no PII)
+PII Flag: false
+Version: v1.0
+Dimensions:
+- order_id
+- channel
+- campaign
+- device_category
+- geo_country
+- products
+- product_category
+- user_type
+- currency
+- payment_method
+- date
+Details: Tracks the count of completed purchase transactions confirmed by users on
+  an eCommerce platform. Represents the final conversion point after checkout.
+Last Updated: '2025-10-09 00:45:25.450000'

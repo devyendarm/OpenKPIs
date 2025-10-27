@@ -1,0 +1,66 @@
+Dimension Name: Previous Page
+Dimension Alias: previous_page_name / referrer_page
+Description:
+- The name or title of the page the user visited immediately before the current page
+  view. This dimension helps identify user navigation paths
+- drop-offs
+- and internal flow across pages or app screens. It represents the source page within
+  the same domain that led to the current page view.
+Data Type: String
+Scope: Hit-level (page-to-page navigation)
+Persistence: Transient — derived from the immediately preceding page view event within
+  the same session
+Industry: Cross-Industry
+Category: Navigation & Engagement
+Allowed Values / Format:
+- 'Page Name or Title of the referrer page. Example: “Home Page”'
+- “Product Detail Page”
+- “Cart Page”
+Case Sensitivity: Case-insensitive
+GA Mapping: page_referrer (GA4) — often derived in reports as Previous Page Path or
+  Previous Page Title
+Adobe Mapping: s.referrer or custom propX mapped to Previous Page Name (derived using
+  pathing reports)
+XDM Mapping: _experience.analytics.previousPageDetails.name
+Generic Mapping: context.page.previous.name
+BI Source System:
+- GA4 BigQuery Export
+- Adobe Analytics Data Feed
+- Amplitude Export
+Report Attribute: Previous Page
+Calculation Notes:
+- Typically derived via lag function or session-based event ordering (e.g.
+- using LAG(page_name) in SQL). Used in pathing
+- funnel
+- and drop-off reports to determine the most common entry and exit paths between pages.
+Validation Rules: 1. Should match a valid Page Name captured within the same session.
+  2. Exclude external referrers (these belong to Referrer URL). 3. Should not be null
+  for internal navigations (except first page in session).
+Required On Events:
+- page_view
+- screen_view
+- checkout
+- product_view
+Join Keys:
+- session_id
+- user_id
+- page_id
+- page_url
+Sample Values:
+- “Home”
+- “Category Listing”
+- “Product Detail”
+- “Cart”
+Data Sensitivity: Low
+PII Flag: false
+Owner: Digital Analytics Team / Data Engineering
+Contributed By: Devyendar Maganti
+Validation Status: Not validated
+Version: v1.0
+Last Updated: '2025-10-09 00:45:25.450000'
+Tags:
+- navigation
+- referrer
+- pathing
+- flow
+- engagement
