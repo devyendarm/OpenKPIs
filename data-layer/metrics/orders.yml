@@ -1,0 +1,13 @@
+# Metric: Orders
+# Generated: 2025-10-27T05:45:52.454Z
+# Contributed by: devyendarm
+
+Metric Name: Orders
+Formula: Count(purchase)
+Description: |
+  orders of a purchase
+
+
+Status: draft
+Contributed By: devyendarm
+Created At: 2025-10-27T05:22:21.450885+00:00
