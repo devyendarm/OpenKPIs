@@ -1,0 +1,161 @@
+name: Verified Gate
+
+on:
+  pull_request:
+    types: [opened, synchronize, edited]
+  pull_request_target:
+    types: [opened, synchronize, edited]
+
+jobs:
+  verify-status-check:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+    
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check for verified status
+        id: check-verified
+        run: |
+          echo "Checking for verified status in YAML files..."
+          
+          # Find all YAML files in data-layer directories
+          yaml_files=$(find data-layer -name "*.yml" -o -name "*.yaml" 2>/dev/null || true)
+          
+          if [ -z "$yaml_files" ]; then
+            echo "No YAML files found in data-layer directories"
+            exit 0
+          fi
+          
+          verified_found=false
+          verified_files=""
+          
+          for file in $yaml_files; do
+            if grep -q "status.*[Vv]erified\|Validation Status.*[Vv]erified\|Validation Status.*[Vv]alidated" "$file"; then
+              verified_found=true
+              verified_files="$verified_files $file"
+            fi
+          done
+          
+          if [ "$verified_found" = true ]; then
+            echo "verified=true" >> $GITHUB_OUTPUT
+            echo "files=$verified_files" >> $GITHUB_OUTPUT
+          else
+            echo "verified=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Check actor permissions
+        id: check-permissions
+        run: |
+          echo "Checking actor permissions..."
+          
+          # Get actor info
+          actor="${{ github.actor }}"
+          echo "Actor: $actor"
+          
+          # Check if actor has write, maintain, or admin permissions
+          # This is determined by checking if the actor is a collaborator with write access
+          # or if they're the repository owner
+          
+          # For now, we'll use a simple check - if the actor is in the maintainers list
+          # or if they have the verified-ok label permission
+          maintainers="devyendarm"
+          
+          if [[ " $maintainers " =~ " $actor " ]]; then
+            echo "is_maintainer=true" >> $GITHUB_OUTPUT
+          else
+            echo "is_maintainer=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Check for verified-ok label
+        id: check-label
+        run: |
+          echo "Checking for verified-ok label..."
+          
+          # Get PR labels
+          labels=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/labels" | \
+            jq -r '.[].name' | tr '\n' ' ')
+          
+          echo "PR Labels: $labels"
+          
+          if [[ " $labels " =~ " verified-ok " ]]; then
+            echo "has_label=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_label=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Verify status gate
+        id: verify-gate
+        run: |
+          verified="${{ steps.check-verified.outputs.verified }}"
+          is_maintainer="${{ steps.check-permissions.outputs.is_maintainer }}"
+          has_label="${{ steps.check-label.outputs.has_label }}"
+          files="${{ steps.check-verified.outputs.files }}"
+          
+          echo "Verified found: $verified"
+          echo "Is maintainer: $is_maintainer"
+          echo "Has label: $has_label"
+          echo "Files: $files"
+          
+          if [ "$verified" = "true" ]; then
+            if [ "$is_maintainer" = "true" ] || [ "$has_label" = "true" ]; then
+              echo "✅ Verified status is allowed"
+              echo "gate_passed=true" >> $GITHUB_OUTPUT
+            else
+              echo "❌ Verified status is not allowed for non-maintainers without verified-ok label"
+              echo "gate_passed=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "✅ No verified status found, gate passed"
+            echo "gate_passed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Comment on PR
+        if: steps.verify-gate.outputs.gate_passed == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const files = '${{ steps.check-verified.outputs.files }}';
+            const actor = '${{ github.actor }}';
+            
+            const comment = `## ❌ Verified Status Gate Failed
+            
+            **Actor**: @${actor}
+            
+            **Issue**: This PR contains \`status: "Verified"\` or \`Validation Status: "Validated"\` in the following files:
+            ${files.split(' ').map(f => `- \`${f}\``).join('\n')}
+            
+            **Policy**: Only maintainers can set verified status, or the PR must have the \`verified-ok\` label.
+            
+            **Solutions**:
+            1. Remove the verified status from the YAML files
+            2. Ask a maintainer to add the \`verified-ok\` label to this PR
+            3. If you are a maintainer, ensure your GitHub permissions are correctly configured
+            
+            **Maintainers**: @devyendarm
+            
+            ---
+            *This check ensures only verified content is marked as such in the OpenKPIs repository.*`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+
+      - name: Fail if gate not passed
+        if: steps.verify-gate.outputs.gate_passed == 'false'
+        run: |
+          echo "❌ Verified gate failed"
+          exit 1
+
+      - name: Success message
+        if: steps.verify-gate.outputs.gate_passed == 'true'
+        run: |
+          echo "✅ Verified gate passed"
