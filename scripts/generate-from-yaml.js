@@ -654,10 +654,12 @@ for (const sect of SOURCES) {
 
     const mdx = fm(frontMatter) + 
       `import SubmitNewButton from '@site/src/components/SubmitNewButton';\n` +
-      `import KpiEditorWrapper from '@site/src/components/KpiEditorWrapper';\n\n` +
+      `import KpiEditorWrapper from '@site/src/components/KpiEditorWrapper';\n` +
+      `import GiscusComments from '@site/src/components/GiscusComments';\n\n` +
       `<SubmitNewButton section="${sect.key}" />\n\n` +
       chunks.filter(Boolean).join('\n\n') + 
-      `\n\n<KpiEditorWrapper kpiId="${id}" section="${sect.key}" />`;
+      `\n\n<KpiEditorWrapper kpiId="${id}" section="${sect.key}" />\n\n` +
+      `<GiscusComments term="${id}" category="${sect.key}" />`;
     await fs.writeFile(path.join(outDir, `${id}.mdx`), mdx);
     sidebarItems.push(id);
 

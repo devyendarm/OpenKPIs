@@ -271,9 +271,16 @@ const DashboardNewPage: React.FC = () => {
 
   if (!user) {
     return (
-      <Box p={4}>
-        <Alert severity="warning">Please sign in to create a dashboard.</Alert>
-      </Box>
+      <Layout title="Create New Dashboard">
+        <Box sx={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1rem' }}>
+          <Typography variant="h3" component="h1" gutterBottom>
+            Create New Dashboard
+          </Typography>
+          <Alert severity="info" sx={{ mt: 3 }}>
+            Please sign in with GitHub (top right) to create a dashboard.
+          </Alert>
+        </Box>
+      </Layout>
     );
   }
 
