@@ -52,7 +52,7 @@ export default function GiscusComments({ term, category = 'kpi' }: GiscusComment
     script.setAttribute('data-reactions-enabled', '1');
     script.setAttribute('data-emit-metadata', '0');
     script.setAttribute('data-input-position', 'bottom');
-    script.setAttribute('data-theme', 'preferred_color_scheme');
+    script.setAttribute('data-theme', 'light');
     script.setAttribute('data-lang', 'en');
     script.setAttribute('data-loading', 'lazy'); // Load comments when scrolled into view
     script.crossOrigin = 'anonymous';
