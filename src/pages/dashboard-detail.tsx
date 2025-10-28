@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from '@docusaurus/router';
+import { useLocation } from '@docusaurus/router';
 import {
   Box,
   Typography,
@@ -36,7 +36,6 @@ interface Item {
 
 const DashboardDetailPage: React.FC = () => {
   const location = useLocation();
-  const navigate = useNavigate();
   const searchParams = new URLSearchParams(location.search);
   const slug = searchParams.get('slug');
 
@@ -160,7 +159,7 @@ const DashboardDetailPage: React.FC = () => {
       {/* Back button */}
       <Button
         startIcon={<ArrowBackIcon />}
-        onClick={() => navigate(-1)}
+        onClick={() => window.history.back()}
         sx={{ mb: 2 }}
       >
         Back
