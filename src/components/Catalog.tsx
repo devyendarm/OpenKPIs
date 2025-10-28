@@ -160,7 +160,7 @@ export default function Catalog({ section }: { section: 'kpis'|'dimensions'|'eve
 
       <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem'}}>
         {filtered.map(i => (
-          <a key={i.id} style={{textDecoration: 'none', color: 'inherit'}} href={section === 'dashboards' ? `/dashboard-detail?slug=${i.slug}` : section === 'metrics' ? `/metric-detail?slug=${i.slug}` : section === 'kpis' ? `/kpi-detail?slug=${i.slug}` : `${baseUrl}/${i.slug}`}>
+          <a key={i.id} style={{textDecoration: 'none', color: 'inherit'}} href={section === 'dashboards' ? `/dashboard-detail?slug=${i.slug}` : `${baseUrl}/${i.slug}`}>
             <div style={{border: '1px solid var(--ifm-color-emphasis-300)', borderRadius: '0.5rem', padding: '1rem', transition: 'box-shadow 0.2s', cursor: 'pointer'}} 
                  onMouseEnter={e => e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)'}
                  onMouseLeave={e => e.currentTarget.style.boxShadow = 'none'}>

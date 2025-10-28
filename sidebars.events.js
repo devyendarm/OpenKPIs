@@ -2,8 +2,8 @@
 module.exports = {
   sidebar: [
     'index',
-    'addtocart',
-    'productview',
+    'add-to-cart',
+    'product-view',
     'purchase'
   ],
 };
