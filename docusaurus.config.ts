@@ -7,7 +7,9 @@ const config: Config = {
   baseUrl: '/',
   trailingSlash: false,
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    onBrokenMarkdownLinks: 'warn',
+  },
   favicon: 'img/favicon.ico',
   organizationName: 'devyendarm',
   projectName: 'OpenKPIs',
