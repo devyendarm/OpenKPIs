@@ -3,7 +3,7 @@ import type {Config} from '@docusaurus/types';
 
 const config: Config = {
   title: 'Open KPIs',
-  url: 'https://devyendarm.github.io',
+  url: 'https://openkpis.org',
   baseUrl: '/',
   trailingSlash: false,
   onBrokenLinks: 'warn',
@@ -30,6 +30,9 @@ const config: Config = {
     {
       src: '/js/copy-code.js?v=9',
       async: true,
+    },
+    {
+      src: '/js/gtm-head.js',
     },
   ],
 
